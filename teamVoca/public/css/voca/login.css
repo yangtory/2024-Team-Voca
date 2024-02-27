@@ -1,0 +1,28 @@
+div.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+div.box {
+  padding: 60px;
+  border-radius: 15px;
+  background-color: #bbcd7e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid red; */
+
+  div.input {
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-direction: column;
+  }
+  input {
+    padding: 10px;
+    margin: 5px 0px;
+    border-radius: 15px;
+    outline: none;
+    border: none;
+  }
+}
