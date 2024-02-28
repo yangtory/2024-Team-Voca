@@ -32,7 +32,11 @@ app.use(helmet());
 // MySQL DB 연결
 // 주의!!! force 를 true 로 하면 기존의 Table 을 모두 DROP 한 후 재생성 한다
 DB.sequelize.sync({ force: false }).then((dbConn) => {
-  console.log(dbConn.options.host, dbConn.config.database, "DB Connection OK");
+  console.log(
+    dbConn.options.host,
+    dbConn.config.database,
+    "DB Connection OK"
+  );
 });
 
 // Disable the fingerprinting of this web technology.

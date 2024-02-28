@@ -1,8 +1,11 @@
-div.menu {
+body {
   background-color: #bbcd7e;
+  overflow: hidden;
+}
+div.menu {
   display: flex;
   flex-direction: column;
-  height: 90%;
+  height: 100%;
 }
 div.center {
   margin-top: auto;
@@ -23,11 +26,16 @@ div.menu2 {
     }
   }
 }
-
-a.words {
-  display: block;
+div.bar {
   width: 100%;
+  height: 100%;
+  padding: 20px;
   background-color: #fefae0;
-  /* padding: 2px; */
-  /* margin-top: 15px; */
+  text-align: center;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  margin-top: auto;
+  span {
+    font-weight: 900;
+  }
 }

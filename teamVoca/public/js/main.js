@@ -1,4 +1,7 @@
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('Hello Korea')
-  console.log('This is Top level event handler, DOM is ready')
-})
+document.addEventListener("DOMContentLoaded", () => {
+  const start = document.querySelector("h2");
+
+  start.addEventListener("click", () => {
+    return (document.location.href = "/login");
+  });
+});
