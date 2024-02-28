@@ -48,3 +48,10 @@ div.bar {
     }
   }
 }
+div.bar.down {
+  top: 90%;
+  transition: 0.7s;
+}
+div.bar.down.up {
+  top: 20%;
+}
