@@ -36,7 +36,10 @@ div.bar {
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
   margin-top: auto;
-  span {
-    font-weight: 900;
-  }
+}
+span.words {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-weight: 900;
 }
