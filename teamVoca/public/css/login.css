@@ -10,11 +10,13 @@ div.form {
 div.box {
   padding: 60px;
   border-radius: 15px;
-  background-color: #bbcd7e;
+  background-color: #fefae0;
   display: flex;
   flex-direction: column;
   align-items: center;
   /* border: 1px solid red; */
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7),
+    2px 2px 2px rgba(0, 0, 0, 0.7);
 
   div.input {
     /* border: 1px solid blue; */
@@ -40,4 +42,13 @@ div.box {
       }
     }
   }
+}
+
+div.error {
+  width: 100%;
+  font-size: 0.7rem;
+  color: #d13c3c;
+  text-align: left;
+  margin-left: 10px;
+  /* border: 1px solid black; */
 }

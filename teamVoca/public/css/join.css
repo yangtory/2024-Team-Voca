@@ -5,7 +5,7 @@ body {
 }
 
 div.input {
-  background-color: #bbcd7e;
+  background-color: #fefae0;
   width: 80%;
   height: 50%;
   border-radius: 50px;
@@ -40,4 +40,10 @@ input.join {
   &:hover {
     opacity: 0.8;
   }
+}
+
+div.error {
+  font-size: 0.8rem;
+  width: 75%;
+  color: #d13c3c;
 }

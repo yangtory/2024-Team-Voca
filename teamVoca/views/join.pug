@@ -1,15 +1,19 @@
 extends ./layout
 
 block content 
-    link(rel="stylesheet", href="./css/join.css")
-    script(src="./js/join.js")
+    link(rel="stylesheet", href="/css/join.css")
+    script(src="/js/join.js")
     div.input
         form.join.input(method="POST")
             input.image(type="file" )
-            input(type="text" placeholder="아이디" name="m_id")
-            input(type="password" placeholder="비밀번호" name="m_pw")
-            input(type="password" placeholder="비밀번호 확인" )
-            input(type="text" placeholder="닉네임" name="m_nick")
-        div.btn
-            input.join(type="button" value="회원가입")
+            div.error
+            input.id(type="text" placeholder="아이디" name="m_id")
+            div.error
+            input.pw(type="password" placeholder="비밀번호" name="m_pw")
+            div.error
+            input.pwcheck(type="password" placeholder="비밀번호 확인" )
+            div.error
+            input.nick(type="text" placeholder="닉네임" name="m_nick")
+            div.btn
+                input.join(type="button" value="회원가입")
         

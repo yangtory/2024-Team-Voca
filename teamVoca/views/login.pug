@@ -8,9 +8,11 @@ block content
             div.box 
                 h3 로그인
                 div.input
-                    input(type="text" placeholder="ID")
-                    input(type="password" placeholder="PASSWORD")
+                    input(type="text" placeholder="ID" name="m_id")
+                    input(type="password" placeholder="PASSWORD" name="m_pw")
+                if NEED 
+                    div.error= NEED
                 div.btn
                     input.join(type="button" value="회원가입")
-                    input.login(type="button" value="로그인")
+                    input.login(type="submit" value="로그인")
 
