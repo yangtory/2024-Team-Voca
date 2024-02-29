@@ -47,3 +47,6 @@ div.element {
   background-color: #e5eec7;
   padding: 10px;
 }
+div.element:hover {
+  cursor: pointer;
+}

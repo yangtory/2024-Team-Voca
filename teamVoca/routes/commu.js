@@ -13,9 +13,22 @@ router.get("/", async (req, res) => {
     },
   });
   //   return res.json(rows);
-  return res.render("commu/community", { rows });
+  return res.render("commu/community", { VOCAS: rows });
+});
+
+router.get("/:v_seq/detail", async (req, res) => {
+  const v_seq = req.params.v_seq;
+  //   const rows = await VOCAS.findByPk(v_seq);
+  const rows = await VOCAS.findAll({
+    include: {
+      model: WORDS,
+      as: "tbl_words",
+    },
+  });
+  return res.json(rows);
+  //   return res.render("commu/detail");
 });
 
 export default router;
 
-VOCAS.findAll({ where: { v_public: "true" } });
+// VOCAS.findAll({ where: { v_public: "true" } });
