@@ -23,6 +23,10 @@ import DB from "../models/index.js";
 import indexRouter from "../routes/index.js";
 import usersRouter from "../routes/users.js";
 import vocaRouter from "../routes/voca.js";
+import quizRouter from "../routes/quiz.js";
+import commuRouter from "../routes/commu.js";
+import settingRouter from "../routes/setting.js";
+
 // create express framework
 const app = express();
 
@@ -57,7 +61,9 @@ app.use(express.static(path.join("public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/voca", vocaRouter);
-
+app.use("/quiz", quizRouter);
+app.use("/commu", commuRouter);
+app.use("/setting", settingRouter);
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   next(createError(404));

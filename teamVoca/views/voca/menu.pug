@@ -2,16 +2,20 @@ extends ../layout
 
 block content
     link(rel="stylesheet", href="/css/voca/menu.css")
+    script(src="/js/voca/menu.js")
     div.menu
         div.center
             div.menu1
-                img(src="/images/insert.png", alt="" width="150px" height="150px")
-                img(src="/images/quiz2.png", alt="" width="160px" height="160px")
+                img.add(src="/images/insert.png", alt="" width="130px" height="130px")
+                img.quiz(src="/images/quiz2.png", alt="" width="160px" height="160px")
             div.menu2
-                img(src="/images/share.png", alt="" width="150px" height="150px")
-                img(src="/images/setting.png", alt="" width="150px" height="150px")
-    span.words ^
-    div.bar
-        span hello
+                img.commu(src="/images/share.png", alt="" width="150px" height="150px")
+                img.setting(src="/images/setting.png", alt="" width="130px" height="130px")
+        div.bar
+            span.words ㅡ
+                //- h1 ㅎㅇ
+            div.list
+        
+
         //- a.words(href="/voca/words")
     
