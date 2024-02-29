@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100vh;
+}
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #bbcd7e;
+}
+/* div 
+        each item in rows
+            div
+                img(src="", alt="프로필사진")
+                span=item.v_멤버.m_id
+            span=item.v_name
+            span=item.v_rec
+             */
+div.back {
+  height: 95%;
+  background-color: #fefae0;
+  width: 60%;
+  border-radius: 15px;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+div.mainList {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+  padding: 10px;
+}
+div.element {
+  /* border: 1px solid blue; */
+  border-radius: 15px;
+  margin: 10px;
+  background-color: #e5eec7;
+  padding: 10px;
+}

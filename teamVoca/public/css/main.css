@@ -12,6 +12,10 @@ body {
   height: 90%;
   font: 30px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #bbcd7e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 a {

@@ -33,6 +33,7 @@ div.bar {
   /* 원래 80% */
   height: 90%;
   top: 93%;
+  right: 0%;
   overflow: hidden;
 
   padding: 20px;
