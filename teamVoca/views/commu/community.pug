@@ -1,0 +1,22 @@
+//- extends ../layout
+
+block content 
+    link(rel="stylesheet", href="/css/commu/community.css")
+    script(src="/js/commu/community.js")
+    body
+        div.back        
+            div.mainList
+                each item in rows
+                    div.element
+                        div.id
+                            img(src="/images/usericon.png", alt="프로필사진" width="50px")
+                            span=item.v_멤버.m_id
+                        span=item.v_name
+                        span=item.v_rec
+                        h4 추천수
+                
+                
+
+
+                    
+                
