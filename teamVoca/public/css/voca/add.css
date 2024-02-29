@@ -1,0 +1,86 @@
+div.insert_voca {
+  width: 80%;
+  /* border: 5px solid yellowgreen; */
+  border-radius: 20px;
+  background-color: #fefae0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+form {
+  border: 5px solid lightseagreen;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+section.form {
+  /* border: 5px solid red; */
+  /* margin: auto; */
+  /* width: 100%; */
+  display: flex;
+  section.name {
+    border: 5px solid violet;
+    flex: 5;
+    input {
+      width: 95%;
+      margin: 10px;
+    }
+  }
+  /* 이름입력칸 */
+
+  section.name input {
+    width: 95%;
+    border-radius: 15px;
+  }
+  section.public {
+    display: flex;
+    flex-direction: column;
+
+    border: 5px solid blue;
+    flex: 2;
+    select {
+      width: 95%;
+      margin: 10px;
+    }
+  }
+  input,
+  select {
+    padding: 30px;
+  }
+}
+/* 라디오 선택 */
+div.p_false,
+div.p_true {
+  margin: auto;
+  /* border: 3px solid lawngreen; */
+  display: flex;
+  white-space: nowrap;
+  p {
+    font-weight: bold;
+    color: #bbcd7e;
+  }
+  input {
+    margin-left: 15px;
+    margin-right: 20px;
+  }
+}
+button {
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  width: 30%;
+  padding: 12px;
+  background-color: #bbcd7e;
+  border: none;
+  border-radius: 10px;
+  transition: 0.7s;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
+}
+
+a {
+  color: violet;
+}

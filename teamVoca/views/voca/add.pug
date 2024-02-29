@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+    link(rel="stylesheet", href="/css/voca/add.css")
+    script(src="/js/voca/add.js")
+    //- h1 단어추가페이지 단어장부터생성해야함
+    //- p 단어장 먼저 생성하고..
+    //- 그다음에 리다이렉트해서 만든 단어장에서 단어추가하게
+    //- 뒤로가기 키도 하나만들어야겠다
+    div.insert_voca
+            img(src="/images/bear.png", alt="곰" width="200px")
+            form(method="POST")
+                section.form
+                    section.name
+                        input(type="text" placeholder="단어장 이름을 입력해주세요!")
+                    section.public
+                        //- select(name="v_public")
+                        //-     option(value="" selected) 공개여부
+                        //-     option(value="false") 나만보기
+                        //-     option(value="true") 공유하기
+                        div.p_false
+                            p 나만보기
+                            input.false(type="checkbox" name="v_public" checked="checked" value="false")
+                        div.p_true 
+                            p 공유하기
+                            input.true(type="checkbox" name="v_public" value="true")
+                button 단어장 생성
+            a(href="/voca/add_words") 임시 단어추가 이동용 
+            
+
