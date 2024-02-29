@@ -15,8 +15,8 @@ div.box {
   flex-direction: column;
   align-items: center;
   /* border: 1px solid red; */
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7),
-    2px 2px 2px rgba(0, 0, 0, 0.7);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5),
+    3px 3px 3px rgba(0, 0, 0, 0.5);
 
   div.input {
     /* border: 1px solid blue; */
@@ -29,6 +29,10 @@ div.box {
     border-radius: 15px;
     outline: none;
     border: none;
+    border-bottom: 1px solid transparent;
+    &:focus {
+      border-bottom: 1px solid #bbcd7e;
+    }
   }
 
   div.btn {

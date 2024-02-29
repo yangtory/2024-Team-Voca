@@ -11,6 +11,7 @@ import express from "express";
 import createError from "http-errors";
 import path from "path";
 import helmet from "helmet";
+// import session from "express-session";
 
 // 3rd party lib modules
 import cookieParser from "cookie-parser";
@@ -57,8 +58,24 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join("public")));
 
-// router link enable, link connection
+// app.use(
+//   session({
+//     key: "voca",
+//     secret: "wjdduscldrn@naver.com",
+//     cookie: {
+//       httpOnly: true,
+//       maxAge: 1000 * 60 * 60,
+//     },
+//   })
+// );
+
 app.use("/", indexRouter);
+app.use((req, res, next) => {
+  res.locals = req.session;
+  next();
+});
+
+// router link enable, link connection
 app.use("/users", usersRouter);
 app.use("/voca", vocaRouter);
 app.use("/quiz", quizRouter);
