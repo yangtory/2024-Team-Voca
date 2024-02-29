@@ -30,8 +30,9 @@ div.bar {
   position: absolute;
 
   width: 100%;
-  height: 80%;
-  top: 20%;
+  /* 원래 80% */
+  height: 90%;
+  top: 90%;
   overflow: hidden;
 
   padding: 20px;
@@ -49,9 +50,10 @@ div.bar {
   }
 }
 div.bar.down {
-  top: 90%;
   transition: 0.7s;
+  top: 10%;
 }
 div.bar.down.up {
-  top: 20%;
+  top: 93%;
+  /* 원래20 */
 }
