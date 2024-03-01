@@ -61,6 +61,7 @@ div.p_true {
   p {
     font-weight: bold;
     color: #bbcd7e;
+    margin-left: 10px;
   }
   input {
     margin-left: 15px;
