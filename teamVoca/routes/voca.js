@@ -78,7 +78,7 @@ router.post("/:newvoca_seq/add_words", async (req, res) => {
 
   await WORDS.create(req.body);
 
-  // 계속 추가할 수 있게
+  // 계속 추가할 수 있게..
   return res.redirect(`/voca/${newvoca_seq}/add_words`);
 });
 
