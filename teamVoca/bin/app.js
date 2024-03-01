@@ -77,6 +77,12 @@ app.use((req, res, next) => {
 
 // router link enable, link connection
 app.use("/", indexRouter);
+app.use((req, res, next) => {
+  res.locals = req.session;
+  next();
+});
+
+// router link enable, link connection
 app.use("/users", usersRouter);
 app.use("/voca", vocaRouter);
 app.use("/quiz", quizRouter);
