@@ -6,14 +6,14 @@ block content
     body
         div.back        
             div.mainList
-                each item in rows
-                    div.element
-                        div.id
-                            img(src="/images/usericon.png", alt="프로필사진" width="50px")
-                            span=item.v_멤버.m_id
-                        span=item.v_name
-                        span=item.v_rec
-                        h4 추천수
+                each item in VOCAS
+                    div.element.item(data-v_seq= `${item.v_seq}`)
+                        div.id.item.a(data-v_seq= `${item.v_seq}`)
+                            img.item.a(src="/images/usericon.png", alt="프로필사진" width="50px")
+                            span.item.a=item.v_멤버.m_id
+                        span.item.a=item.v_name
+                        span.item.a=item.v_rec
+                        h4.item.a 추천수
                 
                 
 
