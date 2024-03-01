@@ -27,7 +27,8 @@ router.post('/login', async (req, res) => {
     } else if (result.m_id === id && result.m_pw !== pw) {
         return res.redirect(`/login?fail=${LOGIN_MESSAGE.PASS_WRONG}`);
     } else {
-        // req.session.user = result;
+        //로그인되면
+        req.session.user = result;
         return res.redirect('/voca');
     }
 });
