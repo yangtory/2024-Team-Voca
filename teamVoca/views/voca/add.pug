@@ -12,19 +12,15 @@ block content
             form(method="POST")
                 section.form
                     section.name
-                        input(type="text" placeholder="단어장 이름을 입력해주세요!")
+                        input(type="text" placeholder="단어장 이름을 입력해주세요!" name="v_name")
                     section.public
-                        //- select(name="v_public")
-                        //-     option(value="" selected) 공개여부
-                        //-     option(value="false") 나만보기
-                        //-     option(value="true") 공유하기
                         div.p_false
                             p 나만보기
                             input.false(type="checkbox" name="v_public" checked="checked" value="false")
                         div.p_true 
                             p 공유하기
                             input.true(type="checkbox" name="v_public" value="true")
-                button 단어장 생성
-            a(href="/voca/add_words") 임시 단어추가 이동용 
+                button(type="submit") 단어장 생성
+            a(href="/voca/add_words") 단어장추가화면보는용 
             
 

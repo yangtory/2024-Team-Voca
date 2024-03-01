@@ -8,7 +8,7 @@ div.insert_voca {
   align-items: center;
 }
 form {
-  border: 5px solid lightseagreen;
+  /* border: 5px solid lightseagreen; */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -20,7 +20,7 @@ section.form {
   /* width: 100%; */
   display: flex;
   section.name {
-    border: 5px solid violet;
+    /* border: 5px solid violet; */
     flex: 5;
     input {
       width: 95%;
@@ -30,6 +30,7 @@ section.form {
   /* 이름입력칸 */
 
   section.name input {
+    margin-left: 30px;
     width: 95%;
     border-radius: 15px;
   }
@@ -37,8 +38,8 @@ section.form {
     display: flex;
     flex-direction: column;
 
-    border: 5px solid blue;
-    flex: 2;
+    /* border: 5px solid blue; */
+    /* flex: 2; */
     select {
       width: 95%;
       margin: 10px;
@@ -53,6 +54,7 @@ section.form {
 div.p_false,
 div.p_true {
   margin: auto;
+  margin-left: 15px;
   /* border: 3px solid lawngreen; */
   display: flex;
   white-space: nowrap;

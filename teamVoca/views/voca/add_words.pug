@@ -1,4 +1,26 @@
 extends ../layout
 
+//- 수정할때도 이페이지를 보여줘야할테니 나중에 value 랑 이름박스 수정
+//- 단어이름, 뜻 not null 이니까 반드시 추가하는 문구뜨게 수정
+//- 아래 임시용 if문
 block content
-    h1 단어<<추가할 곳
+    link(rel="stylesheet", href="/css/voca/add_words.css")
+    div.word_inputbox
+        img(src="/images/bear.png", alt="곰" width="200px")
+        div.name_box
+            if newvoca_name
+                h3.name= newvoca_name
+            else
+                h3.name 단어장이름
+        div.add_words
+            form(method="POST")
+                p * 필수입력
+                input(type="text" name="w_word" placeholder="영어단어")
+                p * 필수입력
+                input(type="text" name="w_mean" placeholder="뜻")
+                input(type="text" name="w_pron" placeholder="발음")
+                input(type="text" name="w_memo" placeholder="메모")
+                div.btn_box
+                    a(href="/voca")
+                        button(type="button") 단어장 리스트로
+                    button(type="submit") 단어추가

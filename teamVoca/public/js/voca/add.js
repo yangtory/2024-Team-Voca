@@ -3,13 +3,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const p_true = document.querySelector("input.true");
 
   // 체크되면 다른쪽 체크풀리게
-  p_false.addEventListener("change", function () {
+  p_false.addEventListener("change", ()=> {
     if (p_false.checked) {
       p_true.checked = false;
     }
   });
 
-  p_true.addEventListener("change", function () {
+  p_true.addEventListener("change", ()=> {
     if (p_true.checked) {
       p_false.checked = false;
     }
