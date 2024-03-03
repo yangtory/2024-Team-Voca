@@ -15,14 +15,7 @@ body {
   align-items: center;
   background-color: #bbcd7e;
 }
-/* div 
-        each item in rows
-            div
-                img(src="", alt="프로필사진")
-                span=item.v_멤버.m_id
-            span=item.v_name
-            span=item.v_rec
-             */
+
 div.back {
   height: 95%;
   background-color: #fefae0;

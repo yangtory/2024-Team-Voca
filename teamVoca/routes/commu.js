@@ -18,16 +18,39 @@ router.get("/", async (req, res) => {
 
 router.get("/:v_seq/detail", async (req, res) => {
   const v_seq = req.params.v_seq;
-  //   const rows = await VOCAS.findByPk(v_seq);
-  const rows = await VOCAS.findAll({
-    include: {
-      model: WORDS,
-      as: "tbl_words",
-    },
-  });
-  return res.json(rows);
-  //   return res.render("commu/detail");
+
+  try {
+    const rows = await WORDS.findAll({
+      where: { w_vseq: v_seq },
+    });
+
+    return res.render("commu/detail", { result: rows });
+  } catch (error) {
+    return res.json(error);
+  }
 });
+router.get("/:vseq/like", async (req, res) => {
+  return res.send("좋아요");
+});
+router.post("/:vseq/like", async (req, res) => {
+  return res.send("좋아요");
+});
+
+// router.post("/:v_seq/like", async (req, res) => {
+//   const v_seq = req.params.v_seq;
+//   console.log(v_seq);
+//   try {
+//     const voca = await VOCAS.findByPk(v_seq);
+//     console.log(voca);
+//     if (!voca) {
+//       return res.status(404).send("해당 단어를 찾을 수 없습니다.");
+//     }
+
+//     voca.likes += 1;
+//     await voca.save();
+//     return res.send("좋아요를 추가했습니다.");
+//   } catch (error) {}
+// });
 
 export default router;
 

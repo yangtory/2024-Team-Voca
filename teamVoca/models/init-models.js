@@ -12,7 +12,7 @@ export default function initModels(sequelize) {
   tbl_vocas.belongsTo(tbl_members, { as: "v_멤버", foreignKey: "v_mid" });
   tbl_members.hasMany(tbl_vocas, { as: "tbl_vocas", foreignKey: "v_mid" });
   tbl_words.belongsTo(tbl_vocas, { as: "w_vseq_tbl_voca", foreignKey: "w_vseq" });
-  tbl_vocas.hasMany(tbl_words, { as: "tbl_words", foreignKey: "w_vseq" });
+  tbl_vocas.hasMany(tbl_words, { as: "W_단어", foreignKey: "w_vseq" });
 
   return {
     tbl_members,

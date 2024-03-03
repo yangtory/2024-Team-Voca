@@ -1,4 +1,14 @@
 extends ../layout
 
 block content 
-    h1 디테일화면
+    script(src="/js/commu/detail.js")
+    link(rel="stylesheet", href="/css/commu/detail.css")
+    div.box
+        section.body 
+            
+            div.word
+                each item in result
+                    ul
+                        li=item.w_word 
+                        li=item.w_mean                 
+                
