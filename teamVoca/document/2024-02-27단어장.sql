@@ -41,3 +41,4 @@ FOREIGN KEY (v_mid)
 REFERENCES tbl_members(m_id);
 
 DESC tbl_words;
+SELECT * FROM tbl_members;

@@ -21,6 +21,10 @@ export default class tbl_members extends Model {
           type: DataTypes.STRING(225),
           allowNull: true,
         },
+        m_role: {
+          type: DataTypes.STRING(5),
+          allowNull: false,
+        },
       },
       {
         sequelize,
