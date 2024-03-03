@@ -1,4 +1,4 @@
-
+// 단어장 안 단어보기
 document.addEventListener("DOMContentLoaded",()=>{
     const voca_boxes = document.querySelectorAll("div.voca_box");
 
@@ -10,4 +10,11 @@ document.addEventListener("DOMContentLoaded",()=>{
                 document.location.href = `/voca/${voca_seq}/words`;
         })
     });
+})
+
+// 단어장 삭제
+document.addEventListener("DOMContentLoaded",()=>{
+
+    const delete_btns = document.querySelectorAll("button.delete")
+
 })
