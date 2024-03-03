@@ -1,0 +1,25 @@
+div.name_box{
+    display: flex;
+    button {
+
+        background-color: pink;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+div.word_box{
+    border: 3px solid blue;
+    display: flex;
+    p{
+        border: 2px solid violet;
+        margin: 5px;
+    }
+    button {
+        font-size: small;
+        background-color: red;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}

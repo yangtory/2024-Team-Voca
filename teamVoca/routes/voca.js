@@ -12,16 +12,61 @@ const router = express.Router();
 // w_seq	단어번호
 // w_vseq	 단어장번호
 router.get("/", async (req, res, next) => {
-  // const user = req.session.user ? req.session.user.m_id : undefined;
+  const user = req.session.user ? req.session.user.m_id : undefined;
   // 로그인 한 유저 단어장 전부 가져오기
-  // const rows = await findAll({ where: {v_name : user} });
-  // return res.render("voca/menu", {rows});
-  return res.render("voca/menu");
+  const rows = await VOCA.findAll({ where: {v_mid: user} });
+  // return res.json({rows});
+  return res.render("voca/menu2", {rows});
+  // return res.render("voca/menu2");
 });
-// -----------------------------------------------
-router.get("/words", async (req, res) => {
-  return res.render("voca/words");
-});
+
+//------------- 단어장의 단어들 보여주기
+router.get("/:voca_seq/words",async (req,res)=>{
+  const v_seq = req.params.voca_seq;
+  const words = await WORDS.findAll({where:{
+    w_vseq : v_seq
+  }});
+  //단어장 이름보여주고 번호도 필요하니까
+  const voca = await VOCA.findByPk(v_seq);
+  // const voca_name = voca.v_name;
+  return res.render("voca/invoca_words",{words, voca});
+})
+// -----------------단어장 정보수정(이름,공개여부---------------------
+router.get("/:v_seq/update",async (req,res)=>{
+  const v_seq = req.params.v_seq;
+  const voca = await VOCA.findByPk(v_seq);
+  return res.render("voca/add",{voca});
+})
+
+router.post("/:v_seq/update",async (req,res)=>{
+const v_seq = req.params.v_seq;
+  await VOCA.update(req.body, {where : { v_seq : v_seq}})
+
+return res.redirect(`/voca/${v_seq}/words`) // 단어장 화면으로
+})
+//-----------------------단어 수정---------------------------------
+
+router.get("/:w_seq/words/update",async (req,res)=>{
+  const w_seq = req.params.w_seq;
+  const word = await WORDS.findByPk(w_seq);
+  // 단어장이름도 보여줘야 하니까
+  const voca_seq = word.w_vseq; 
+  const voca = await VOCA.findByPk(voca_seq);
+  const voca_name = voca.v_name;
+
+  return res.render("voca/add_words",{word, voca_name});
+})
+
+router.post("/:w_seq/words/update",async (req,res)=>{
+  const w_seq = req.params.w_seq;
+  await WORDS.update(req.body, {where : {w_seq:w_seq}});
+
+  // 수정하고 나면 단어장 화면으로
+  const word = await WORDS.findByPk(w_seq);
+  const v_seq = word.w_vseq;
+  return res.redirect(`/voca/${v_seq}/words`);
+})
+//-----------------------------------------------------------------
 
 // -----단어>>장<< 추가 페이지------
 router.get("/add", async (req, res) => {
@@ -55,8 +100,6 @@ const newvoca = await VOCA.findAll({
   return res.redirect(`/voca/${newvoca_seq}/add_words`) // 만든 단어장 단어추가로이동
 });
 // --------- 단어 추가 (단어장안)--------------
-// 단어1개 추가하고 다시 추가화면으로 돌아오고, 1개이상 추가됐으면
-// 단어장리스트 보는 버튼 생기게 만들기
 
 router.get("/:newvoca_seq/add_words", async (req, res) => {
   // 단어추가하려면 단어장번호가 필요하고, 화면에 단어장이름 보여줘야하니까
@@ -84,8 +127,8 @@ router.post("/:newvoca_seq/add_words", async (req, res) => {
 
 
 // 임시이동용
-router.get("/add_words",async (req,res)=>{
-  return res.render("voca/add_words");
-})
+// router.get("/add_words",async (req,res)=>{
+//   return res.render("voca/add_words");
+// })
 
 export default router;

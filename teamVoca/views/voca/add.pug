@@ -3,16 +3,17 @@ extends ../layout
 block content
     link(rel="stylesheet", href="/css/voca/add.css")
     script(src="/js/voca/add.js")
-    //- h1 단어추가페이지 단어장부터생성해야함
-    //- p 단어장 먼저 생성하고..
-    //- 그다음에 리다이렉트해서 만든 단어장에서 단어추가하게
-    //- 뒤로가기 키도 하나만들어야겠다
+    //- 수정할거: 체크도 원래체크했던걸로 보이게
+    if voca
+        a(href=`/voca/${voca.v_seq}/words`) 뒤로가기
+    else
+        a(href="/voca") 뒤로가기
     div.insert_voca
             img(src="/images/bear.png", alt="곰" width="200px")
             form(method="POST")
                 section.form
                     section.name
-                        input(type="text" placeholder="단어장 이름을 입력해주세요!" name="v_name")
+                        input(type="text" placeholder="단어장 이름을 입력해주세요!" name="v_name" value= voca? voca.v_name : "")
                     section.public
                         div.p_false
                             p 나만보기
@@ -20,7 +21,10 @@ block content
                         div.p_true 
                             p 공유하기
                             input.true(type="checkbox" name="v_public" value="true")
-                button(type="submit") 단어장 생성
-            a(href="/voca/add_words") 단어장추가화면보는용 
+                if voca
+                    button(type="submit") 저장
+                else
+                    button(type="submit") 단어장 생성
+            //- a(href="/voca/add_words") 단어장추가화면보는용 
             
 
