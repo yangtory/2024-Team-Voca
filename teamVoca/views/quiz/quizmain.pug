@@ -2,11 +2,10 @@ extends ../layout
 
 block content
     script(src="/js/quiz/main.js")
-    form(action="quiz/naver")
+    form(action="quiz/kakao")
         input(placeholder="검색어" name="search")
     table.word 
         tr 
             th 단어나와라
-        each WORD in WORDS 
-            tr 
-                td= WORD.title
+        tr 
+            td
