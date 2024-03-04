@@ -1,46 +1,34 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class tbl_words extends Model {
+export default class tbl_like extends Model {
   static init(sequelize, DataTypes) {
   return super.init({
-    w_seq: {
+    like_seq: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    w_vseq: {
+    like_user: {
+      type: DataTypes.STRING(20),
+      allowNull: false,
+      references: {
+        model: 'tbl_members',
+        key: 'm_id'
+      }
+    },
+    like_vseq: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'tbl_vocas',
         key: 'v_seq'
       }
-    },
-    w_word: {
-      type: DataTypes.STRING(50),
-      allowNull: false
-    },
-    w_mean: {
-      type: DataTypes.STRING(125),
-      allowNull: false
-    },
-    w_pron: {
-      type: DataTypes.STRING(50),
-      allowNull: true
-    },
-    w_memo: {
-      type: DataTypes.STRING(125),
-      allowNull: true
-    },
-    w_mark: {
-      type: DataTypes.STRING(5),
-      allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'tbl_words',
+    tableName: 'tbl_like',
     timestamps: false,
     indexes: [
       {
@@ -48,14 +36,21 @@ export default class tbl_words extends Model {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "w_seq" },
+          { name: "like_seq" },
         ]
       },
       {
-        name: "FK_WSEQ",
+        name: "FK_LMID",
         using: "BTREE",
         fields: [
-          { name: "w_vseq" },
+          { name: "like_user" },
+        ]
+      },
+      {
+        name: "FK_LVSEQ",
+        using: "BTREE",
+        fields: [
+          { name: "like_vseq" },
         ]
       },
     ]
