@@ -2,9 +2,22 @@ extends ../layout
 
 block content 
     link(rel="stylesheet", href="/css/setting/main.css")
+    script(src="/js/setting/main.js")
     body
         section.body
-            ul 
-                li 로그아웃
-                li 개인정보수정
+            section.user
+                img(src="/images/bear.png" width="100px")
+                div.info
+                    span #{USER}
+                input.update(type="button" value="프로필 수정")
+            ul
+                li.toggle 
+                    p.off 비공개 계정 전환
+                    p.on 공개 계정 전환
+                    label.switch
+                        input.check(type="checkbox")
+                        span.slider.round
+                li 프로 멤버십
+                li.logout 로그아웃
+                
                 
