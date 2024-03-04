@@ -1,4 +1,12 @@
 extends ../layout
 
 block content
-    h1 퀴즈
+    script(src="/js/quiz/main.js")
+    form(action="quiz/naver")
+        input(placeholder="검색어" name="search")
+    table.word 
+        tr 
+            th 단어나와라
+        each WORD in WORDS 
+            tr 
+                td= WORD.title
