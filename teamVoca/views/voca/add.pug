@@ -13,18 +13,18 @@ block content
             form(method="POST")
                 section.form
                     section.name
-                        input.voca_name(type="text" placeholder="단어장 이름을 입력해주세요!" name="v_name" value= voca? voca.v_name : "")
+                        input.voca_name(type="text" placeholder="단어장 이름을 입력해주세요! (최대 20자)" name="v_name" value= voca? voca.v_name : "")
                     section.public
                         div.p_false
                             p 나만보기
-                            input.false(type="checkbox" name="v_public" checked="checked" value="false")
+                            input.false(type="checkbox" name="v_public" value="false" checked= voca? voca.v_public === 'false' : true)
                         div.p_true 
                             p 공유하기
-                            input.true(type="checkbox" name="v_public" value="true")
+                            input.true(type="checkbox" name="v_public" value="true" checked= voca? voca.v_public === 'true' : false)
                 if voca
-                    button.make_voca(type="submit") 저장
+                    button.make_voca(type="submit" disabled="true") 저장
                 else
-                    button.make_voca(type="submit") 단어장 생성
+                    button.make_voca(type="submit" disabled="true") 단어장 생성
             //- a(href="/voca/add_words") 단어장추가화면보는용 
             
 

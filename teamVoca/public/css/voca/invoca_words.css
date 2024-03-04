@@ -4,13 +4,17 @@ div.name_box {
     background-color: pink;
     &:hover {
       cursor: pointer;
+      background-color: yellow;
     }
   }
 }
 div.word_box {
   border: 3px solid blue;
+  margin: 10px;
+  width: 80%;
   display: flex;
   p {
+    height: 2rem;
     border: 2px solid violet;
     margin: 5px;
   }
