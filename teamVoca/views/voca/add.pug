@@ -3,7 +3,7 @@ extends ../layout
 block content
     link(rel="stylesheet", href="/css/voca/add.css")
     script(src="/js/voca/add.js")
-    //- 수정할거: 체크도 원래체크했던걸로 보이게
+    //- 수정할거: 체크도 원래체크했던걸로 보이게& 이름적어야 생성되게
     if voca
         a(href=`/voca/${voca.v_seq}/words`) 뒤로가기
     else
@@ -13,7 +13,7 @@ block content
             form(method="POST")
                 section.form
                     section.name
-                        input(type="text" placeholder="단어장 이름을 입력해주세요!" name="v_name" value= voca? voca.v_name : "")
+                        input.voca_name(type="text" placeholder="단어장 이름을 입력해주세요!" name="v_name" value= voca? voca.v_name : "")
                     section.public
                         div.p_false
                             p 나만보기
@@ -22,9 +22,9 @@ block content
                             p 공유하기
                             input.true(type="checkbox" name="v_public" value="true")
                 if voca
-                    button(type="submit") 저장
+                    button.make_voca(type="submit") 저장
                 else
-                    button(type="submit") 단어장 생성
+                    button.make_voca(type="submit") 단어장 생성
             //- a(href="/voca/add_words") 단어장추가화면보는용 
             
 

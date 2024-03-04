@@ -20,7 +20,7 @@ block content
                     each voca in rows
                         section(data-v_seq=`${voca.v_seq}`)
                             div.voca_box
-                                h5.voca_name= voca.v_name
+                                h5.voca_name(data-name=`${voca.v_name}`)= voca.v_name
                                 div.infrom_box
                                     div.public
                                         if voca.v_public === "false"
