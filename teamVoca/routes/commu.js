@@ -29,12 +29,19 @@ router.get("/:v_seq/detail", async (req, res) => {
     return res.json(error);
   }
 });
-router.get("/:vseq/like", async (req, res) => {
-  return res.send("좋아요");
+
+router.get("/:v_seq/like", async (req, res) => {
+  const v_seq = req.params.v_seq;
+  const row = await VOCAS.findAll();
+
+  return res.json(row);
 });
-router.post("/:vseq/like", async (req, res) => {
-  return res.send("좋아요");
-});
+// router.get("/:vseq/like", async (req, res) => {
+//   return res.send("좋아요");
+// });
+// router.post("/:vseq/like", async (req, res) => {
+//   return res.send("좋아요");
+// });
 
 // router.post("/:v_seq/like", async (req, res) => {
 //   const v_seq = req.params.v_seq;

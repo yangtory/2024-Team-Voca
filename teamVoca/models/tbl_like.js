@@ -1,16 +1,16 @@
 import { Model } from "sequelize";
 
-export default class tbl_vocas extends Model {
+export default class tbl_like extends Model {
   static init(sequelize, DataTypes) {
     return super.init(
       {
-        v_seq: {
+        like_seq: {
           autoIncrement: true,
           type: DataTypes.INTEGER,
           allowNull: false,
           primaryKey: true,
         },
-        v_mid: {
+        like_user: {
           type: DataTypes.STRING(20),
           allowNull: false,
           references: {
@@ -18,34 +18,35 @@ export default class tbl_vocas extends Model {
             key: "m_id",
           },
         },
-        v_name: {
-          type: DataTypes.STRING(20),
-          allowNull: false,
-        },
-        v_public: {
-          type: DataTypes.STRING(5),
-          allowNull: true,
-        },
-        v_rec: {
+        like_vseq: {
           type: DataTypes.INTEGER,
-          allowNull: true,
+          allowNull: false,
+          references: {
+            model: "tbl_vocas",
+            key: "v_seq",
+          },
         },
       },
       {
         sequelize,
-        tableName: "tbl_vocas",
+        tableName: "tbl_like",
         timestamps: false,
         indexes: [
           {
             name: "PRIMARY",
             unique: true,
             using: "BTREE",
-            fields: [{ name: "v_seq" }],
+            fields: [{ name: "like_seq" }],
           },
           {
-            name: "FK_VMID",
+            name: "FK_LMID",
             using: "BTREE",
-            fields: [{ name: "v_mid" }],
+            fields: [{ name: "like_user" }],
+          },
+          {
+            name: "FK_LVSEQ",
+            using: "BTREE",
+            fields: [{ name: "like_vseq" }],
           },
         ],
       }

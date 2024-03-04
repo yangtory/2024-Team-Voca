@@ -25,7 +25,14 @@ CREATE TABLE tbl_members(
 m_id	VARCHAR(20)		PRIMARY KEY,
 m_pw	VARCHAR(125)	NOT NULL	,
 m_nick	VARCHAR(20)		,
-m_image	VARCHAR(225)
+m_image	VARCHAR(225),
+m_role VARCHAR(5) NOT NULL
+);
+
+CREATE TABLE tbl_like(
+like_seq INT AUTO_INCREMENT PRIMARY KEY,
+like_user VARCHAR(20) NOT NULL,
+like_vseq INT NOT NULL
 );
 
 -- 단어장seq 외래키
@@ -36,9 +43,21 @@ REFERENCES tbl_vocas(v_seq);
 
 -- id 외래키
 ALTER TABLE tbl_vocas
-ADD CONSTRAINT FK_MID
+ADD CONSTRAINT FK_VMID
 FOREIGN KEY (v_mid)
 REFERENCES tbl_members(m_id);
+
+-- tbl_like like user 외래키
+ALTER TABLE tbl_like
+ADD CONSTRAINT FK_LMID
+FOREIGN KEY (like_user)
+REFERENCES tbl_members(m_id);
+
+-- tbl_like 단어장 외래키
+ALTER TABLE tbl_like
+ADD CONSTRAINT FK_LVSEQ
+FOREIGN KEY (like_vseq)
+REFERENCES tbl_vocas(v_seq);
 
 DESC tbl_words;
 SELECT * FROM tbl_members;
