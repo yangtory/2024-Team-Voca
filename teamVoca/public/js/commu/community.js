@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
       v_seq = target.closest("DIV").dataset.v_seq;
 
       document.location.href = `/commu/${v_seq}/like`;
-      const json = await response.json();
     }
   });
 });
