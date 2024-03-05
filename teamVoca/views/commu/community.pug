@@ -6,7 +6,7 @@ block content
     body
         div.back        
             div.mainList
-                form.like(method ="POST", action="/like") 
+                form.like(method ="POST") 
                     each item in VOCAS
                         div.element.item(data-v_seq= `${item.v_seq}`)
                             div.id.item.a(data-v_seq= `${item.v_seq}`)
@@ -18,10 +18,4 @@ block content
                                 span.good(name="v_rec").item.a= item.v_rec
                             div.item.a(data-v_seq= `${item.v_seq}`)
                                 input(type="button" value="추천").like
-                                
-                    
-                    
-
-
-                        
-                    
+                                //- button.like(data-v_seq= `${item.v_seq}`) 추천
