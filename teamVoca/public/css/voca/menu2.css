@@ -172,11 +172,11 @@ h3.my_voca {
 } */
 div.voca_box {
   display: flex;
-  border: 5px solid #bbcd7e;
+  border: 3px solid #607575;
   background-color: #bbcd7e;
   border-radius: 15px;
   width: 85%;
-  height: 120px;
+  height: 100px;
   margin: 20px auto;
 
   color: #607575;
@@ -191,15 +191,46 @@ div.voca_box {
   }
 }
 div.infrom_box {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
+  margin-right: 5px;
+
+  p {
+    font-weight: bold;
+  }
 }
+div.public {
+  p {
+    /* border: 1px solid violet; */
+    margin-top: 5px;
+    margin-left: 20px;
+  }
+}
+
 div.rec {
   display: flex;
-  border: 1px solid red;
+  /* border: 1px solid pink; */
+  /* width: 90px;
+  margin-right: 0; */
+  p {
+    margin-left: 20px;
+    /* border: 1px solid cyan; */
+  }
+  p.rec {
+    /* border: 1px solid red; */
+    margin-left: 10px;
+    margin-top: 9px;
+    margin-right: 0px;
+  }
 }
 button.delete {
-  width: 50px;
+  width: 30px;
+  height: 30px;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 50%;
+  margin-right: 5px;
   &:hover {
     background-color: red;
+    cursor: pointer;
   }
 }

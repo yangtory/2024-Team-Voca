@@ -1,15 +1,14 @@
 extends ../layout
 
-
-//- 단어이름, 뜻 not null 이니까 반드시 추가하는 문구뜨게 수정
-
 block content
     link(rel="stylesheet", href="/css/voca/add_words.css")
     script(src="/js/voca/add_words.js")
-    //- if word
-    //-     a(href="") < 뒤로가기버튼만들기
-    //- else 
-    //-     a(href="") <
+    if word
+        div.back
+            a(href=`/voca/${word.w_vseq}/words`) ◀
+    else 
+        div.back
+            a(href="/voca") ◀
     div.word_inputbox
         img(src="/images/bear.png", alt="곰" width="200px")
         div.name_box

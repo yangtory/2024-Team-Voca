@@ -1,10 +1,31 @@
+body {
+  overflow-y: auto;
+}
+div.back {
+  /* border: 3px solid pink;s */
+  width: 100%;
+}
+a {
+  /* border: 3px solid red; */
+  margin-left: 20px;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+h3 {
+  margin-right: 15px;
+}
 div.name_box {
   display: flex;
   button {
-    background-color: pink;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px;
+    background-color: #fefae0;
+    border: 3px solid #607575;
     &:hover {
       cursor: pointer;
-      background-color: yellow;
+      background-color: red;
     }
   }
 }
@@ -13,24 +34,40 @@ div.word_box {
   /* border: 3px solid blue; */
   border-radius: 15px;
   background-color: #fefae0;
+  border: 3px solid #607575;
   color: #607575;
   margin: 10px;
   width: 80%;
+  white-space: nowrap;
   p {
     /* width: 80%; */
     height: 2rem;
-    border: 2px solid violet;
+    /* border: 2px solid violet; */
+    width: 100%;
     margin: 5px;
+    margin-left: 10px;
   }
 }
 div.inform_box {
   display: flex;
   flex-direction: column;
   /* flex: 6; */
-  border: 3px solid yellowgreen;
+  /* border: 3px solid yellowgreen; */
   margin: 5px;
   margin-left: 10px;
   width: 100%;
+
+  div.f {
+    display: flex;
+    /* border: 2px solid blue; */
+    h6 {
+      /* border: 2px solid yellow; */
+      width: 90px;
+      margin: auto;
+      margin-left: 10px;
+      border-right: 1px solid #607575;
+    }
+  }
 }
 div.btn_box {
   /* border: 2px solid green; */
@@ -41,16 +78,29 @@ div.btn_box {
   margin: 10px;
 
   button {
-    margin: 10px;
+    margin: 3px;
     width: 50px;
     font-size: small;
-    background-color: red;
+    /* background-color: #bbcd7e; */
+    /* background-color: #607575; */
+    border: 2px solid #607575;
     border-radius: 15px;
     padding: 5px;
     color: #607575;
     &:hover {
       cursor: pointer;
-      background-color: yellow;
+      background-color: red;
     }
+  }
+}
+
+div.null {
+  margin-top: 15px;
+  background-color: #fefae0;
+  border-radius: 20px;
+  width: 80%;
+  text-align: center;
+  h4 {
+    margin-top: 15px;
   }
 }
