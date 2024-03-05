@@ -30,6 +30,7 @@ router.get("/:v_seq/detail", async (req, res) => {
     return res.json(error);
   }
 });
+
 router.get("/:v_seq/like", async (req, res) => {
   const rows = await VOCAS.findAll({
     where: { v_public: "TRUE" },
@@ -106,6 +107,7 @@ router.get("/:v_seq/like", async (req, res) => {
 //   if (v_rec === 0) {
 //     await VOCAS.update({ v_rec: like }, { where: { v_seq: v_seq } });
 //   }
+
 // });
 
 // router.post("/:v_seq/like", async (req, res) => {
