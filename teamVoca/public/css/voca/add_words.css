@@ -45,7 +45,8 @@ div.btn_box {
     /* width: 100%; */
     margin: 10px;
     padding: 12px;
-    background-color: #bbcd7e;
+    background-color: #614d48;
+  color: white;
     border: none;
     border-radius: 10px;
     transition: 0.7s;

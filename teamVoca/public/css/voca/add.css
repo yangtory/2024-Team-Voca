@@ -1,7 +1,7 @@
 div.back {
   /* border: 3px solid pink;s */
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 a {
   /* border: 3px solid red; */
@@ -87,7 +87,8 @@ button {
   margin-bottom: 30px;
   width: 30%;
   padding: 12px;
-  background-color: #bbcd7e;
+  background-color: #614d48;
+  color: white;
   border: none;
   border-radius: 10px;
   transition: 0.7s;

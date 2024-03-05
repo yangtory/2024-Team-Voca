@@ -6,7 +6,7 @@ css
 ----------------------------------------------------
 추가할거
 
-뒤로가기 전부되게
+단어장에서 단어검색
 
 
 
@@ -25,22 +25,6 @@ css
 
 
 기타 ---------------------------------
-const v_rec = voca.v_rec;
-let like = v_rec ;
-
-
-  const rec = await LIKE.findAll({ where: { like_user: user, like_vseq: v_seq } });
-  if (!rec) {
- req.body.like_user = user;
-  req.body.like_vseq = v_seq;
-    await LIKE.create(req.body);
-	like = v_rec + 1;
-    await VOCAS.update({ v_rec: like }, { where: { v_seq: v_seq } });
-  } else if (rec) {
-    await LIKE.destroy({ where: { like_user: user, like_vseq: v_seq } });
-    like = v_rec - 1;
-    await VOCAS.update({ v_rec: like }, { where: { v_seq: v_seq } });
-  }
 
   ----------------
 
@@ -65,3 +49,9 @@ let like = v_rec ;
 <a href="https://www.flaticon.com/kr/free-icons/" title="자연 아이콘">자연 아이콘  제작자: Umeicon - Flaticon</a>
 
 <a href="https://www.flaticon.com/kr/free-icons/" title="숲 아이콘">숲 아이콘  제작자: Freepik - Flaticon</a>
+
+
+
+<a href="https://www.flaticon.com/kr/free-icons/" title="숲 아이콘">숲 아이콘  제작자: kerismaker - Flaticon</a>
+<a href="https://www.flaticon.com/kr/free-icons/" title="심기 아이콘">심기 아이콘  제작자: Fliqqer - Flaticon</a>
+<a href="https://www.flaticon.com/kr/free-icons/" title="새싹 아이콘">새싹 아이콘  제작자: Freepik - Flaticon</a>
