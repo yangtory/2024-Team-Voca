@@ -32,13 +32,6 @@ router.get("/:v_seq/detail", async (req, res) => {
 });
 
 router.get("/:v_seq/like", async (req, res) => {
-  const rows = await VOCAS.findAll({
-    where: { v_public: "TRUE" },
-    include: {
-      model: MEMBERS,
-      as: "v_멤버",
-    },
-  });
   const id = req.body.m_id;
 
   // req.session.user = result;
@@ -47,45 +40,22 @@ router.get("/:v_seq/like", async (req, res) => {
   const v_rec = voca.v_rec;
   const user = req.session.user ? req.session.user.m_id : undefined;
 
-  // const voca = await VOCAS.findByPk(v_seq);
-  // const like_user = await LIKE.findAll({ where: { like_user: user } });
+  let like = v_rec;
 
-  // if (voca) {
-  //   // rec 칼럼의 값을 1 증가
-  //   await voca.increment("v_rec");
-  //   // 변경사항 저장
-  //   await voca.reload();
-  // } else if (like_user) {
-  //   await voca.decrement("v_rec");
-  //   await voca.reload();
-  // }
-  let like = v_rec + 1;
-
-  // 단어장주인장이랑 로그인한
-  // if vrec = 0 이면 create
-  // if vrec = 1 이면 destroy
-
-  req.body.like_user = user;
-  req.body.like_vseq = v_seq;
-  // req.body.like_vseq =
-  // if (v_rec === 0) {
-  // await VOCAS.update({ where: { v_seq }, v_rec: like });
-  // }
   const rec = await LIKE.findAll({ where: { like_user: user, like_vseq: v_seq } });
   if (!rec) {
+    req.body.like_user = user;
+    req.body.like_vseq = v_seq;
     await LIKE.create(req.body);
-    // await VOCAS.increment(v_rec);
+    like = v_rec + 1;
     await VOCAS.update({ v_rec: like }, { where: { v_seq: v_seq } });
-  } else {
+  } else if (rec) {
     await LIKE.destroy({ where: { like_user: user, like_vseq: v_seq } });
     like = v_rec - 1;
     await VOCAS.update({ v_rec: like }, { where: { v_seq: v_seq } });
   }
-  //aaa
-
-  // console.log(like);
-
-  // console.log(req.session.user);
+  console.log(rec);
+  console.log(req.session.user);
   try {
     return res.json(user);
     // return res.json(user);
@@ -93,7 +63,7 @@ router.get("/:v_seq/like", async (req, res) => {
     return res.json(error);
   }
 });
-
+router.get("/:v_seq/like", async (req, res) => {});
 // router.post("/:v_seq/like", async (req, res) => {
 //   const v_seq = req.params.v_seq;
 //   let like = v_rec + 1;
