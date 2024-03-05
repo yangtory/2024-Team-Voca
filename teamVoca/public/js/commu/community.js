@@ -16,16 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
       document.location.href = `/commu/${v_seq}/detail`;
     } else if (classList.contains("like")) {
       v_seq = target.closest("DIV").dataset.v_seq;
-      alert("추천");
-      const response = await fetch(`/commu/${v_seq}/like`);
-      const json = await response.json();
-      console.log(json);
 
       document.location.href = `/commu/${v_seq}/like`;
-      try {
-      } catch (error) {
-        alert("서버 통신 오류");
-      }
     }
   });
 });
