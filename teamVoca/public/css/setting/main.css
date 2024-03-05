@@ -103,10 +103,6 @@ li.toggle {
   transition: 0.4s;
 }
 
-input:checked + .slider {
-  background-color: #bbcd7e;
-}
-
 input:focus + .slider {
   box-shadow: 0 0 1px #bbcd7e;
 }
@@ -131,6 +127,6 @@ p {
   display: inline-block;
 }
 
-p.on {
-  display: none;
+input:checked + .slider {
+  background-color: #bbcd7e;
 }
