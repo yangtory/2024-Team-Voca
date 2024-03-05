@@ -27,7 +27,7 @@ router.get("/:v_seq/like", async (req, res) => {
   const user = req.session.user ? req.session.user.m_id : undefined;
 
   let like = voca.v_rec;
-  
+
   const rec = await LIKE.findAll({ where: { like_user: user, like_vseq: v_seq } });
   if (rec.length === 0) {
     req.body.like_user = user;

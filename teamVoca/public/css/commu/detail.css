@@ -26,6 +26,8 @@ div.box {
 }
 section.body {
   background-color: #e5eec7;
+  /* border: 1px solid blue; */
+  border-radius: 15px;
 
   /* opacity: 0.5; */
 }
