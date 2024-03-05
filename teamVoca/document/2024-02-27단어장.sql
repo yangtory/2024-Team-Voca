@@ -60,4 +60,4 @@ FOREIGN KEY (like_vseq)
 REFERENCES tbl_vocas(v_seq);
 
 DESC tbl_words;
-SELECT * FROM tbl_members;
+SELECT * FROM tbl_vocas;

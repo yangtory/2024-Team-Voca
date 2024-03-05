@@ -42,7 +42,9 @@ router.get("/:v_seq/like", async (req, res) => {
 
   let like = v_rec;
 
-  const rec = await LIKE.findAll({ where: { like_user: user, like_vseq: v_seq } });
+  const rec = await LIKE.findAll({
+    where: { like_user: user, like_vseq: v_seq },
+  });
   if (!rec) {
     req.body.like_user = user;
     req.body.like_vseq = v_seq;
@@ -50,7 +52,9 @@ router.get("/:v_seq/like", async (req, res) => {
     like = v_rec + 1;
     await VOCAS.update({ v_rec: like }, { where: { v_seq: v_seq } });
   } else if (rec) {
-    await LIKE.destroy({ where: { like_user: user, like_vseq: v_seq } });
+    await LIKE.destroy({
+      where: { like_user: user, like_vseq: v_seq },
+    });
     like = v_rec - 1;
     await VOCAS.update({ v_rec: like }, { where: { v_seq: v_seq } });
   }
