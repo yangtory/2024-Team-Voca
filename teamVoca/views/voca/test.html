@@ -1,0 +1,23 @@
+<!-- 네이버사전검색 -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function searchDict() {
+        const query = document.getElementById('dict').value;
+        document.getElementById('dictIframe').src = `https://en.dict.naver.com/#/search?query=${query}`;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>네이버 영어사전</h1>
+    <input id="dict" type="text" />
+    <button onclick="searchDict()">검색</button>
+    <section>
+        <iframe id="dictIframe" width="400" height="400"></iframe>
+    </section>
+  </body>
+</html>

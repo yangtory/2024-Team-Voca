@@ -1,0 +1,39 @@
+extends ../layout
+
+block content
+    link(rel="stylesheet", href="/css/voca/menu2.css")
+    script(src="/js/voca/menu.js")
+    script(src="/js/voca/menu2.js")
+    div.menu
+        div.center
+            div.menu1
+                img.add(src="/images/insert.png", alt="" width="130px" height="130px")
+                img.quiz(src="/images/quiz2.png", alt="" width="160px" height="160px")
+            div.menu2
+                img.commu(src="/images/share.png", alt="" width="150px" height="150px")
+                img.setting(src="/images/setting.png", alt="" width="130px" height="130px")
+        div.bar
+            span.words ㅡ
+            div.list
+                if rows.length > 0
+                    h3.my_voca 나의 단어장
+                    each voca in rows
+                        section(data-v_seq=`${voca.v_seq}`)
+                            div.voca_box
+                                h5.voca_name(data-name=`${voca.v_name}`)= voca.v_name
+                                div.infrom_box
+                                    div.public
+                                        if voca.v_public === "false"
+                                            p 비공개
+                                        else 
+                                            p 공개
+                                    div.rec
+                                        p 추천수
+                                        p= voca.v_rec
+                                button.delete X
+                else
+                    h3.my_voca 단어장을 추가해보세요 !
+                    a(href="/voca/add") 
+                        img(src="/images/bear.png", alt="곰" width="200px")
+
+        

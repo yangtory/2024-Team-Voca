@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+    link(rel="stylesheet", href="/css/voca/invoca_words.css")
+    script(src="/js/voca/invoca_words.js")
+    a(href="/voca") <(뒤로가기)
+    div.name_box
+        h3.voca_name=voca.v_name
+        button.voca_update(data-v_seq=`${voca.v_seq}`) 수정
+        button.add_word 단어추가
+    if words.length > 0
+        each word in words
+            div.word_box
+                div.inform_box
+                    p=word.w_word 
+                    p=word.w_mean 
+                    p=word.w_pron 
+                    p=word.w_memo
+                div.btn_box
+                    button.word_update(data-w_seq=`${word.w_seq}`) 수정
+                    button.delete X
+    else 
+        h4 등록된 단어가 없습니다 !
+        img(src="/images/bear.png", alt="곰" width="200px")

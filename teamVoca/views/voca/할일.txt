@@ -1,0 +1,66 @@
+수정할거
+
+css
+
+----------------------------------------------------
+추가할거
+
+뒤로가기 전부되게
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+기타 ---------------------------------
+const v_rec = voca.v_rec;
+let like = v_rec ;
+
+
+  const rec = await LIKE.findAll({ where: { like_user: user, like_vseq: v_seq } });
+  if (!rec) {
+ req.body.like_user = user;
+  req.body.like_vseq = v_seq;
+    await LIKE.create(req.body);
+	like = v_rec + 1;
+    await VOCAS.update({ v_rec: like }, { where: { v_seq: v_seq } });
+  } else if (rec) {
+    await LIKE.destroy({ where: { like_user: user, like_vseq: v_seq } });
+    like = v_rec - 1;
+    await VOCAS.update({ v_rec: like }, { where: { v_seq: v_seq } });
+  }
+
+  ----------------
+
+  사용한 소스
+
+<a href="https://www.flaticon.com/kr/free-icons/" title="곰 아이콘">곰 아이콘  
+제작자: Dooder - Flaticon</a>
+
+<a href="https://www.flaticon.com/kr/free-icons/" title="조 아이콘">조 아이콘  제작자: Prosymbols Premium - Flaticon</a>
+
+<a href="https://www.flaticon.com/kr/free-icons/" title="기어 아이콘">기어 아이콘  제작자: Freepik - Flaticon</a>
+
+<a href="https://www.flaticon.com/kr/free-icons/" title="나무 아이콘">나무 아이콘  제작자: Freepik - Flaticon</a>
+
+<a href="https://www.flaticon.com/kr/free-icons/" title="법정 아이콘">법정 아이콘  제작자: Freepik - Flaticon</a>
+
+<a href="https://www.flaticon.com/kr/free-icons/" title="퀴즈 아이콘">퀴즈 아이콘  제작자: Freepik - Flaticon</a>
+
+-- 나무들 --
+<a href="https://www.flaticon.com/kr/free-icons/" title="숲 아이콘">숲 아이콘  제작자: Freepik - Flaticon</a>
+
+<a href="https://www.flaticon.com/kr/free-icons/" title="자연 아이콘">자연 아이콘  제작자: Umeicon - Flaticon</a>
+
+<a href="https://www.flaticon.com/kr/free-icons/" title="숲 아이콘">숲 아이콘  제작자: Freepik - Flaticon</a>
