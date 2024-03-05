@@ -175,10 +175,9 @@ div.myvoca_box {
     /* border: 3px solid red; */
   }
 
-  h3{
+  h3 {
     margin-top: 25px;
   }
- 
 }
 /* 리스트 */
 h3.my_voca {
@@ -191,7 +190,7 @@ div.voca_box {
   display: flex;
   /* background-color: #bbcd7e; */
   background-color: #614d48;
-  
+
   border: 3px solid #614d48;
   border-radius: 15px;
   width: 85%;
@@ -210,7 +209,7 @@ div.voca_box {
     cursor: pointer;
   }
 }
-p{
+p {
   color: #bbcd7e;
 }
 div.infrom_box {
@@ -254,8 +253,10 @@ button.delete {
   /* border: 1px solid #fefae0;; */
   margin-right: 5px;
   background-color: #fefae0;
+  border: 1px solid #fefae0;
   &:hover {
     background-color: red;
+    border: 1px solid red;
     cursor: pointer;
   }
 }
