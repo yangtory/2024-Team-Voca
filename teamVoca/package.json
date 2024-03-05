@@ -7,10 +7,13 @@
     "start": "node ./bin/www.js"
   },
   "dependencies": {
+    "@google-cloud/local-auth": "^2.1.0",
+    "@google-cloud/translate": "^8.1.0",
     "cookie-parser": "~1.4.6",
     "debug": "~4.3.4",
     "express": "~4.18.2",
     "express-session": "^1.18.0",
+    "googleapis": "^105.0.0",
     "helmet": "~7.0.0",
     "http-errors": "~2.0.0",
     "morgan": "~1.10.0",
