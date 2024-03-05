@@ -1,5 +1,5 @@
 import express from "express";
-import { translateText } from "../config/naver_secret_sample.js";
+import { translateText } from "../config/api.js";
 
 const router = express.Router();
 
@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
 
 router.get("/search", async (req, res) => {
   const search = req.query.search;
-  const words = await translateText();
-  return res.json(words);
+  const words = await translateText(search);
+  return res.redirect("/quiz", words);
 });
 export default router;
