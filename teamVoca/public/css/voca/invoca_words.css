@@ -9,19 +9,45 @@ div.name_box {
   }
 }
 div.word_box {
-  border: 3px solid blue;
+  display: flex;
+  /* border: 3px solid blue; */
+  border-radius: 15px;
+  background-color: #fefae0;
+  color: #607575;
   margin: 10px;
   width: 80%;
-  display: flex;
   p {
+    /* width: 80%; */
     height: 2rem;
     border: 2px solid violet;
     margin: 5px;
   }
+}
+div.inform_box {
+  display: flex;
+  flex-direction: column;
+  /* flex: 6; */
+  border: 3px solid yellowgreen;
+  margin: 5px;
+  margin-left: 10px;
+  width: 100%;
+}
+div.btn_box {
+  /* border: 2px solid green; */
+  display: flex;
+  /* flex: 1; */
+  flex-direction: column;
+  /* width: 10%; */
+  margin: 10px;
+
   button {
+    margin: 10px;
     width: 50px;
     font-size: small;
     background-color: red;
+    border-radius: 15px;
+    padding: 5px;
+    color: #607575;
     &:hover {
       cursor: pointer;
       background-color: yellow;

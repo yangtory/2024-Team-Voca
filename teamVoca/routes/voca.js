@@ -3,6 +3,7 @@ import DB from "../models/index.js";
 
 const VOCA = DB.models.tbl_vocas; // 단어장
 const WORDS = DB.models.tbl_words; // 단어장 안의 >>단어<<
+const LIKE = DB.models.tbl_like;
 
 const router = express.Router();
 
@@ -129,6 +130,10 @@ router.post("/:newvoca_seq/add_words", async (req, res) => {
 // -------------------- 단어장 삭제 --------------
 router.get("/:voca_seq/delete", async (req, res) => {
   const v_seq = req.params.voca_seq;
+
+  //  단어장 삭제하면 추천 테이블도 모두 삭제되야하니까
+  // 이 단어장의 추천테이블 먼저 삭제하고
+  await LIKE.destroy({ where: { like_vseq: v_seq } });
 
   // 단어들 전부 먼저 삭제하면 되나?
   await WORDS.destroy({ where: { w_vseq: v_seq } });

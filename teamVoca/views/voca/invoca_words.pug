@@ -8,7 +8,7 @@ block content
         h3.voca_name=voca.v_name
         button.voca_update(data-v_seq=`${voca.v_seq}`) 수정
         button.add_word 단어추가
-    if words
+    if words.length > 0
         each word in words
             div.word_box
                 div.inform_box
@@ -20,4 +20,5 @@ block content
                     button.word_update(data-w_seq=`${word.w_seq}`) 수정
                     button.delete X
     else 
-        h4 등록된 단어가 없습니다 ! 왜안나와
+        h4 등록된 단어가 없습니다 !
+        img(src="/images/bear.png", alt="곰" width="200px")
