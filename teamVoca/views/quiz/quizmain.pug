@@ -2,10 +2,10 @@ extends ../layout
 
 block content
     script(src="/js/quiz/main.js")
-    form(action="quiz/search")
+    form(action="/quiz/search")
         input(placeholder="검색어" name="search")
     table.word 
         tr 
             th 단어나와라
         tr 
-            td= words
+            td= word
