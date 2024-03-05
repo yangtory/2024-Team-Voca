@@ -32,16 +32,82 @@ router.get("/:v_seq/detail", async (req, res) => {
 });
 
 router.get("/:v_seq/like", async (req, res) => {
-  const v_seq = req.params.v_seq;
-  const row = await VOCAS.findAll();
+  const rows = await VOCAS.findAll({
+    where: { v_public: "TRUE" },
+    include: {
+      model: MEMBERS,
+      as: "v_멤버",
+    },
+  });
+  const id = req.body.m_id;
 
-  return res.json(row);
+  // req.session.user = result;
+  const v_seq = req.params.v_seq;
+  const voca = await VOCAS.findByPk(v_seq);
+  const v_rec = voca.v_rec;
+  const user = req.session.user ? req.session.user.m_id : undefined;
+
+  // const voca = await VOCAS.findByPk(v_seq);
+  // const like_user = await LIKE.findAll({ where: { like_user: user } });
+
+  // if (voca) {
+  //   // rec 칼럼의 값을 1 증가
+  //   await voca.increment("v_rec");
+  //   // 변경사항 저장
+  //   await voca.reload();
+  // } else if (like_user) {
+  //   await voca.decrement("v_rec");
+  //   await voca.reload();
+  // }
+  let like = v_rec + 1;
+
+  // 단어장주인장이랑 로그인한
+  // if vrec = 0 이면 create
+  // if vrec = 1 이면 destroy
+
+  req.body.like_user = user;
+  req.body.like_vseq = v_seq;
+  // req.body.like_vseq =
+  // if (v_rec === 0) {
+  // await VOCAS.update({ where: { v_seq }, v_rec: like });
+  // }
+  const rec = await LIKE.findAll({ where: { like_user: user, like_vseq: v_seq } });
+  if (!rec) {
+    await LIKE.create(req.body);
+    // await VOCAS.increment(v_rec);
+    await VOCAS.update({ v_rec: like }, { where: { v_seq: v_seq } });
+  } else {
+    await LIKE.destroy({ where: { like_user: user, like_vseq: v_seq } });
+    like = v_rec - 1;
+    await VOCAS.update({ v_rec: like }, { where: { v_seq: v_seq } });
+  }
+  //aaa
+
+  // console.log(like);
+
+  // console.log(req.session.user);
+  try {
+    return res.json(user);
+    // return res.json(user);
+  } catch (error) {
+    return res.json(error);
+  }
 });
-// router.get("/:vseq/like", async (req, res) => {
-//   return res.send("좋아요");
-// });
-// router.post("/:vseq/like", async (req, res) => {
-//   return res.send("좋아요");
+
+// router.post("/:v_seq/like", async (req, res) => {
+//   const v_seq = req.params.v_seq;
+//   let like = v_rec + 1;
+
+//   // 단어장주인장이랑 로그인한
+//   // if vrec = 0 이면 create
+//   // if vrec = 1 이면 destroy
+
+//   req.body.like_user = user;
+//   req.body.like_vseq = v_seq;
+//   if (v_rec === 0) {
+//     await VOCAS.update({ v_rec: like }, { where: { v_seq: v_seq } });
+//   }
+
 // });
 
 // router.post("/:v_seq/like", async (req, res) => {
@@ -61,89 +127,3 @@ router.get("/:v_seq/like", async (req, res) => {
 // });
 
 export default router;
-
-// VOCAS.findAll({ where: { v_public: "true" } });
-
-// -- 단어장
-// DROP DATABASE vocaDB;
-// CREATE DATABASE vocaDB;
-// USE vocaDB;
-
-// CREATE TABLE tbl_words (
-// w_seq	INT AUTO_INCREMENT PRIMARY KEY,
-// w_vseq	INT	NOT NULL	,
-// w_word	VARCHAR(50)	NOT NULL	,
-// w_mean	VARCHAR(125)	NOT NULL,
-// w_pron	VARCHAR(50)		,
-// w_memo	VARCHAR(125)	,
-// w_mark	VARCHAR(5)
-// );
-
-// INSERT INTO tbl_words
-// (w_vseq, w_word, w_mean, w_mark)
-// VALUE ("1","apple", "사과", "true");
-// SELECT * FROM tbl_words;
-
-// CREATE TABLE tbl_vocas (
-// v_seq	INT	 AUTO_INCREMENT	PRIMARY KEY,
-// v_mid	VARCHAR(20)	NOT NULL	,
-// v_name	VARCHAR(20)	NOT NULL	,
-// v_public	VARCHAR(5)		,
-// v_rec	INT
-// );
-
-// SELECT * FROM tbl_vocas;
-
-// CREATE TABLE tbl_members(
-// m_id	VARCHAR(20)		PRIMARY KEY,
-// m_pw	VARCHAR(125)	NOT NULL	,
-// m_nick	VARCHAR(20)		,
-// m_image	VARCHAR(225)
-// );
-
-// SELECT * FROM tbl_members;
-
-// -- 단어장seq 외래키
-// ALTER TABLE tbl_words
-// ADD CONSTRAINT FK_WSEQ
-// FOREIGN KEY (w_vseq)
-// REFERENCES tbl_vocas(v_seq);
-
-// -- id 외래키
-// ALTER TABLE tbl_vocas
-// ADD CONSTRAINT FK_MID
-// FOREIGN KEY (v_mid)
-// REFERENCES tbl_members(m_id);
-
-// DESC tbl_words;
-
-// INSERT INTO tbl_members (m_id, m_pw, m_nick)
-// VALUES ("정연", "123", "토리");
-
-// INSERT INTO tbl_vocas
-// (v_mid, v_name, v_public)
-// VALUES ("승희","승희단어장", "TRUE");
-// INSERT INTO tbl_vocas
-// (v_mid, v_name, v_public)
-// VALUES ("승희","승희단어장", "FALSE");
-// INSERT INTO tbl_vocas
-// (v_mid, v_name, v_public)
-// VALUES ("승희","승희단어장2", "TRUE");
-// INSERT INTO tbl_vocas
-// (v_mid, v_name, v_public)
-// VALUES ("승희","승희단어장3", "TRUE");
-// INSERT INTO tbl_vocas
-// (v_mid, v_name, v_public)
-// VALUES ("승희","정연단어장", "TRUE");
-// INSERT INTO tbl_vocas
-// (v_mid, v_name, v_public)
-// VALUES ("승희","연수단어장", "TRUE");
-// INSERT INTO tbl_vocas
-// (v_mid, v_name, v_public)
-// VALUES ("정연","정연단어장1", "TRUE");
-// INSERT INTO tbl_vocas
-// (v_mid, v_name, v_public)
-// VALUES ("정연","정연단어장2", "TRUE");
-// INSERT INTO tbl_vocas
-// (v_mid, v_name, v_public)
-// VALUES ("정연","정연단어장3", "TRUE");
