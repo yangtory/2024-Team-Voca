@@ -10,7 +10,20 @@ a {
     opacity: 0.6;
   }
 }
-
+section.img_box {
+  display: flex;
+  /* width: 80%; */
+  /* background-color: red; */
+  div.margin {
+    /* border: 2px solid red; */
+    width: 150px;
+  }
+  margin-bottom: -5px;
+  img.tree {
+    /* margin-right: auto; */
+    margin: auto;
+  }
+}
 div.insert_voca {
   width: 80%;
   /* border: 5px solid yellowgreen; */

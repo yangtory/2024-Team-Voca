@@ -2,6 +2,8 @@
 
 css
 
+버그 - 체크할때 공유 비공유 체크안하고 넘어 갈 수있음 js수정
+
 ----------------------------------------------------
 추가할거
 
@@ -60,3 +62,7 @@ css
 <a href="https://www.flaticon.com/kr/free-icons/" title="새싹 아이콘">새싹 아이콘  제작자: Freepik - Flaticon</a>
 <a href="https://www.flaticon.com/kr/free-icons/-" title="어린 나무 아이콘">어린 나무 아이콘  제작자: Freepik - Flaticon</a>
 <a href="https://www.flaticon.com/kr/free-icons/" title="가을 아이콘">가을 아이콘  제작자: Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/kr/free-icons/" title="경치 아이콘">경치 아이콘  제작자: narak0rn - Flaticon</a>
+<a href="https://www.flaticon.com/kr/free-icons/" title="숲 아이콘">숲 아이콘  제작자: Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/kr/free-icons/" title="숲 아이콘">숲 아이콘  제작자: Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/kr/free-icons/" title="잎 아이콘">잎 아이콘  제작자: Pixel perfect - Flaticon</a>

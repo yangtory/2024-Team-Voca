@@ -16,7 +16,7 @@
 //   });
 // });
 // // 유효성검사
-// //이름안적거나 넘으면 버튼비활성화가 나을듯 
+// //이름안적거나 넘으면 버튼비활성화가 나을듯
 // // disabled false, true (true 가 안보이는거)
 // document.addEventListener("DOMContentLoaded", () => {
 //   const name = document.querySelector("input.voca_name");
@@ -31,7 +31,6 @@
 //   });
 // });
 
-
 document.addEventListener("DOMContentLoaded", () => {
   const name = document.querySelector("input.voca_name");
   const p_false = document.querySelector("input.false");
@@ -44,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       btn.disabled = false;
     }
-  }
+  };
 
   // 체크되면 다른쪽 체크풀리게
   p_false.addEventListener("change", () => {
@@ -63,4 +62,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
   name.addEventListener("input", checkInputs);
 });
-
