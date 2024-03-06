@@ -19,6 +19,7 @@ v_mid	VARCHAR(20)	NOT NULL	,
 v_name	VARCHAR(20)	NOT NULL	,
 v_public	VARCHAR(5)		,
 v_rec	INT		
+
 );
 
 CREATE TABLE tbl_members(
@@ -34,6 +35,17 @@ like_seq INT AUTO_INCREMENT PRIMARY KEY,
 like_user VARCHAR(20) NOT NULL,
 like_vseq INT NOT NULL
 );
+
+CREATE TABLE tbl_comment (
+c_seq INT AUTO_INCREMENT PRIMARY KEY,
+c_user VARCHAR(20) NOT NULL,
+c_vseq INT NOT NULL,
+c_comment VARCHAR(255) NOT NULL
+);
+
+
+
+
 
 -- 단어장seq 외래키
 ALTER TABLE tbl_words
@@ -59,5 +71,21 @@ ADD CONSTRAINT FK_LVSEQ
 FOREIGN KEY (like_vseq)
 REFERENCES tbl_vocas(v_seq);
 
+-- tbl_comment c user 외래키
+ALTER TABLE tbl_comment
+ADD CONSTRAINT FK_CMID
+FOREIGN KEY (c_user)
+REFERENCES tbl_members(m_id);
+
+-- tbl_comment c vseq 외래키
+ALTER TABLE tbl_comment
+ADD CONSTRAINT FK_CSEQ
+FOREIGN KEY (c_vseq)
+REFERENCES tbl_vocas(v_seq);
+
+
+
 DESC tbl_words;
+SELECT * FROM tbl_members;
 SELECT * FROM tbl_vocas;
+SELECT * FROM tbl_like;

@@ -11,38 +11,14 @@ export default function initModels(sequelize) {
   const tbl_vocas = _tbl_vocas.init(sequelize, DataTypes);
   const tbl_words = _tbl_words.init(sequelize, DataTypes);
 
-  tbl_like.belongsTo(tbl_members, {
-    as: "like_user_tbl_member",
-    foreignKey: "like_user",
-  });
-  tbl_members.hasMany(tbl_like, {
-    as: "tbl_likes",
-    foreignKey: "like_user",
-  });
-  tbl_vocas.belongsTo(tbl_members, {
-    as: "v_멤버",
-    foreignKey: "v_mid",
-  });
-  tbl_members.hasMany(tbl_vocas, {
-    as: "tbl_vocas",
-    foreignKey: "v_mid",
-  });
-  tbl_like.belongsTo(tbl_vocas, {
-    as: "L_단어장",
-    foreignKey: "like_vseq",
-  });
-  tbl_vocas.hasMany(tbl_like, {
-    as: "L_좋아요",
-    foreignKey: "like_vseq",
-  });
-  tbl_words.belongsTo(tbl_vocas, {
-    as: "w_vseq_tbl_voca",
-    foreignKey: "w_vseq",
-  });
-  tbl_vocas.hasMany(tbl_words, {
-    as: "W_단어",
-    foreignKey: "w_vseq",
-  });
+  tbl_like.belongsTo(tbl_members, { as: "like_user_tbl_member", foreignKey: "like_user" });
+  tbl_members.hasMany(tbl_like, { as: "tbl_likes", foreignKey: "like_user" });
+  tbl_vocas.belongsTo(tbl_members, { as: "v_멤버", foreignKey: "v_mid" });
+  tbl_members.hasMany(tbl_vocas, { as: "tbl_vocas", foreignKey: "v_mid" });
+  tbl_like.belongsTo(tbl_vocas, { as: "L_단어장", foreignKey: "like_vseq" });
+  tbl_vocas.hasMany(tbl_like, { as: "L_좋아요", foreignKey: "like_vseq" });
+  tbl_words.belongsTo(tbl_vocas, { as: "w_vseq_tbl_voca", foreignKey: "w_vseq" });
+  tbl_vocas.hasMany(tbl_words, { as: "W_단어", foreignKey: "w_vseq" });
 
   return {
     tbl_like,
