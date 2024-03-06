@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+    link(rel="stylesheet", href="/css/quiz/menu.css")
+    script(src="/js/quiz/menu.js")
+    body 
+        div.header
+            img(src="/images/bear.png" width="100px")
+            p 어떻게 공부할까요?
+        section.body(data-num=VOCA)
+            input.spell(type="button" value="단어 맞춤법 공부")
+            input.mean(type="button" value="단어 뜻 공부")

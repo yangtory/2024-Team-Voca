@@ -28,11 +28,11 @@ export default function initModels(sequelize) {
     foreignKey: "v_mid",
   });
   tbl_like.belongsTo(tbl_vocas, {
-    as: "like_vseq_tbl_voca",
+    as: "L_단어장",
     foreignKey: "like_vseq",
   });
   tbl_vocas.hasMany(tbl_like, {
-    as: "LIKE_단어장",
+    as: "L_좋아요",
     foreignKey: "like_vseq",
   });
   tbl_words.belongsTo(tbl_vocas, {

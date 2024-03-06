@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
 
 router.get("/mylist", async (req, res) => {
   const vocas = await VOCAS.findAll(); //내단어장
-  return res.render("quiz/mylist", { VOCAS: vocas });
+  return res.render("quiz/list", { VOCAS: vocas });
 });
 
 router.get("/likelist", async (req, res) => {
@@ -19,8 +19,22 @@ router.get("/likelist", async (req, res) => {
   const userID = user?.m_id;
   const like_vocas = await LIKE.findAll({
     where: { like_user: userID },
+    include: {
+      model: VOCAS,
+      as: "L_단어장",
+    },
   });
-  return res.json(like_vocas);
+  return res.render("quiz/list", { LIKEVOCAS: like_vocas });
+});
+
+router.get("/menu/:v_seq", async (req, res) => {
+  const v_seq = req.params.v_seq;
+  return res.render("quiz/menu", { VOCA: v_seq });
+});
+
+router.get("/start/:v_seq", async (req, res) => {
+  const v_seq = req.params.v_seq;
+  return res.render("quiz/start");
 });
 // router.get("/search", async (req, res) => {
 //   const search = req.query.search;

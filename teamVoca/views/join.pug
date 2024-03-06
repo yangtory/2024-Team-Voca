@@ -5,7 +5,7 @@ block content
     script(src="/js/join.js")
     div.input
         form.join.input(method="POST" enctype="multipart/form-data")
-            img.bear(src= USER ? `/uploads/${USER.m_image}`: "/images/bear.png" width="150px")
+            img.bear(src= `${USER.m_image?`/uploads/${USER.m_image}`:"/images/bear.png"}` width="150px")
             img.camera(src="/images/camera.png" width="25px")
             input.image(type="file" name="m_image" )
             div.error
