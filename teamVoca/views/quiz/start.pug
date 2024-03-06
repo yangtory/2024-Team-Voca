@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-    link(rel="stylesheet", href="/css/quiz/mylist.css")
+    link(rel="stylesheet", href="/css/quiz/start.css")
     script(src="/js/quiz/list.js")
     body 
         div.header
@@ -12,5 +12,12 @@ block content
                 input.word(type="text" value="한국")
             div.res
                 input.res(type="text" placeholder="Spelling 을 입력하세요")
-            div.result
-                input(type="button" value="입력 완료")
+                //- input(type="button" value="입력 완료")
+            div.btn
+                div.btn.correct
+                    input.correct(type="button" value="정답확인")
+                    p.correct korea
+                div.btn.next
+                    input.stop(type="button" value="⏸")
+                    input.next(type="button" value="➪")
+                
