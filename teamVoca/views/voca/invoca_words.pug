@@ -10,29 +10,32 @@ block content
         button.voca_update(data-v_seq=`${voca.v_seq}`) 수정
         button.add_word 단어추가
     if words.length > 0
-        each word in words
-            section.img_box
-                img.sprout(src="/images/sprout.png", alt="")
-            div.word_box
-                div.inform_box
-                    div.word.f
-                        h6 영단어
-                        p=word.w_word 
-                    div.mean.f
-                        h6 단어뜻 
-                        p=word.w_mean 
-                    div.pron.f
-                        h6 발음
-                        p=word.w_pron
-                    div.memo.f 
-                        h6 메모
-                        p=word.w_memo
-                div.btn_box(data-w_seq=`${word.w_seq}`)
-                    button.word_update(data-w_seq=`${word.w_seq}`) 수정
-                    button.delete X
+        div.scroll
+            each word in words
+                section.center
+                    section.img_box
+                        img.sprout(src="/images/sprout.png", alt="")
+                    div.word_box
+                        div.inform_box
+                            div.word.f
+                                h6 영단어
+                                p=word.w_word 
+                            div.mean.f
+                                h6 단어뜻 
+                                p=word.w_mean 
+                            div.pron.f
+                                h6 발음
+                                p=word.w_pron
+                            div.memo.f 
+                                h6 메모
+                                p=word.w_memo
+                        div.btn_box(data-w_seq=`${word.w_seq}`)
+                            button.word_update(data-w_seq=`${word.w_seq}`) 수정
+                            button.delete X
     else
         div.null
+            section.null
             h4 등록된 단어가 없습니다 !
-            //- a(href=`/voca/${word.w_vseq}/add_words`)
+                //- a(href=`/voca/${word.w_vseq}/add_words`)
             img(src="/images/bear.png", alt="곰" width="200px")
-            //- /voca/5/add_words 단어추가 주소
+                //- /voca/5/add_words 단어추가 주소
