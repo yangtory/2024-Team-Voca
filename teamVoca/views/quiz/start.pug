@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+    link(rel="stylesheet", href="/css/quiz/mylist.css")
+    script(src="/js/quiz/list.js")
+    body 
+        div.header
+            img(src="/images/bear.png" width="100px")
+            p 
+        section.body
+            div.word
+                input.word(type="text" value="한국")
+            div.res
+                input.res(type="text" placeholder="Spelling 을 입력하세요")
+            div.result
+                input(type="button" value="입력 완료")
