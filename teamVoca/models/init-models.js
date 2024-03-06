@@ -16,7 +16,7 @@ export default function initModels(sequelize) {
   tbl_vocas.belongsTo(tbl_members, { as: "v_멤버", foreignKey: "v_mid" });
   tbl_members.hasMany(tbl_vocas, { as: "tbl_vocas", foreignKey: "v_mid" });
   tbl_like.belongsTo(tbl_vocas, { as: "like_vseq_tbl_voca", foreignKey: "like_vseq" });
-  tbl_vocas.hasMany(tbl_like, { as: "tbl_likes", foreignKey: "like_vseq" });
+  tbl_vocas.hasMany(tbl_like, { as: "l_좋아요", foreignKey: "like_vseq" });
   tbl_words.belongsTo(tbl_vocas, { as: "w_vseq_tbl_voca", foreignKey: "w_vseq" });
   tbl_vocas.hasMany(tbl_words, { as: "W_단어", foreignKey: "w_vseq" });
 

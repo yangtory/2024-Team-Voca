@@ -6,15 +6,25 @@ const MEMBERS = DB.models.tbl_members;
 const VOCAS = DB.models.tbl_vocas;
 const LIKE = DB.models.tbl_like;
 router.get("/", async (req, res) => {
+  const user = req.session.user;
+  const userID = user?.m_id;
+  const row = await LIKE.findAll({
+    where: { like_user: userID },
+  });
+
   const rows = await VOCAS.findAll({
     where: { v_public: "TRUE" },
     include: {
       model: MEMBERS,
       as: "v_멤버",
     },
+    include: {
+      model: LIKE,
+      as: "l_좋아요",
+    },
   });
-
-  return res.render("commu/community", { VOCAS: rows });
+  // return res.json(rows);
+  return res.render("commu/community", { VOCAS: rows, LIKE: row });
 });
 
 router.get("/:v_seq/like", async (req, res) => {

@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   const click = document.querySelector("div.mainList");
-  const v_rec = document.querySelector("div.item.a input");
 
   click?.addEventListener("click", async (e) => {
     const target = e.target;
@@ -16,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
       document.location.href = `/commu/${v_seq}/detail`;
     } else if (classList.contains("like")) {
       v_seq = target.closest("DIV").dataset.v_seq;
-
       document.location.href = `/commu/${v_seq}/like`;
     }
   });

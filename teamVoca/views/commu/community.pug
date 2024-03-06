@@ -1,4 +1,4 @@
-//- extends ../layout
+extends ../layout
 
 block content 
     link(rel="stylesheet", href="/css/commu/community.css")
@@ -9,13 +9,19 @@ block content
                 form.like(method ="POST") 
                     each item in VOCAS
                         div.element.item(data-v_seq= `${item.v_seq}`)
-                            div.id.item.a(data-v_seq= `${item.v_seq}`)
-                                img.item.a(src="/images/usericon.png", alt="프로필사진" width="50px")
-                                span.item.a=item.v_멤버.m_id
-                            span.item.a=item.v_name
+                            div.id.item.a.top(data-v_seq= `${item.v_seq}`)
+                                img.item.a(src="/images/bear.png", alt="프로필사진" width="50px")
+                                span.item.a.id=item.m_id
+                            span.item.a.mid=item.v_name
                             
                             h4.item.a 추천수 
                                 span.good(name="v_rec").item.a= item.v_rec
-                            div.item.a(data-v_seq= `${item.v_seq}`)
-                                input(type="button" value="추천").like
-                                //- button.like(data-v_seq= `${item.v_seq}`) 추천
+                            div.item.a.input(data-v_seq= `${item.v_seq}`)
+                                input.button(type="button" value="추천").like
+                                
+
+                                
+                                
+                                
+                                
+                                

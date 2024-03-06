@@ -1,20 +1,17 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  height: 100vh;
-}
 body {
   height: 100%;
+}
+section.body {
+  background-color: #e5eec7;
+
+  height: 100%;
+  border-radius: 15px;
 }
 
 div.box {
   width: 60%;
-  height: 90%;
-  border-radius: 15px;
+  height: 95%;
+  border-radius: 50px;
   display: flex;
 
   flex-direction: column;
@@ -24,24 +21,16 @@ div.box {
     display: none;
   }
 }
-section.body {
-  background-color: #e5eec7;
-  /* border: 1px solid blue; */
-  border-radius: 15px;
-
-  /* opacity: 0.5; */
-}
 div.word {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* width: 50%; */
 }
 section.body ul {
-  border-radius: 15px;
-  /* border: 1px solid blue; */
-  background-color: #bbcd7e;
+  border-radius: 50px;
+  background-color: #614d48;
+  color: #bbcd7e;
   width: 50%;
   margin: 10px;
   padding: 20px;
