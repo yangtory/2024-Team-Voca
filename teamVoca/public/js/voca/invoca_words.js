@@ -38,14 +38,17 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const delete_btns = document.querySelectorAll("button.delete");
   delete_btns.forEach((delete_btn) => {
-    delete_btn.addEventListener("click", () => {
+    delete_btn.addEventListener("click", (e) => {
       if (
         confirm(
           "단어를 삭제하시겠습니까?\n삭제된 단어는 복구가 불가능합니다."
         )
       ) {
-        const w_seq = document.querySelector("button.word_update")
-          .dataset.w_seq;
+        const target = e.target;
+        const div = target.closest("DIV");
+        const w_seq = div.dataset.w_seq;
+        // const w_seq = document.querySelector("button.word_update")
+        //   .dataset.w_seq;
         // 삭제주소 /:w_seq/words/delete
         document.location.href = `/voca/${w_seq}/words/delete`;
       }

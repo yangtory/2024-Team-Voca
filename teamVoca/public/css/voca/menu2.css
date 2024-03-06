@@ -162,27 +162,46 @@ a:hover {
 #nav a:hover {
   padding-left: 5px;
 }
+/* ----------------------------------- */
+div.myvoca_box {
+  margin: 0 auto;
+  width: 80%;
+  border-bottom: 8px solid #bbcd7e;
+  margin-bottom: -15px;
+  display: flex;
+  img {
+    margin: 0 auto;
+    margin-bottom: -5px;
+    /* border: 3px solid red; */
+  }
 
+  h3 {
+    margin-top: 25px;
+  }
+}
 /* 리스트 */
 h3.my_voca {
-  color: #607575;
+  color: #bbcd7e;
 }
 /* span.v_seq {
   display: none;
 } */
 div.voca_box {
   display: flex;
-  border: 5px solid #bbcd7e;
-  background-color: #bbcd7e;
+  /* background-color: #bbcd7e; */
+  background-color: #614d48;
+
+  border: 3px solid #614d48;
   border-radius: 15px;
   width: 85%;
-  height: 120px;
+  height: 100px;
   margin: 20px auto;
 
   color: #607575;
   h5 {
     margin: auto;
     margin-left: 20px;
+    color: #bbcd7e;
   }
   transition: 0.3s;
   &:hover {
@@ -190,16 +209,54 @@ div.voca_box {
     cursor: pointer;
   }
 }
-div.infrom_box {
-  border: 1px solid blue;
+p {
+  color: #bbcd7e;
 }
+div.infrom_box {
+  /* border: 1px solid blue; */
+  margin-right: 5px;
+
+  p {
+    font-weight: bold;
+  }
+}
+div.public {
+  p {
+    /* border: 1px solid violet; */
+    margin-top: 5px;
+    margin-left: 20px;
+  }
+}
+
 div.rec {
   display: flex;
-  border: 1px solid red;
+  /* border: 1px solid pink; */
+  /* width: 90px;
+  margin-right: 0; */
+  p {
+    margin-left: 20px;
+    /* border: 1px solid cyan; */
+  }
+  p.rec {
+    /* border: 1px solid red; */
+    margin-left: 10px;
+    margin-top: 9px;
+    margin-right: 0px;
+  }
 }
 button.delete {
-  width: 50px;
+  width: 30px;
+  height: 30px;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 50%;
+  /* border: 1px solid #fefae0;; */
+  margin-right: 5px;
+  background-color: #fefae0;
+  border: 1px solid #fefae0;
   &:hover {
     background-color: red;
+    border: 1px solid red;
+    cursor: pointer;
   }
 }

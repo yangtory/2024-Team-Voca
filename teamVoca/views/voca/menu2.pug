@@ -16,11 +16,15 @@ block content
             span.words ㅡ
             div.list
                 if rows.length > 0
-                    h3.my_voca 나의 단어장
+                    div.myvoca_box
+                        img.tree(src="/images/tree999.png", alt="" width="100px")
+                        h3.my_voca 나의 단어장
+                        img.tree(src="/images/tree999.png", alt="" width="100px")
                     each voca in rows
                         section(data-v_seq=`${voca.v_seq}`)
                             div.voca_box
                                 h5.voca_name(data-name=`${voca.v_name}`)= voca.v_name
+                                img.tree(src="/images/pul.png", alt="")
                                 div.infrom_box
                                     div.public
                                         if voca.v_public === "false"
@@ -28,8 +32,8 @@ block content
                                         else 
                                             p 공개
                                     div.rec
-                                        p 추천수
-                                        p= voca.v_rec
+                                        p 추천
+                                        p.rec= voca.v_rec
                                 button.delete X
                 else
                     h3.my_voca 단어장을 추가해보세요 !
