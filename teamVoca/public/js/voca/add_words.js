@@ -17,3 +17,14 @@ document.addEventListener("DOMContentLoaded",()=>{
     word.addEventListener("input", input);
     mean.addEventListener("input", input);
 });
+
+// ----------------------------- 번역 버튼 --------------
+
+document.addEventListener("DOMContentLoaded",()=>{
+    const trans = document.querySelector("button.trans");
+
+    trans.addEventListener("click",()=>{
+        document.location.href = "/voca/serach";
+    })
+
+})

@@ -9,7 +9,7 @@ const translate = new Translate();
  * TODO(developer): Uncomment the following lines before running the sample.
  */
 // const text = "Hello";
-const target = "ko";
+const target = "en";
 
 const translateText = async (text) => {
   // Translates the text into the target language. "text" can be a string for

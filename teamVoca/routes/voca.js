@@ -159,4 +159,44 @@ router.get("/:w_seq/words/delete", async (req, res) => {
 //   return res.render("voca/add_words");
 // })
 
+//----------------------- 번역용
+import { translateText } from "../config/api.js";
+
+router.get("/search", async (req, res) => {
+  const search = req.query.search;
+  const words = await translateText(search);
+  console.log(words[1].data.translations[0]);
+  console.log(words);
+  // return res.render("quiz/quizmain", { word: words[0] });
+});
+// 단어장 입력주소
+// /voca/7/add_words /단어장번호
+// /voca/10/words/update 수정 주소 두개에서 search 되야하니까 두개다 만들기
+
+// 추가
+// router.get("/:newvoca_seq/add_words", async (req, res) => {
+//   // 단어추가하려면 단어장번호가 필요하고, 화면에 단어장이름 보여줘야하니까
+//   const newvoca_seq = req.params.newvoca_seq;
+//   const newvoca = await VOCA.findByPk(newvoca_seq);
+//   const newvoca_name = newvoca.v_name;
+
+//   req.body.w_vseq = newvoca_seq;
+
+//   // return res.json({newvoca_name});
+
+//   return res.render("voca/add_words", { newvoca_name });
+// });
+
+
+// 수정
+// router.get("/:w_seq/words/update", async (req, res) => {
+//   const w_seq = req.params.w_seq;
+//   const word = await WORDS.findByPk(w_seq);
+//   // 단어장이름도 보여줘야 하니까
+//   const voca_seq = word.w_vseq;
+//   const voca = await VOCA.findByPk(voca_seq);
+//   const voca_name = voca.v_name;
+
+//   return res.render("voca/add_words", { word, voca_name });
+// });
 export default router;
