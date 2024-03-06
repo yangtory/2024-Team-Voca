@@ -1,0 +1,22 @@
+div.box {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  button {
+    border-radius: 50px;
+    background-color: #fefae0;
+    border: none;
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    margin: 20px;
+    flex: 1;
+    font-weight: 800;
+    transition: 0.5s;
+    &:hover {
+      cursor: pointer;
+      background-color: rgb(216, 213, 187);
+    }
+  }
+}

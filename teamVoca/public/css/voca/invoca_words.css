@@ -16,8 +16,22 @@ h3 {
   margin-right: 15px;
   color: #614d48;
 }
+div.scroll {
+  width: 100%;
+  margin: auto;
+  overflow: auto;
+  overflow-x: hidden;
+
+  section.center {
+    margin: 0px auto;
+    /* border: 2px solid blue; */
+  }
+}
+
 div.name_box {
+  margin-bottom: 10px;
   display: flex;
+  border-bottom: 5px solid #614d48;
   button {
     border-radius: 10px;
     margin: 5px;
@@ -35,8 +49,9 @@ div.name_box {
 section.img_box {
   width: 80%;
   /* background-color: red; */
-  margin-left: 15px;
+  margin-left: 50px;
   margin-bottom: -10px;
+  margin-top: 5px;
 }
 img.sprout {
   width: 50px;
@@ -50,10 +65,10 @@ div.word_box {
   /* border: 3px solid blue; */
   border-radius: 15px;
   background-color: #fefae0;
-  border: 3px solid #614d48;;
-  color: #614d48;;
-  margin: 10px;
-  width: 80%;
+  border: 3px solid #614d48;
+  color: #614d48;
+  margin: 10px auto;
+  width: 90%;
   white-space: nowrap;
   p {
     /* width: 80%; */
@@ -81,7 +96,7 @@ div.inform_box {
       width: 90px;
       margin: auto;
       margin-left: 10px;
-      border-right: 1px solid #614d48;;
+      border-right: 1px solid #614d48;
     }
   }
 }
@@ -112,12 +127,18 @@ div.btn_box {
 }
 
 div.null {
+  margin: auto;
   margin-top: 15px;
   background-color: #fefae0;
   border-radius: 20px;
   width: 80%;
   text-align: center;
+  section.null {
+    padding: 5px;
+  }
   h4 {
+    display: block;
     margin-top: 15px;
+    /* border: 1px solid blue; */
   }
 }

@@ -63,7 +63,7 @@ section.form {
     padding: 30px;
   }
 }
-/* 라디오 선택 */
+/* 선택지 */
 div.p_false,
 div.p_true {
   margin: auto;
@@ -73,12 +73,13 @@ div.p_true {
   white-space: nowrap;
   p {
     font-weight: bold;
-    color: #bbcd7e;
+    color: #614d48;
     margin-left: 10px;
   }
   input {
     margin-left: 15px;
     margin-right: 20px;
+    accent-color: #bbcd7e;
   }
 }
 button {
@@ -95,5 +96,11 @@ button {
   &:hover {
     cursor: pointer;
     opacity: 0.7;
+  }
+}
+input.voca_name {
+  border: 2px solid #bbcd7e;
+  &:focus {
+    border: 2px solid #614d48;
   }
 }

@@ -32,8 +32,12 @@ div.bar {
   width: 100%;
   /* 원래 80% */
   height: 90%;
+  /* height: 70%; */
+  /* border-bottom: 5px solid red; */
+
   top: 93%;
   right: 0%;
+
   overflow: hidden;
 
   padding: 20px;
@@ -57,6 +61,8 @@ div.bar.down {
 div.bar.down.up {
   top: 93%;
   /* 원래20 */
+  /* !!! height 없었음 */
+  height: 30%;
 }
 
 /*ssssdddddsfdfsfd*/
@@ -102,8 +108,8 @@ a:hover {
   margin: 4px 0;
 }
 
-#navInput:checked ~ .openbtn {
-}
+/* #navInput:checked ~ .openbtn {
+} */
 
 #navInput:checked ~ .openbtn::before {
   content: "";
@@ -115,8 +121,8 @@ a:hover {
   background: rgba(0, 0, 0, 0.25);
 }
 
-#navInput:checked ~ .openbtn #openbtn-top {
-}
+/* #navInput:checked ~ .openbtn #openbtn-top {
+} */
 
 #navInput:checked ~ .openbtn #openbtn-mid {
   opacity: 0;
@@ -163,9 +169,35 @@ a:hover {
   padding-left: 5px;
 }
 /* ----------------------------------- */
+/* span.words {
+  margin-bottom: 15px;
+} */
+div.list {
+  /* border: 3px solid yellow; */
+  height: 100%;
+}
+section.margin {
+  padding: 7px;
+}
+div.scroll {
+  /* border: 3px solid violet; */
+  /* height: 500px; */
+  height: 80%;
+  width: 100%;
+  margin: auto;
+  overflow: auto;
+  overflow-x: hidden;
+}
+div.scroll::-webkit-scrollbar-button {
+  display: none;
+}
+/* section.voca {
+  border: 1px solid red;
+} */
 div.myvoca_box {
   margin: 0 auto;
   width: 80%;
+  /* border: 1px solid blue; */
   border-bottom: 8px solid #bbcd7e;
   margin-bottom: -15px;
   display: flex;
@@ -179,9 +211,13 @@ div.myvoca_box {
     margin-top: 25px;
   }
 }
+/* img.tree.s {
+  margin-top: 10px;
+  margin-bottom: 10px;
+} */
 /* 리스트 */
 h3.my_voca {
-  color: #bbcd7e;
+  color: #614d48;
 }
 /* span.v_seq {
   display: none;
@@ -255,8 +291,8 @@ button.delete {
   background-color: #fefae0;
   border: 1px solid #fefae0;
   &:hover {
-    background-color: red;
-    border: 1px solid red;
+    background-color: #bbcd7e;
+    border: 1px solid #bbcd7e;
     cursor: pointer;
   }
 }

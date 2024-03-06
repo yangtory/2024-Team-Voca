@@ -5,7 +5,12 @@ const WORDS = DB.models.tbl_words;
 const MEMBERS = DB.models.tbl_members;
 const VOCAS = DB.models.tbl_vocas;
 const LIKE = DB.models.tbl_like;
+
 router.get("/", async (req, res) => {
+  return res.render("commu/main");
+});
+
+router.get("/vocas", async (req, res) => {
   const user = req.session.user;
   const userID = user?.m_id;
   const row = await LIKE.findAll({
@@ -58,15 +63,17 @@ router.get("/:v_seq/like", async (req, res) => {
 router.get("/:v_seq/detail", async (req, res) => {
   const v_seq = req.params.v_seq;
 
-  try {
-    const rows = await WORDS.findAll({
-      where: { w_vseq: v_seq },
-    });
+  const rows = await WORDS.findAll({
+    where: { w_vseq: v_seq },
+  });
+  const voca = await VOCAS.findByPk(v_seq);
 
-    return res.render("commu/detail", { result: rows });
-  } catch (error) {
-    return res.json(error);
-  }
+  return res.render("commu/detail", { rows, voca });
+});
+
+router.post("/v_seq/detail", async (req, res) => {
+  const v_seq = req.params.v_seq;
+  const user = req.session.user ? req.session.user.m_id : undefined;
 });
 
 export default router;

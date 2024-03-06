@@ -6,9 +6,10 @@ block content
     body
         section.body
             section.user
-                img(src=`/uploads/${USER.m_image}`?`/uploads/${USER.m_image}`:"/image/bear.png"  width="100px")
+                img(src= "/uploads/null" ? "/images/bear.png" : `/uploads/${USER.m_image}` width="100px")
                 div.info
-                    span.user #{USER.m_nick}
+                    span.user #{USER.m_nick} 
+                    p 님 안녕하세요 (ง˙∇˙)ว
                 input.update(data-id=USER.m_id)(type="button" value="프로필 수정")
             ul
                 li.toggle 
