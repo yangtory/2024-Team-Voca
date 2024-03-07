@@ -24,10 +24,10 @@ block content
                 input.mean(type="text" name="w_mean" placeholder="뜻" value= word? word.w_mean : "")
                 input(type="text" name="w_pron" placeholder="발음" value= word? word.w_pron : "")
                 input(type="text" name="w_memo" placeholder="메모" value= word? word.w_memo : "")
-            form.trans(action="voca/search")
+            form.trans(action=`/voca/${word.w_vseq}/add_words/search`) 
                 input.trans(type="text")
                 button 안보이는버튼 자동입력누르면 여기를 누른걸로 치게 보이는버튼은 뜻옆에
-                p
+                p= word
                 div.btn_box
                     a(href="/voca")
                         button(type="button") 단어장 리스트로
