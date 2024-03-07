@@ -89,3 +89,29 @@ DESC tbl_words;
 SELECT * FROM tbl_members;
 SELECT * FROM tbl_vocas;
 SELECT * FROM tbl_like;
+SELECT * FROM tbl_words;
+SELECT COUNT(*) FROM tbl_vocas WHERE v_mid="zz";
+
+-- 전체 USER의 단어장 확인
+SELECT m_id as 아이디, v_mid as 단어장아이디,
+v_seq as 단어장번호, w_vseq as 단어장번호,
+w_seq as 단어번호, w_word as 단어, w_mean as 뜻
+FROM tbl_members
+LEFT JOIN tbl_vocas
+ON m_id = v_mid
+LEFT JOIN tbl_words
+ON v_seq = W_vseq
+ORDER BY m_id;
+
+-- 한 USER의 단어장 확인
+SELECT m_id as 아이디, v_mid as 단어장아이디,
+v_seq as 단어장번호, w_vseq as 단어장번호,
+w_seq as 단어번호, w_word as 단어, w_mean as 뜻
+FROM tbl_members
+LEFT JOIN tbl_vocas
+ON m_id = v_mid
+LEFT JOIN tbl_words
+ON v_seq = W_vseq
+WHERE m_id = '정연';
+
+
