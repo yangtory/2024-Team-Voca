@@ -6,7 +6,11 @@ block content
     div.back
         
     div.name_box
-        h3.voca_name=voca.v_name
+        if voca 
+            h3.voca_name=voca.v_name
+        else if rows
+            h3.voca_name=rows.v_name
+        
     div.scroll
         each word in rows
             
@@ -28,12 +32,13 @@ block content
                         p=word.w_memo
                 div.btn_box
     div.comment
-        h6 닉네임
-        p 닉네임이름,사진
-        h6 댓글내용
-        form(method="POST")
-            input(type="text" name="c_comment")
-            button 확인
-
-                            
-                            
+            
+        form.input(method="POST")
+            input.comment(type="text" name="c_comment")
+            button.save(type="submit") 작성
+        each item in COMMENT
+            p= item.c_유저.m_image
+            p= item.c_유저.m_nick
+            h6= item.c_comment
+            
+            h6

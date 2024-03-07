@@ -89,6 +89,7 @@ DESC tbl_words;
 SELECT * FROM tbl_members;
 SELECT * FROM tbl_vocas;
 SELECT * FROM tbl_like;
+SELECT * FROM tbl_comment;
 SELECT * FROM tbl_words;
 SELECT COUNT(*) FROM tbl_vocas WHERE v_mid="zz";
 
@@ -113,5 +114,3 @@ ON m_id = v_mid
 LEFT JOIN tbl_words
 ON v_seq = W_vseq
 WHERE m_id = '정연';
-
-
