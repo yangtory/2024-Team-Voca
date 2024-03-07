@@ -113,8 +113,8 @@ router.get("/:newvoca_seq/add_words", async (req, res) => {
   // req.body.w_vseq = newvoca_seq; 이건왜 여기썼지
 
   // return res.json({newvoca_name});
-
-  return res.render("voca/add_words", { newvoca_name });
+  // 단어장이름, 번호 보내주고
+  return res.render("voca/add_words", { newvoca_name, newvoca_seq });
 });
 
 router.post("/:newvoca_seq/add_words", async (req, res) => {
@@ -161,16 +161,18 @@ router.get("/:w_seq/words/delete", async (req, res) => {
 // /voca/10/words/update 수정 주소 두개에서 search 되야하니까 두개다 만들기
 import { translateText } from "../config/api.js";
 
-// 번역을 >>처리할<< 주소 2개 만들기
-router.get("/:newvoca_seq/add_words/search", async (req, res) => {
+// 화면 보이는 get은 원래 있던걸로 하고,
+// 번역을 >>번역 처리할<< 주소 2개 만들기
+router.get("/:newvoca_seq/add_words/wordsearch", async (req, res) => {
   const search = req.query.search;
   const words = await translateText(search);
-  // console.log(words[1].data.translations[0]);
-  // console.log(words);
+  console.log(words[1].data.translations[0]);
+  console.log(words);
   // --------------------------------------------
   // 검색해서 띄워주고 원래 단어추가 화면처럼 보여야하니...
   // redirct 를 쓸 수 없으니까 / 이 경우의 단어추가를 아예새로?
   // 그럼 추가,수정의 경우 2가지다 되야하니까 (화면 주소못바꾸니) 번역주소 2개
+  // post까지
   // 번역을 한 경우에도 원래와 같이 추가가 가능하게.. 똑같은 형식
   // 주소는 다르지만 이전의 생성과 동일해보이게
   const newvoca_seq = req.params.newvoca_seq;
@@ -179,21 +181,11 @@ router.get("/:newvoca_seq/add_words/search", async (req, res) => {
 
   // 번역된 단어와, 단어장 이름을 보내고
   return res.render("voca/add_words", {
-    word: words[0],
+    t_word: words[0],
     newvoca_name,
+    newvoca_seq,
   });
 });
-
-// 추가 post
-// router.post("/:newvoca_seq/add_words/search", async (req, res) => {
-//   const newvoca_seq = req.params.newvoca_seq;
-//   req.body.w_vseq = newvoca_seq;
-
-//   await WORDS.create(req.body);
-
-//   // 계속 추가할 수 있게..
-//   return res.redirect(`/voca/${newvoca_seq}/add_words`);
-// });
 
 // 수정
 // router.get("/:w_seq/words/update", async (req, res) => {

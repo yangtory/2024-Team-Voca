@@ -24,10 +24,6 @@ block content
                 input.mean(type="text" name="w_mean" placeholder="뜻" value= word? word.w_mean : "")
                 input(type="text" name="w_pron" placeholder="발음" value= word? word.w_pron : "")
                 input(type="text" name="w_memo" placeholder="메모" value= word? word.w_memo : "")
-            form.trans(action=`/voca/${word.w_vseq}/add_words/search`) 
-                input.trans(type="text")
-                button 안보이는버튼 자동입력누르면 여기를 누른걸로 치게 보이는버튼은 뜻옆에
-                p= word
                 div.btn_box
                     a(href="/voca")
                         button(type="button") 단어장 리스트로
@@ -35,3 +31,11 @@ block content
                         button.add(type="submit"  disabled="true") 저장
                     else    
                         button.add(type="submit"  disabled="true") 단어추가
+            if newvoca_seq
+                form.trans(action=`/voca/${newvoca_seq}/add_words/wordsearch`) 
+                    input.trans(type="text" placeholder="영단어입력" name="search")
+                    button.trans 안보이는버튼 자동입력누르면 여기를 누른걸로 치게 js 보이는버튼은 뜻옆에
+                    p= t_word
+                    p 이제 여기서 뜻옆에 버튼을누르면 영어단어 칸에 입력한걸 아래번역칸에 집어넣게하고..
+                    p 번역버튼을 누르면 아래번역칸 버튼누른걸로 할 js작성
+                    p 그리고 번역된 t_word 가 뜻 칸에 들어가도록
