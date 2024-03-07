@@ -161,7 +161,7 @@ router.get("/:w_seq/words/delete", async (req, res) => {
 // /voca/10/words/update 수정 주소 두개에서 search 되야하니까 두개다 만들기
 import { translateText } from "../config/api.js";
 
-// 번역을 처리할 주소 2개 만들기
+// 번역을 >>처리할<< 주소 2개 만들기
 router.get("/:newvoca_seq/add_words/search", async (req, res) => {
   const search = req.query.search;
   const words = await translateText(search);
