@@ -40,17 +40,17 @@ export default class tbl_like extends Model {
         ]
       },
       {
-        name: "FK_LMID",
-        using: "BTREE",
-        fields: [
-          { name: "like_user" },
-        ]
-      },
-      {
         name: "FK_LVSEQ",
         using: "BTREE",
         fields: [
           { name: "like_vseq" },
+        ]
+      },
+      {
+        name: "FK_LMID",
+        using: "BTREE",
+        fields: [
+          { name: "like_user" },
         ]
       },
     ]

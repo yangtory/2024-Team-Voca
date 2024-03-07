@@ -89,3 +89,4 @@ DESC tbl_words;
 SELECT * FROM tbl_members;
 SELECT * FROM tbl_vocas;
 SELECT * FROM tbl_like;
+SELECT * FROM tbl_comment;
