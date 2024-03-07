@@ -9,15 +9,15 @@ block content
             p.comment 
         section.body(data-vseq= WORD.w_vseq)
             div.word
-                input.word(type="text" readonly)
+                p.word
             div.res
                 input.res(type="text" placeholder="Spelling 을 입력하세요")
-                //- input(type="button" value="입력 완료")
+                input(type="button" value="입력 완료")
             div.btn
                 div.btn.correct
                     input.correct(type="button" value="정답확인")
-                    p.correct korea
+                    p.correct
                 div.btn.next
-                    input.stop(type="button" value="∥")
-                    input.next(type="button" value="➪")
+                    input.stop(type="button" value="나가기")
+                    input.next(type="button" value="다음")
                 
