@@ -25,7 +25,7 @@ form {
   flex-direction: column;
   align-items: center;
   input {
-    width: 80%;
+    width: 95%;
     padding: 15px;
     margin: 5px;
     border-radius: 15px;
@@ -35,7 +35,7 @@ form {
 p {
   color: #607575;
   font-size: small;
-  width: 80%;
+  width: 95%;
   text-align: left;
 }
 div.btn_box {
@@ -56,4 +56,42 @@ div.btn_box {
       opacity: 0.7;
     }
   }
+}
+
+div.add_words {
+  /* border: 2px solid blue; */
+  display: flex;
+}
+form.add_words {
+  /* border: 1px solid violet; */
+  flex: 10;
+}
+div.trans_bar {
+  /* border: 1px solid red; */
+  flex: 1;
+  button{
+    width: 40px;
+    height: 40px;
+    margin-top: 100px;
+    margin-right: 15px;
+    background-color: #614d48;
+    color: white;
+      border: 2px solid #614d48;
+      border-radius: 10px;
+      transition: 0.7s;
+      &:hover {
+        cursor: pointer;
+        opacity: 0.7;
+      }
+  }
+ 
+}
+/* 번역칸 감춰두기 */
+.trans {
+  display: none;
+}
+
+/* 임시방편.. */
+a.list {
+  margin-left: 70px;
 }
