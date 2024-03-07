@@ -13,6 +13,11 @@ section.body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 div.header {
@@ -26,11 +31,17 @@ div.header {
 }
 
 ul {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   list-style: none;
+  width: 80%;
   li {
-    border: 1px solid black;
-    padding: 8px;
+    /* border: 1px solid black; */
+
+    padding: 13px;
     margin: 8px;
+    background-color: #614d48;
+    color: white;
+    border-radius: 50px;
+    font-size: 1.6rem;
   }
 }

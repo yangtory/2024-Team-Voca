@@ -23,7 +23,7 @@ export default function initModels(sequelize) {
   tbl_vocas.hasMany(tbl_comment, { as: "tbl_comments", foreignKey: "c_vseq" });
   tbl_like.belongsTo(tbl_vocas, { as: "L_단어장", foreignKey: "like_vseq" });
   tbl_vocas.hasMany(tbl_like, { as: "L_좋아요", foreignKey: "like_vseq" });
-  tbl_words.belongsTo(tbl_vocas, { as: "w_vseq_tbl_voca", foreignKey: "w_vseq" });
+  tbl_words.belongsTo(tbl_vocas, { as: "W_단어장", foreignKey: "w_vseq" });
   tbl_vocas.hasMany(tbl_words, { as: "W_단어", foreignKey: "w_vseq" });
 
   return {

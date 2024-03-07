@@ -2,14 +2,14 @@ extends ../layout
 
 block content
     link(rel="stylesheet", href="/css/quiz/start.css")
-    script(src="/js/quiz/list.js")
+    script(src="/js/quiz/start.js")
     body 
         div.header
             img(src="/images/bear.png" width="100px")
-            p 
-        section.body
+            p.comment 
+        section.body(data-vseq= WORD.w_vseq)
             div.word
-                input.word(type="text" value="한국")
+                input.word(type="text" readonly)
             div.res
                 input.res(type="text" placeholder="Spelling 을 입력하세요")
                 //- input(type="button" value="입력 완료")
@@ -18,6 +18,6 @@ block content
                     input.correct(type="button" value="정답확인")
                     p.correct korea
                 div.btn.next
-                    input.stop(type="button" value="⏸")
+                    input.stop(type="button" value="∥")
                     input.next(type="button" value="➪")
                 
