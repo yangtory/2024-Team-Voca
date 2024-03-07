@@ -36,9 +36,18 @@ block content
         form.input(method="POST")
             input.comment(type="text" name="c_comment")
             button.save(type="submit") 작성
-        each item in COMMENT
-            p= item.c_유저.m_image
-            p= item.c_유저.m_nick
-            h6= item.c_comment
-            
-            h6
+        div.commentBox
+            each item in COMMENT
+                div.box
+                    if item.c_유저.m_image
+                        img(src=`/uploads/${item.c_유저.m_image}`, alt="" width="80px")
+                        
+                    else 
+                        img(src="/uploads/noImage.svg" width="80px")
+                    p.id= item.c_유저.m_nick
+                    p.update 수정
+                    p.delete 삭제
+                
+                h6.comment= item.c_comment
+                
+                

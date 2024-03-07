@@ -1,8 +1,9 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//   const input = document.querySelector("form.input");
-//   const comment = document.querySelector("input.comment");
-//   const save = document.querySelector("input.save");
-//   save.addEventListener("click", () => {
-//     input.submit();
-//   });
-// });
+document.addEventListener("DOMContentLoaded", () => {
+  const update = document.querySelector("p.update");
+  const deleteBtn = document.querySelector("p.delete");
+
+  update.addEventListener("click", () => {
+    document.location.href = "/";
+  });
+  deleteBtn.addEventListener("click", () => {});
+});

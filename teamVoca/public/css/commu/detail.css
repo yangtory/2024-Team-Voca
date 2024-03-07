@@ -33,11 +33,6 @@ div.scroll {
     /* border: 2px solid blue; */
   }
 }
-div.comment {
-  border: 1px solid red;
-  width: 90%;
-  height: 30%;
-}
 
 div.name_box {
   margin-bottom: 10px;
@@ -151,5 +146,78 @@ div.null {
     display: block;
     margin-top: 15px;
     /* border: 1px solid blue; */
+  }
+}
+
+/* div.comment
+            
+form.input(method="POST")
+    input.comment(type="text" name="c_comment")
+    button.save(type="submit") 작성
+    div.commentBox
+each item in COMMENT
+    p.id= item.c_유저.m_image
+    p.comment= item.c_유저.m_nick
+    h6= item.c_comment
+    
+    h6 */
+div.comment {
+  border: 1px solid red;
+  width: 90%;
+  height: 40%;
+  overflow: scroll;
+  background-color: #fefae0;
+  border: 3px solid #614d48;
+  color: #614d48;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  h6 {
+    /* border: 1px solid red; */
+    border-bottom: 1px solid #614d48;
+    width: 88%;
+    padding: 5px;
+    margin: auto;
+  }
+}
+div.commentBox {
+  margin: 5px;
+}
+
+div.box {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  padding: 5px;
+  /* border: 1px solid red; */
+
+  p {
+    /* border: 1px solid red; */
+    position: relative;
+    top: 30px;
+    left: 20px;
+  }
+}
+
+form.input {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid red; */
+  input {
+    /* border: 1px solid blue; */
+    padding: 10px;
+    margin: 10px auto;
+    outline: none;
+    width: 90%;
+  }
+  button {
+    padding: 5px;
+    width: 7%;
+    margin: 0 auto;
+    /* border: 1px solid red; */
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

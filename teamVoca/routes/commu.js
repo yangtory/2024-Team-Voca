@@ -100,11 +100,11 @@ router.post("/:v_seq/detail", async (req, res) => {
   await COMMENT.findAll({
     include: {
       model: MEMBERS,
-      as: "c_user_tbl_member",
+      as: "v_멤버",
     },
     include: {
       model: VOCAS,
-      as: "c_vseq_tbl_voca",
+      as: "c_단어장",
     },
   });
   await COMMENT.create(req.body);
