@@ -1,14 +1,44 @@
 extends ../layout
 
-block content 
-    script(src="/js/commu/detail.js")
+block content
     link(rel="stylesheet", href="/css/commu/detail.css")
-    div.box
-        section.body 
+    
+    div.back
+        
+    div.name_box
+        if voca 
+            h3.voca_name=voca.v_name
+        else if rows
+            h3.voca_name=rows.v_name
+        
+    div.scroll
+        each word in rows
             
-            div.word
-                each item in result
-                    ul
-                        li=item.w_word 
-                        li=item.w_mean                 
-                
+            section.img_box
+                img.sprout(src="/images/sprout.png", alt="")
+            div.word_box
+                div.inform_box
+                    div.word.f
+                        h6 영단어
+                        p= word.w_word
+                    div.mean.f
+                        h6 단어뜻 
+                        p= word.w_mean
+                    div.pron.f
+                        h6 발음
+                        p= word.w_pron
+                    div.memo.f 
+                        h6 메모
+                        p=word.w_memo
+                div.btn_box
+    div.comment
+            
+        form.input(method="POST")
+            input.comment(type="text" name="c_comment")
+            button.save(type="submit") 작성
+        each item in COMMENT
+            p= item.c_유저.m_image
+            p= item.c_유저.m_nick
+            h6= item.c_comment
+            
+            h6

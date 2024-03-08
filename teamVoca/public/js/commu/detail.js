@@ -1,6 +1,8 @@
 // document.addEventListener("DOMContentLoaded", () => {
-//   const like = document.querySelector("button");
-//   like.addEventListener("click", () => {
-//     alert("좋아요");
+//   const input = document.querySelector("form.input");
+//   const comment = document.querySelector("input.comment");
+//   const save = document.querySelector("input.save");
+//   save.addEventListener("click", () => {
+//     input.submit();
 //   });
 // });

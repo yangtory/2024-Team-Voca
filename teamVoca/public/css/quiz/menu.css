@@ -25,12 +25,18 @@ div.header {
   }
 }
 
-ul {
-  border: 1px solid black;
-  list-style: none;
-  li {
-    border: 1px solid black;
-    padding: 8px;
-    margin: 8px;
+input {
+  font-size: 1.5rem;
+  font-weight: 900;
+  width: 60%;
+  padding: 30px;
+  margin: 0 auto;
+  border: none;
+  background-color: #614d48;
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  &:nth-last-child(1) {
+    margin-top: 10px;
   }
 }

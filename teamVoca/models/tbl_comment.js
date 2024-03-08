@@ -1,16 +1,24 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class tbl_words extends Model {
+export default class tbl_comment extends Model {
   static init(sequelize, DataTypes) {
   return super.init({
-    w_seq: {
+    c_seq: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    w_vseq: {
+    c_user: {
+      type: DataTypes.STRING(20),
+      allowNull: false,
+      references: {
+        model: 'tbl_members',
+        key: 'm_id'
+      }
+    },
+    c_vseq: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
@@ -18,29 +26,13 @@ export default class tbl_words extends Model {
         key: 'v_seq'
       }
     },
-    w_word: {
-      type: DataTypes.STRING(50),
+    c_comment: {
+      type: DataTypes.STRING(255),
       allowNull: false
-    },
-    w_mean: {
-      type: DataTypes.STRING(125),
-      allowNull: false
-    },
-    w_pron: {
-      type: DataTypes.STRING(50),
-      allowNull: true
-    },
-    w_memo: {
-      type: DataTypes.STRING(125),
-      allowNull: true
-    },
-    w_mark: {
-      type: DataTypes.STRING(5),
-      allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'tbl_words',
+    tableName: 'tbl_comment',
     timestamps: false,
     indexes: [
       {
@@ -48,14 +40,21 @@ export default class tbl_words extends Model {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "w_seq" },
+          { name: "c_seq" },
         ]
       },
       {
-        name: "FK_WSEQ",
+        name: "FK_CMID",
         using: "BTREE",
         fields: [
-          { name: "w_vseq" },
+          { name: "c_user" },
+        ]
+      },
+      {
+        name: "FK_CSEQ",
+        using: "BTREE",
+        fields: [
+          { name: "c_vseq" },
         ]
       },
     ]
