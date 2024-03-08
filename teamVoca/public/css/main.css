@@ -5,8 +5,7 @@
 }
 
 html {
-  height: 95vh;
-  width: 95vh;
+  height: 100vh;
 }
 
 body {
@@ -47,4 +46,8 @@ div.main {
   justify-content: center;
 
   height: 100%;
+}
+p.back {
+  text-align: left;
+  width: 100%;
 }
