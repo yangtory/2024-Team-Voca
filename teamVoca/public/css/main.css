@@ -26,6 +26,19 @@ a {
 h2 {
   text-align: center;
 }
+header {
+  /* border: 1px solid black; */
+  width: 100%;
+  margin: 20px 0 0 50px;
+  p {
+    color: black;
+    font-weight: 900;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
 div.main {
   display: flex;
   flex-direction: column;

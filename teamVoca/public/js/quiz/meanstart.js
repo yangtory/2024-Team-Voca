@@ -22,16 +22,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // 단어 가져오기
   let index = 0;
-
   const getWord = async () => {
-    word_box.value = data[index].w_mean;
+    word_box.value = data[index].w_word;
   };
 
   // 다음 단어 가져오기
   const nextWord = async () => {
     if (index < data.length - 1) {
       index++;
-      word_box.value = data[index].w_mean;
+      word_box.value = data[index].w_word;
     } else {
       setTimeout(() => {
         bear.innerText = "퀴즈 끝!";
@@ -49,7 +48,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // 정답 확인
   res_btn.addEventListener("click", async () => {
-    if (res.value === data[index].w_word) {
+    if (res.value === data[index].w_mean) {
       bear.innerText = "정답이야!";
       answer_count++;
       setTimeout(() => {
@@ -68,7 +67,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   correct_btn.addEventListener("click", async () => {
-    correct.innerText = data[index].w_word;
+    correct.innerText = data[index].w_mean;
     correct.style.display = "block";
   });
 

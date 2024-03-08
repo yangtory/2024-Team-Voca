@@ -10,9 +10,9 @@ block content
         section.body
             if VOCAS 
                 each VOCA in VOCAS
-                    ul(data-num = VOCA.v_seq)
+                    ul(data-num = `${VOCA.v_seq}`)
                         li= VOCA.v_name
             if LIKEVOCAS 
                 each VOCA in LIKEVOCAS
-                    ul(data-num = VOCA.L_단어장.v_seq)
+                    ul(data-num = `${VOCA.L_단어장.v_seq}`)
                         li= VOCA.L_단어장.v_name

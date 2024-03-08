@@ -106,7 +106,7 @@ ORDER BY m_id;
 
 -- 한 USER의 단어장 확인
 SELECT m_id as 아이디, v_mid as 단어장아이디,
-v_seq as 단어장번호, w_vseq as 단어장번호,
+v_seq as 단어장번호, w_vseq,
 w_seq as 단어번호, w_word as 단어, w_mean as 뜻
 FROM tbl_members
 LEFT JOIN tbl_vocas
