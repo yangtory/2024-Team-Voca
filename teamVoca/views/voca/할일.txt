@@ -1,13 +1,10 @@
 수정할거
 
 css
+  스크롤가리기
 
 ----------------------------------------------------
 추가할거
-
-단어장에서 단어검색 (quiz.js 에 라우터, import문있음)
-단어 추가시에 api 자동 번역
-  영어단어 입력하고 자동입력 누르면 뜻 자동입력되게
 
 댓글추가되면 메뉴에 단어장 목록에 댓글버튼 만들어서
   댓글 뭐달렸나 볼 수 있게하기
@@ -69,4 +66,6 @@ css
 <a href="https://www.flaticon.com/kr/free-icons/" title="경치 아이콘">경치 아이콘  제작자: narak0rn - Flaticon</a>
 <a href="https://www.flaticon.com/kr/free-icons/" title="숲 아이콘">숲 아이콘  제작자: Freepik - Flaticon</a>
 <a href="https://www.flaticon.com/kr/free-icons/" title="숲 아이콘">숲 아이콘  제작자: Freepik - Flaticon</a>
-<a href="https://www.flaticon.com/kr/free-icons/" title="잎 아이콘">잎 아이콘  제작자: Pixel perfect - Flaticon</a>
+<a href="https://www.flaticon.com/kr/free-icons/" title="이파리 아이콘">이파리 아이콘  제작자: DinosoftLabs - Flaticon</a>
+<a href="https://www.flaticon.com/kr/free-icons/" title="잎 아이콘">잎 아이콘  제작자: Good Ware - Flaticon</a>
+<a href="https://www.flaticon.com/kr/free-icons/" title="이파리 아이콘">이파리 아이콘  제작자: Freepik - Flaticon</a>

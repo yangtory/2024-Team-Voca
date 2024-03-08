@@ -56,8 +56,13 @@ router.get("/:w_seq/words/update", async (req, res) => {
   const voca_seq = word.w_vseq;
   const voca = await VOCA.findByPk(voca_seq);
   const voca_name = voca.v_name;
-
-  return res.render("voca/add_words", { word, voca_name });
+  // >단어<수정이지만 이 단어가 있는 단어장으로 리스트 눌렀을때 가야하니까 단어장 번호도 같이 보내기
+  return res.render("voca/add_words", {
+    word,
+    voca_name,
+    w_seq,
+    voca_seq,
+  });
 });
 
 router.post("/:w_seq/words/update", async (req, res) => {
@@ -160,11 +165,11 @@ import { translateText } from "../config/api.js";
 // 단어장 입력주소
 // /voca/7/add_words /단어장번호
 // /voca/10/words/update 수정 주소 두개에서 search 되야하니까 두개다 만들기
-  // 검색해서 띄워주고 원래 단어추가 화면처럼 보여야하니...
-  // redirct 를 쓸 수 없으니까 / 이 경우의 단어추가를 아예새로?
-  // 그럼 추가,수정의 경우 2가지다 되야하니까 (화면 주소못바꾸니) 번역주소 2개, post도 2개..
-  // post까지
-  // 4개...
+// 검색해서 띄워주고 원래 단어추가 화면처럼 보여야하니...
+// redirct 를 쓸 수 없으니까 / 이 경우의 단어추가를 아예새로?
+// 그럼 추가,수정의 경우 2가지다 되야하니까 (화면 주소못바꾸니) 번역주소 2개, post도 2개..
+// post까지
+// 4개...
 
 // 화면 보이는 get은 원래 있던걸로 하고,
 // 번역을 >>번역 처리할<< 주소 2개 만들기
@@ -182,28 +187,80 @@ router.get("/:newvoca_seq/add_words/wordsearch", async (req, res) => {
   const newvoca_name = newvoca.v_name;
 
   // 번역된 단어와, 단어장 이름을 보내고
+  // 번역 폼이 pug if newvoca_seq 니까 번호또 보내서 또 번역 가능하게
   return res.render("voca/add_words", {
     t_word: words[0],
     newvoca_name,
     newvoca_seq,
   });
 });
+//  & 번역페이지 단어 생성
+router.post(
+  "/:newvoca_seq/add_words/wordsearch?search=:search_word",
+  async (req, res) => {
+    const newvoca_seq = req.params.newvoca_seq;
+    req.body.w_vseq = newvoca_seq;
 
+    // return res.json(req.body);
+    await WORDS.create(req.body);
 
-
-// ----------------------- test --------------
-// 번역을 할 수 있는페이지와, 번역을 처리하는 주소 2개가 필요
-
-router.get("/search", async (req, res) => {
-  return res.render("voca/test");
-});
-// form(action="/voca/wordsearch") pug의 action 주소
-router.get("/wordsearch", async (req, res) => {
+    // 계속 추가할 수 있게..
+    return res.redirect(`/voca/${newvoca_seq}/add_words`);
+  }
+);
+// -----------------------------------------------
+//  단어 수정에서 번역사용시
+router.get("/:w_seq/words/update/wordsearch", async (req, res) => {
   const search = req.query.search;
   const words = await translateText(search);
   console.log(words[1].data.translations[0]);
   console.log(words);
-  return res.render("voca/test", { word: words[0] });
-  // return res.render("voca/test");
+  // ---------
+  const w_seq = req.params.w_seq;
+  const word = await WORDS.findByPk(w_seq);
+  // 단어장이름도 보여줘야 하니까
+  const voca_seq = word.w_vseq;
+  const voca = await VOCA.findByPk(voca_seq);
+  const voca_name = voca.v_name;
+  // 여기서도 w_seq 를보내는 이유는 번역또 쓸 수 있어야하니까
+  // pug if w_seq
+  return res.render("voca/add_words", {
+    word,
+    voca_name,
+    voca_seq,
+    w_seq,
+    t_word: words[0],
+  });
+  // 원래 수정에서 w_seq, 단어번호 (if문 용)
+  // t_word: words[0], 번역된단어 2개 더보내기.
 });
+// ------------- 수정 에서 번역하고 단어 생성하기
+router.post(
+  "/:w_seq/words/update/wordsearch?search=:search_word",
+  async (req, res) => {
+    const w_seq = req.params.w_seq;
+    await WORDS.update(req.body, { where: { w_seq: w_seq } });
+
+    // 수정하고 나면 단어장 화면으로
+    const word = await WORDS.findByPk(w_seq);
+    const v_seq = word.w_vseq;
+    return res.redirect(`/voca/${v_seq}/words`);
+  }
+);
+
 export default router;
+// --------------- test --------------
+// 번역을 할 수 있는페이지와, 번역을 처리하는 주소 2개가 필요
+
+// router.get("/search", async (req, res) => {
+//   return res.render("voca/test");
+// });
+// // form(action="/voca/wordsearch") pug의 action 주소
+// router.get("/wordsearch", async (req, res) => {
+//   const search = req.query.search;
+//   const words = await translateText(search);
+//   console.log(words[1].data.translations[0]);
+//   console.log(words);
+//   return res.render("voca/test", { word: words[0] });
+//   // return res.render("voca/test");
+// });

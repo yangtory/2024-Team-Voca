@@ -1,3 +1,6 @@
+p.back {
+  display: none;
+}
 body {
   overflow-y: auto;
 }
@@ -139,6 +142,13 @@ div.null {
   h4 {
     display: block;
     margin-top: 15px;
+    color: #614d48;
     /* border: 1px solid blue; */
+  }
+  p {
+    color: #bbcd7e;
+  }
+  img {
+    margin: 30px 0;
   }
 }

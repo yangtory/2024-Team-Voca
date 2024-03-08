@@ -1,3 +1,6 @@
+p.back {
+  display: none;
+}
 div.back {
   /* border: 3px solid pink;s */
   width: 100%;
@@ -14,11 +17,11 @@ section.img_box {
   display: flex;
   /* width: 80%; */
   /* background-color: red; */
-  div.margin {
-    /* border: 2px solid red; */
+  /* div.margin {
+    border: 2px solid blue;
     width: 150px;
-  }
-  margin-bottom: -5px;
+  } */
+  margin-bottom: -45px;
   img.tree {
     /* margin-right: auto; */
     margin: auto;
