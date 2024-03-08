@@ -5,7 +5,8 @@
 }
 
 html {
-  height: 100vh;
+  height: 95vh;
+  width: 95vh;
 }
 
 body {
@@ -35,7 +36,7 @@ header {
     font-weight: 900;
     cursor: pointer;
     &:hover {
-      opacity: 0.8;
+      opacity: 0.7;
     }
   }
 }
