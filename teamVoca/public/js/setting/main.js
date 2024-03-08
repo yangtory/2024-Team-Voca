@@ -3,12 +3,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const update = document.querySelector("input.update");
 
   menu?.addEventListener("click", (e) => {
+    const popup = document.querySelector("div.pop");
+    const section = document.querySelector("body");
     const target = e.target;
     if (target.className === "logout") {
       alert("로그아웃 되었습니다.");
       document.location.href = "setting/logout";
     }
+    if (target.className === "pro") {
+      popup.style.display = "block";
+      section.style.opacity = "0.7";
+      popup.style.opacity = "1";
+    }
   });
+
   const toggle = document.querySelector("input.check");
   const toggleActive = localStorage.getItem("active");
 

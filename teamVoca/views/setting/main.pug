@@ -4,6 +4,8 @@ block content
     link(rel="stylesheet", href="/css/setting/main.css")
     script(src="/js/setting/main.js")
     body
+        div.pop
+            p.pop ㅎㅎ
         section.body
             section.user
                 img(src=`${USER.m_image?`/uploads/${USER.m_image}`:"/images/bear.png"}`  width="100px")
@@ -17,6 +19,6 @@ block content
                     label.switch
                         input.check(type="checkbox")
                         span.slider.round
-                li 프로 멤버십
+                li.pro 프로 멤버십
                 li.logout 로그아웃
                 

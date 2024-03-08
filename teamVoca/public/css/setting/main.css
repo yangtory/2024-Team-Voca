@@ -1,5 +1,5 @@
 body {
-  height: 100%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,12 +13,15 @@ section.body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 30px;
+  white-space: nowrap;
 }
 section.user {
   display: flex;
   align-items: center;
   margin: 30px;
   border-bottom: 1px solid #ddd;
+  white-space: nowrap;
   img {
     flex: 1;
   }
@@ -157,4 +160,17 @@ img {
   padding: 4px;
   border-radius: 50%;
   margin-bottom: 10px;
+}
+
+div.pop {
+  position: absolute;
+  display: none;
+  background-color: #614d48;
+  width: 50%;
+  height: 50%;
+  border-radius: 50px;
+  p {
+    padding: 5rem;
+    font-size: 1.5rem;
+  }
 }
