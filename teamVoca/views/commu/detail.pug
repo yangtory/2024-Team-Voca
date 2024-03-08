@@ -2,6 +2,7 @@ extends ../layout
 
 block content
     link(rel="stylesheet", href="/css/commu/detail.css")
+    script(src="/js/commu/detail.js")
     
     div.back
         
@@ -45,9 +46,14 @@ block content
                     else 
                         img(src="/uploads/noImage.svg" width="80px")
                     p.id= item.c_유저.m_nick
-                    p.update 수정
-                    p.delete 삭제
-                
-                h6.comment= item.c_comment
-                
-                
+
+
+                input(type="text" value =`${item.c_comment}` readonly="readonly").commentBox(data-c_seq = `${item.c_seq}` , data-v_seq = `${item.c_단어장.v_seq}`)
+
+                if item.c_유저.m_id === user
+                    div.buttonBox(data-c_seq = `${item.c_seq}`, data-v_seq = `${item.c_단어장.v_seq}`)
+                        a.delete(href=`/commu/${item.c_단어장.v_seq}/detail/delete/${item.c_seq}`) 삭제
+                        p.update 수정
+                        //- a.update(href=`/commu/${item.c_단어장.v_seq}/detail/update/${item.c_seq}`) 수정
+                    
+                else
