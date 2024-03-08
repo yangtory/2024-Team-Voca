@@ -38,22 +38,39 @@ router.get("/menu/:v_seq", async (req, res) => {
   return res.render("quiz/menu", { VOCA: v_seq });
 });
 
-router.get("/spellstart/:v_seq", async (req, res) => {
+router.get("/start/:v_seq", async (req, res) => {
+  const w_vseq = req.params.v_seq;
+  const WORDLIST = await WORDS.findAll({
+    where: { w_vseq: w_vseq },
+  });
+  // return res.json(WORDLIST[0]);
+  return res.render("quiz/start", { WORDS: WORDLIST[0] });
+});
+
+router.get("/meanstart/:v_seq", async (req, res) => {
+  const w_vseq = req.params.v_seq;
+  const WORDLIST = await WORDS.findAll({
+    where: { w_vseq: w_vseq },
+  });
+  return res.render("quiz/meanstart", { WORDS: WORDLIST[0] });
+});
+
+router.get("/getword/:v_seq", async (req, res) => {
   const v_seq = req.params.v_seq;
   const result = await WORDS.findAll({
     where: { w_vseq: v_seq },
   });
-  // return res.json(result);
-  return res.render("quiz/start", { WORD: result });
+  return res.json(result);
 });
 
-router.get("/start/:w_vseq", async (req, res) => {
+router.get("/nextword/:w_vseq", async (req, res) => {
   const w_vseq = req.params.w_vseq;
-  const words = await WORDS.findAll({
+  const result = await WORDS.findAll({
     where: { w_vseq: w_vseq },
   });
-  return res.json(words);
+  return res.json(result);
 });
+
 // router.get("/search", async (req, res) => {
 //   const search = req.query.search;
 //   const words = await translateText(search);
