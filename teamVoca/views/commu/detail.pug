@@ -38,22 +38,25 @@ block content
             input.comment(type="text" name="c_comment")
             button.save(type="submit") 작성
         div.commentBox
-            each item in COMMENT
-                div.box
-                    if item.c_유저.m_image
-                        img(src=`/uploads/${item.c_유저.m_image}`, alt="" width="80px")
+            form.update(method="POST") 
+                each item in COMMENT
+                    div.box
+                        if item.c_유저.m_image
+                            img(src=`/uploads/${item.c_유저.m_image}`, alt="" width="80px")
+                            
+                        else 
+                            img(src="/uploads/noImage.svg" width="80px")
+                        p.id= item.c_유저.m_nick
+
+                    input.c_seq(value=item.c_seq name="c_seq")
+                    input.c_user(value=item.c_user name="c_user")
+                    input.c_vseq(value=item.c_vseq name="c_vseq")
+                    input(type="text" value =`${item.c_comment}` readonly="readonly" name="c_comment").commentBox(data-c_seq = `${item.c_seq}` , data-v_seq = `${item.c_단어장.v_seq}`)
+
+                    if item.c_유저.m_id === user
+                        div.buttonBox(data-c_seq = `${item.c_seq}`, data-v_seq = `${item.c_단어장.v_seq}`)
+                            input.delete(type="button" value="삭제")
+                            input.update(type="button" value="수정")
+                            //- a.update(href=`/commu/${item.c_단어장.v_seq}/detail/update/${item.c_seq}`) 수정
                         
-                    else 
-                        img(src="/uploads/noImage.svg" width="80px")
-                    p.id= item.c_유저.m_nick
-
-
-                input(type="text" value =`${item.c_comment}` readonly="readonly").commentBox(data-c_seq = `${item.c_seq}` , data-v_seq = `${item.c_단어장.v_seq}`)
-
-                if item.c_유저.m_id === user
-                    div.buttonBox(data-c_seq = `${item.c_seq}`, data-v_seq = `${item.c_단어장.v_seq}`)
-                        a.delete(href=`/commu/${item.c_단어장.v_seq}/detail/delete/${item.c_seq}`) 삭제
-                        p.update 수정
-                        //- a.update(href=`/commu/${item.c_단어장.v_seq}/detail/update/${item.c_seq}`) 수정
-                    
-                else
+                    else
