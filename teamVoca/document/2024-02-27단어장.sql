@@ -27,7 +27,8 @@ m_id	VARCHAR(20)		PRIMARY KEY,
 m_pw	VARCHAR(125)	NOT NULL	,
 m_nick	VARCHAR(20)		,
 m_image	VARCHAR(225),
-m_role VARCHAR(5) NOT NULL
+m_role VARCHAR(5) NOT NULL,
+m_pro VARCHAR(5) NOT NULL
 );
 
 CREATE TABLE tbl_like(

@@ -4,8 +4,13 @@ block content
     link(rel="stylesheet", href="/css/setting/main.css")
     script(src="/js/setting/main.js")
     body
-        div.pop
-            p.pop ㅎㅎ
+        div.bg
+            div.pop
+                div.content
+                    p.pop ㅎㅎ
+                div.btn
+                    button 구매하기
+                    button 취소
         section.body
             section.user
                 img(src=`${USER.m_image?`/uploads/${USER.m_image}`:"/images/bear.png"}`  width="100px")
@@ -21,4 +26,5 @@ block content
                         span.slider.round
                 li.pro 프로 멤버십
                 li.logout 로그아웃
+                li.drop(data-id=USER.m_id) 회원탈퇴
                 
