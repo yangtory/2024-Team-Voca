@@ -2,6 +2,7 @@ extends ../layout
 
 block content
     link(rel="stylesheet", href="/css/commu/detail.css")
+    script(src="/js/commu/detail.js")
     
     div.back
         
@@ -36,9 +37,23 @@ block content
         form.input(method="POST")
             input.comment(type="text" name="c_comment")
             button.save(type="submit") 작성
-        each item in COMMENT
-            p= item.c_유저.m_image
-            p= item.c_유저.m_nick
-            h6= item.c_comment
-            
-            h6
+        div.commentBox
+            each item in COMMENT
+                div.box
+                    if item.c_유저.m_image
+                        img(src=`/uploads/${item.c_유저.m_image}`, alt="" width="80px")
+                        
+                    else 
+                        img(src="/uploads/noImage.svg" width="80px")
+                    p.id= item.c_유저.m_nick
+
+
+                input(type="text" value =`${item.c_comment}` readonly="readonly").commentBox(data-c_seq = `${item.c_seq}` , data-v_seq = `${item.c_단어장.v_seq}`)
+
+                if item.c_유저.m_id === user
+                    div.buttonBox(data-c_seq = `${item.c_seq}`, data-v_seq = `${item.c_단어장.v_seq}`)
+                        a.delete(href=`/commu/${item.c_단어장.v_seq}/detail/delete/${item.c_seq}`) 삭제
+                        p.update 수정
+                        //- a.update(href=`/commu/${item.c_단어장.v_seq}/detail/update/${item.c_seq}`) 수정
+                    
+                else

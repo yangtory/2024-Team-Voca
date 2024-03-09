@@ -38,7 +38,6 @@ router.get("/:v_seq/like", async (req, res) => {
 
   const voca = await VOCAS.findByPk(v_seq);
 
-  console.log(voca);
   const v_rec = voca.v_rec;
   const user = req.session.user ? req.session.user.m_id : undefined;
 
@@ -81,9 +80,9 @@ router.get("/:v_seq/detail", async (req, res) => {
       },
     ],
   });
-  console.log(comment);
-  //   return res.json({ COMMENT: comment });
-  return res.render("commu/detail", { rows, voca, COMMENT: comment });
+  const user = req.session.user ? req.session.user.m_id : undefined;
+
+  return res.render("commu/detail", { rows, voca, COMMENT: comment, user });
 });
 
 router.post("/:v_seq/detail", async (req, res) => {
@@ -91,26 +90,70 @@ router.post("/:v_seq/detail", async (req, res) => {
   // 단어장번호 가져오고
   const user = req.session.user ? req.session.user.m_id : undefined;
   // 현재 로그인한 유저 정보가져오고
-  const comment = req.body.c_comment;
+
   req.body.c_user = user;
   req.body.c_vseq = v_seq;
-  console.log("유저", user);
-  console.log("단어장번호", v_seq);
-  console.log("댓글내용", comment);
+
   await COMMENT.findAll({
     include: {
       model: MEMBERS,
-      as: "c_user_tbl_member",
+      as: "v_멤버",
     },
     include: {
       model: VOCAS,
-      as: "c_vseq_tbl_voca",
+      as: "c_단어장",
     },
   });
   await COMMENT.create(req.body);
-  console.log("댓글확인", req.body);
+
   return res.redirect(`/commu/${v_seq}/detail`);
   //   return res.render("commu/detail", { rows });
 });
 
+router.get("/:v_seq/detail/delete", async (req, res) => {
+  const v_seq = req.params.v_seq;
+  const user = req.session.user ? req.session.user.m_id : undefined;
+
+  const row = await COMMENT.findByPk(user);
+  await row.destroy();
+  return res.redirect(`/commu/${v_seq}/detail`);
+});
+
+router.get("/:v_seq/detail/delete/:c_seq", async (req, res) => {
+  const v_seq = req.params.v_seq;
+  const c_seq = req.params.c_seq;
+  const user = req.session.user ? req.session.user.m_id : undefined;
+
+  try {
+    const row = await COMMENT.findByPk(c_seq);
+    if (row && row.c_user === user) {
+      await row.destroy();
+    }
+    return res.redirect(`/commu/${v_seq}/detail`);
+  } catch (error) {
+    return res.json(error);
+  }
+});
+router.get("/:v_seq/detail/update/:c_seq", async (req, res) => {
+  const c_seq = req.params.c_seq;
+  const v_seq = req.params.v_seq;
+  const row = await COMMENT.findByPk(c_seq);
+  console.log(c_seq, v_seq);
+  return res.json(row);
+});
+
+router.post("/:v_seq/detail/update/:c_seq", async (req, res) => {
+  const v_seq = req.params.v_seq;
+  const c_seq = req.params.c_seq;
+  const row = await COMMENT.findByPk(c_seq);
+  const data = await req.body;
+  try {
+    await COMMENT.update(row, {
+      where: { c_seq },
+    });
+    return res.redirect(`/commu/${v_seq}/detail`);
+  } catch (error) {
+    return res.json(error);
+  }
+});
 export default router;
