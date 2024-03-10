@@ -1,0 +1,8 @@
+extends ../layout
+
+block content
+    h1 댓글
+    each comment in coms
+        div.com_box
+            p=comment.c_user
+            p=comment.c_comment

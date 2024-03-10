@@ -4,6 +4,7 @@ import DB from "../models/index.js";
 const VOCA = DB.models.tbl_vocas; // 단어장
 const WORDS = DB.models.tbl_words; // 단어장 안의 >>단어<<
 const LIKE = DB.models.tbl_like;
+const COM = DB.models.tbl_comment;
 
 const router = express.Router();
 
@@ -34,6 +35,25 @@ router.get("/:voca_seq/words", async (req, res) => {
   // const voca_name = voca.v_name;
   return res.render("voca/invoca_words", { words, voca });
 });
+// ---------------- 단어장의 댓글보기 -----------------
+// `/voca/${voca_seq}/comment`
+router.get("/:voca_seq/comment", async (req,res)=>{
+  const voca_seq = req.params.voca_seq;
+  const coms = COM.findAll({where : {
+    c_vseq : voca_seq
+  },include:[{
+    model: MEMBERS,
+    as: "댓글단유저정보",
+  },
+  {
+    model: VOCA,
+    as: "단어장",
+  },]})
+//   const coms = COM.findAll();
+// res.json({coms});
+  return res.render("voca/invoca_comments",{coms})
+
+})
 // -----------------단어장 정보수정(이름,공개여부---------------------
 router.get("/:v_seq/update", async (req, res) => {
   const v_seq = req.params.v_seq;

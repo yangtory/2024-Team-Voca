@@ -3,8 +3,8 @@ extends ../layout
 block content
     link(rel="stylesheet", href="/css/voca/invoca_words.css")
     script(src="/js/voca/invoca_words.js")
-    //- div.back
-    //-     a(href="/voca") ◀
+    div.back
+        a(href="/voca") ◀
     div.name_box
         h3.voca_name=voca.v_name
         button.voca_update(data-v_seq=`${voca.v_seq}`) 수정
