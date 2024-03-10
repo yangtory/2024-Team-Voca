@@ -50,6 +50,7 @@ ul {
 }
 
 li {
+    width: 95%;
     padding: 10px 0;
     /* border: 1px solid black; */
     margin: 4px 0;
@@ -161,6 +162,17 @@ img.profile {
     border-radius: 50%;
     margin-bottom: 10px;
 }
+li.pro {
+    display: flex;
+    p.badge {
+        margin-left: auto;
+        background-color: gold;
+        padding: 0.4rem 0.5rem;
+        font-size: 0.7rem;
+        border-radius: 10px;
+        font-weight: 900;
+    }
+}
 div.bg {
     display: none;
     position: absolute;
@@ -181,13 +193,52 @@ div.pop {
     color: white;
     top: 20%;
     left: 25%;
+    span.close {
+        color: black;
+        font-size: 1rem;
+        text-align: right;
+        width: 98%;
+        padding: 1rem;
+        font-weight: 900;
+        &:hover {
+            opacity: 0.7;
+            cursor: pointer;
+        }
+    }
     div.content {
         flex: 4;
-        /* border: 1px solid red; */
-        p {
-            padding: 5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p.top {
+            margin: 0 0 1rem 0;
+            padding: 0.5rem;
+            font-size: 0.8rem;
+            background-color: black;
+            border-radius: 10px;
+            font-weight: 900;
+        }
+        p.mid {
             font-size: 1.5rem;
             color: black;
+            margin: 0 auto;
+        }
+    }
+
+    div.card {
+        display: flex;
+        flex-direction: column;
+        background-color: #af3434;
+        width: 80%;
+        font-size: 2.5rem;
+        margin: 0.5rem;
+        padding: 0.5rem;
+        border-radius: 20px;
+        text-align: center;
+        p.dis {
+            color: #eaeaea;
+            font-size: 1.5rem;
+            text-decoration: line-through;
         }
     }
 
@@ -203,20 +254,13 @@ div.pop {
             background-color: #bbcd7e;
             padding: 12px;
             border-radius: 50px;
-            width: 40%;
-            height: 50%;
+            width: 80%;
+            height: 65%;
             cursor: pointer;
+            font-size: 1rem;
             &:hover {
                 opacity: 0.6;
             }
         }
     }
-}
-
-img.back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0.3;
-    border-radius: 50px;
 }

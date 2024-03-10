@@ -6,11 +6,7 @@ block content
     body
         div.input
             form.join.input(method="POST" enctype="multipart/form-data")
-                if USER
-                    img.bear(src= `/uploads/${USER.m_image}` width="150px")
-                else
-                    img.bear(src= "/images/bear.png" width="150px")
-                img.camera(src="/images/camera.png" width="25px")
+                img.bear(src= `${USER.m_image?`/uploads/${USER.m_image}`:"/images/bear.png"}`  width="150px")
                 input.image(type="file" name="m_image" )
                 div.error
                 if USER

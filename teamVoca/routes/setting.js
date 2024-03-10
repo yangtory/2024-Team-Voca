@@ -9,6 +9,23 @@ router.get('/', async (req, res) => {
     const user = req.session.user;
     return res.render('setting/main', { USER: user });
 });
+router.get('/setting/pro', async (req, res) => {
+    const user = req.session.user;
+    const m_id = user?.m_id;
+    const result = await MEMBERS.findByPk(m_id);
+    return res.json(result);
+});
+router.get('/pro/:m_id', async (req, res) => {
+    const m_id = req.params.m_id;
+
+    await MEMBERS.update(
+        { m_pro: 'true' },
+        {
+            where: { m_id },
+        }
+    );
+    return res.redirect('/setting');
+});
 
 router.get('/:m_id/update', async (req, res) => {
     const m_id = req.params.m_id;
