@@ -9,25 +9,43 @@ block content
     else 
         div.back
             a(href="/voca") ◀
+    section.img_box
+        img.leaf(src="/images/leaf2.png", alt="leaf" width="200px")
     div.word_inputbox
-        img(src="/images/bear.png", alt="곰" width="200px")
         div.name_box
             if newvoca_name
                 h3.name= newvoca_name
             if voca_name
                 h3.name= voca_name
         div.add_words
-            form.add_words(method="POST")
-                p * 필수입력
-                input.word(type="text" name="w_word" placeholder="영어단어" value= word? word.w_word : "")
-                p * 필수입력
-                input.mean(type="text" name="w_mean" placeholder="뜻" value= word? word.w_mean : "")
-                input(type="text" name="w_pron" placeholder="발음" value= word? word.w_pron : "")
-                input(type="text" name="w_memo" placeholder="메모" value= word? word.w_memo : "")
+            //- 단어추가일땐 단어추가주소, 아니면 어차피 수정경우 밖에 없으니까 수정주소로 액션
+            form.add_words(method="POST", action= newvoca_seq? `/voca/${newvoca_seq}/add_words` : `/voca/${w_seq}/words/update`)
+                input.word(type="text" name="w_word" placeholder="영어단어(*필수입력)" value= word? word.w_word : "")
+                input.mean(type="text" name="w_mean" placeholder="뜻(*필수입력)" value= t_word ? t_word : (word? word.w_mean : ""))
+                input.pron(type="text" name="w_pron" placeholder="발음" value= word? word.w_pron : "")
+                input.memo(type="text" name="w_memo" placeholder="메모" value= word? word.w_memo : "")
+                section.advice
+                    img(src="/images/bear.png", alt="곰" width="100px")
+                    p.advice
                 div.btn_box
-                    a(href="/voca")
-                        button(type="button") 단어장 리스트로
-                    if word 
-                        button.add(type="submit"  disabled="true") 저장
-                    else    
+                    if newvoca_seq
+                        a.list(href=`/voca/${newvoca_seq}/words`)
+                            button(type="button") 단어장 리스트로
                         button.add(type="submit"  disabled="true") 단어추가
+                    else 
+                        a.list(href=`/voca/${voca_seq}/words`)
+                            button(type="button") 단어장 리스트로
+                        button.add(type="submit"  disabled="true") 저장   
+            div.trans_bar
+                button.auto(type="button") 자동입력
+            if newvoca_seq
+                form.trans(action=`/voca/${newvoca_seq}/add_words/wordsearch`) 
+                    input.trans(type="text" placeholder="영단어입력" name="search")
+                    button.trans 진짜번역버튼
+                    p= t_word
+            if w_seq
+                form.trans(action=`/voca/${w_seq}/words/update/wordsearch`) 
+                    input.trans(type="text" placeholder="영단어입력" name="search")
+                    button.trans 진짜번역버튼
+                    p= t_word
+                    //- p= t_word 는 안쓰이고 그냥 테스트용

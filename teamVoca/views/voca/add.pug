@@ -3,13 +3,15 @@ extends ../layout
 block content
     link(rel="stylesheet", href="/css/voca/add.css")
     script(src="/js/voca/add.js")
-    //- 수정할거: 체크도 원래체크했던걸로 보이게& 이름적어야 생성되게
     if voca
         div.back
             a(href=`/voca/${voca.v_seq}/words`) ◀
     else
         div.back
             a(href="/voca") ◀
+    section.img_box
+        div.margin
+        img.tree(src="/images/leaf.png", alt="" width="150px")
     div.insert_voca
             img(src="/images/bear.png", alt="곰" width="200px")
             form(method="POST")

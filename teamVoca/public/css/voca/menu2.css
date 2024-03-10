@@ -191,9 +191,11 @@ div.scroll {
 div.scroll::-webkit-scrollbar-button {
   display: none;
 }
-/* section.voca {
+section.voca {
   border: 1px solid red;
-} */
+  display: flex;
+}
+
 div.myvoca_box {
   margin: 0 auto;
   width: 80%;
@@ -232,6 +234,7 @@ div.voca_box {
   width: 85%;
   height: 100px;
   margin: 20px auto;
+  margin-right: 5px;
 
   color: #607575;
   h5 {
@@ -249,7 +252,7 @@ p {
   color: #bbcd7e;
 }
 div.infrom_box {
-  /* border: 1px solid blue; */
+  border: 1px solid blue;
   margin-right: 5px;
 
   p {
@@ -258,7 +261,7 @@ div.infrom_box {
 }
 div.public {
   p {
-    /* border: 1px solid violet; */
+    border: 1px solid violet;
     margin-top: 5px;
     margin-left: 20px;
   }
@@ -266,15 +269,15 @@ div.public {
 
 div.rec {
   display: flex;
-  /* border: 1px solid pink; */
+  border: 1px solid pink;
   /* width: 90px;
   margin-right: 0; */
   p {
     margin-left: 20px;
-    /* border: 1px solid cyan; */
+    border: 1px solid cyan;
   }
   p.rec {
-    /* border: 1px solid red; */
+    border: 1px solid red;
     margin-left: 10px;
     margin-top: 9px;
     margin-right: 0px;
@@ -288,11 +291,28 @@ button.delete {
   border-radius: 50%;
   /* border: 1px solid #fefae0;; */
   margin-right: 5px;
-  background-color: #fefae0;
-  border: 1px solid #fefae0;
+  background-color: #bbcd7e;
+  border: 1px solid #bbcd7e;
+
   &:hover {
-    background-color: #bbcd7e;
-    border: 1px solid #bbcd7e;
+    background-color: #607575;
+  border: 1px solid #607575;
     cursor: pointer;
+  }
+}
+div.vocabtn_box {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid blueviolet;
+  /* margin: 20px auto; */
+  margin: 20px 0;
+  margin-right: auto;
+  align-items: center;
+}
+span.comment {
+  color: red;
+  &:hover {
+    cursor: pointer;
+    color: blue;
   }
 }
