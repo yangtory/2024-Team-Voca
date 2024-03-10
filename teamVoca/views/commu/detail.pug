@@ -47,16 +47,16 @@ block content
                         else 
                             img(src="/uploads/noImage.svg" width="80px")
                         p.id= item.c_유저.m_nick
+                    form.update(method="POST") 
+                        input.c_seq(value=item.c_seq name="c_seq")
+                        input.c_user(value=item.c_user name="c_user")
+                        input.c_vseq(value=item.c_vseq name="c_vseq")
+                        input(type="text" value =`${item.c_comment}` readonly="readonly" name="c_comment").commentBox(data-c_seq = `${item.c_seq}` , data-v_seq = `${item.c_단어장.v_seq}`)
 
-                    input.c_seq(value=item.c_seq name="c_seq")
-                    input.c_user(value=item.c_user name="c_user")
-                    input.c_vseq(value=item.c_vseq name="c_vseq")
-                    input(type="text" value =`${item.c_comment}` readonly="readonly" name="c_comment").commentBox(data-c_seq = `${item.c_seq}` , data-v_seq = `${item.c_단어장.v_seq}`)
-
-                    if item.c_유저.m_id === user
-                        div.buttonBox(data-c_seq = `${item.c_seq}`, data-v_seq = `${item.c_단어장.v_seq}`)
-                            input.delete(type="button" value="삭제")
-                            input.update(type="button" value="수정")
-                            //- a.update(href=`/commu/${item.c_단어장.v_seq}/detail/update/${item.c_seq}`) 수정
-                        
-                    else
+                        if item.c_유저.m_id === user
+                            div.buttonBox(data-c_seq = `${item.c_seq}`, data-v_seq = `${item.c_단어장.v_seq}`)
+                                input.delete(type="button" value="삭제")
+                                input.update(type="button" value="수정")
+                                //- a.update(href=`/commu/${item.c_단어장.v_seq}/detail/update/${item.c_seq}`) 수정
+                            
+                        else
