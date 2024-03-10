@@ -7,13 +7,12 @@ block content
         div.bg
             div.pop
                 div.content
-                    p.pop ㅎㅎ
+                    p ⏰지금만 특가
                 div.btn
                     button 구매하기
-                    button 취소
         section.body
             section.user
-                img(src=`${USER.m_image?`/uploads/${USER.m_image}`:"/images/bear.png"}`  width="100px")
+                img.profile(src=`${USER.m_image?`/uploads/${USER.m_image}`:"/images/bear.png"}`  width="100px")
                 div.info
                     span.user #{USER.m_nick} 
                     p 님 안녕하세요
