@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const box = document.querySelector("div.bar");
   const click = document.querySelector("span.words");
   const menu_box = document.querySelector("div.center");
+  const popup = document.querySelector("div.bg");
 
   click?.addEventListener("click", () => {
     if (box.className === "bar") {
@@ -23,6 +24,22 @@ document.addEventListener("DOMContentLoaded", () => {
       document.location.href = "/commu";
     } else if (target.className === "setting") {
       document.location.href = "/setting";
+    } else if (target.className === "getpro") {
+      popup.style.display = "block";
+    }
+  });
+
+  popup.addEventListener("click", async (e) => {
+    const target = e.target;
+    if (target.className === "close") {
+      popup.style.display = "none";
+      slide.style.opacity = "1";
+    }
+    if (target.className === "buy") {
+      const m_id = target.closest("DIV").dataset.id;
+      if (confirm("정말 구매할까요?")) {
+        document.location.replace(`/setting/pro/${m_id}`);
+      }
     }
   });
 });

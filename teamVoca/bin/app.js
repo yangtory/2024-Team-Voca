@@ -23,7 +23,7 @@ import DB from "../models/index.js";
 // import router modules
 import indexRouter from "../routes/index.js";
 import usersRouter from "../routes/users.js";
-import vocaRouter from "../routes/voca.js";
+import vocaRouter from "../routes/voca copy.js";
 import quizRouter from "../routes/quiz.js";
 import commuRouter from "../routes/commu.js";
 import settingRouter from "../routes/setting.js";
@@ -37,7 +37,11 @@ app.use(helmet());
 // MySQL DB 연결
 // 주의!!! force 를 true 로 하면 기존의 Table 을 모두 DROP 한 후 재생성 한다
 DB.sequelize.sync({ force: false }).then((dbConn) => {
-  console.log(dbConn.options.host, dbConn.config.database, "DB Connection OK");
+  console.log(
+    dbConn.options.host,
+    dbConn.config.database,
+    "DB Connection OK"
+  );
 });
 
 // Disable the fingerprinting of this web technology.

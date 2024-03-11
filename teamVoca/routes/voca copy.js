@@ -4,12 +4,26 @@ import DB from "../models/index.js";
 const VOCA = DB.models.tbl_vocas; // 단어장
 const WORDS = DB.models.tbl_words; // 단어장 안의 >>단어<<
 const LIKE = DB.models.tbl_like;
-const COMMENT = DB.models.tbl_comment;
+const COM = DB.models.tbl_comment;
 const MEMBERS = DB.models.tbl_members;
 
 const router = express.Router();
 
 /* GET users listing. */
+//---------------정연
+router.get("/pro/:m_id", async (req, res) => {
+  const m_id = req.params.m_id;
+  const rows = await VOCA.findAll({ where: { v_mid: m_id } });
+  const pro = await MEMBERS.findAll({ where: { m_id: m_id } });
+
+  await MEMBERS.update(
+    { m_pro: "true" },
+    {
+      where: { m_id },
+    }
+  );
+  return res.render("voca/menu2 copy", { rows, USER: pro[0] });
+});
 
 // voca 에서 누르면 추가한 단어리스트가 보임 : 로그인아이디 단어장 전부
 // w_seq	단어번호
@@ -18,10 +32,12 @@ router.get("/", async (req, res, next) => {
   const user = req.session.user ? req.session.user.m_id : undefined;
   // 로그인 한 유저 단어장 전부 가져오기
   const rows = await VOCA.findAll({ where: { v_mid: user } });
-  // return res.json({rows});
-  return res.render("voca/menu2", { rows });
+  const pro = await MEMBERS.findAll({ where: { m_id: user } });
+
+  return res.render("voca/menu2 copy", { rows, USER: pro[0] });
   // return res.render("voca/menu2");
 });
+//------------------------------정연
 
 //------------- 단어장의 단어들 보여주기
 router.get("/:voca_seq/words", async (req, res) => {
@@ -40,35 +56,24 @@ router.get("/:voca_seq/words", async (req, res) => {
 // `/voca/${voca_seq}/comment`
 router.get("/:voca_seq/comment", async (req, res) => {
   const voca_seq = req.params.voca_seq;
-
-  const voca = await VOCA.findByPk(voca_seq);
-  const voca_name = voca.v_name;
-
-  const coms = await COMMENT.findAll({
+  const coms = COM.findAll({
     where: {
       c_vseq: voca_seq,
     },
     include: [
       {
         model: MEMBERS,
-        as: "c_유저",
+        as: "댓글단유저정보",
+      },
+      {
+        model: VOCA,
+        as: "단어장",
       },
     ],
   });
-
-  // return res.json({ comments });
-  return res.render("voca/invoca_comments", { coms, voca_name });
-});
-// ----------------단어장에 달린 댓글 지우기 --------
-// `/voca/comment/${c_seq}/delete`   삭제주소
-router.get("/comment/:c_seq/delete", async (req, res) => {
-  const c_seq = req.params.c_seq;
-  const com = await COMMENT.findByPk(c_seq);
-  const v_seq = com.c_vseq;
-  await COMMENT.destroy({ where: { c_seq: c_seq } });
-
-  // /voca/1/comment 돌아갈 주소 원래보던 댓글화면
-  return res.redirect(`/voca/${v_seq}/comment`);
+  //   const coms = COM.findAll();
+  // res.json({coms});
+  return res.render("voca/invoca_comments", { coms });
 });
 // -----------------단어장 정보수정(이름,공개여부---------------------
 router.get("/:v_seq/update", async (req, res) => {
@@ -176,11 +181,8 @@ router.get("/:voca_seq/delete", async (req, res) => {
   // 이 단어장의 추천테이블 먼저 삭제하고
   await LIKE.destroy({ where: { like_vseq: v_seq } });
 
-  // 댓글도 모조리 삭제
-  await COMMENT.destroy({ where: { c_vseq: v_seq } });
-  //  단어장안 단어 삭제
+  // 단어들 전부 먼저 삭제하면 되나?
   await WORDS.destroy({ where: { w_vseq: v_seq } });
-  // 단어장을 제일마지막에 삭제
   await VOCA.destroy({ where: { v_seq: v_seq } }); // FK..
 
   return res.redirect("/voca");

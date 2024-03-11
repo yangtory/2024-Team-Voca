@@ -9,7 +9,7 @@ body {
 div.input {
     background-color: #fefae0;
     width: 80%;
-    height: 50%;
+    height: 55%;
     border-radius: 50px;
 }
 input {
@@ -17,7 +17,7 @@ input {
     padding: 12px;
     border-radius: 50px;
     border: none;
-    margin: 5px 0;
+    margin: 3px 0;
 }
 form {
     display: flex;
@@ -31,7 +31,7 @@ input.image {
 }
 
 img.bear {
-    margin: 20px;
+    margin: 10px;
     padding: 10px;
     background-color: white;
     border-radius: 50%;

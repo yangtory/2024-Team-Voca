@@ -1,0 +1,66 @@
+extends ../layout
+
+block content
+    link(rel="stylesheet", href="/css/voca/menu2 copy.css")
+    script(src="/js/voca/menu.js")
+    script(src="/js/voca/menu2.js")
+    div.menu
+        div.center
+            div.bg
+                div.pop
+                    span.close ✕
+                    div.content
+                        p.top ⏰지금만 특가
+                        p.mid 나만의 단어장 만들기,
+                        p.mid 오늘 시작하면 딱이에요
+                        div.card
+                            p -40%
+                            p.dis ₩6,000
+                            p ➔ ₩3,600 
+                        div.btn(data-id= USER.m_id)
+                            button.buy 구매하기
+            div.menu1
+                if rows.length === 5 && USER.m_pro==="0"
+                    img.getpro(src="/images/insert.png", alt="" width="130px" height="130px")
+                else
+                    img.add(src="/images/insert.png", alt="" width="130px" height="130px")
+                img.quiz(src="/images/quiz2.png", alt="" width="160px" height="160px")
+            div.menu2
+                img.commu(src="/images/share.png", alt="" width="150px" height="150px")
+                img.setting(src="/images/setting.png", alt="" width="130px" height="130px")
+        div.bar
+            span.words ㅡ
+            section.margin
+            div.list
+                if rows.length > 0
+                    div.myvoca_box
+                        img.tree(src="/images/tree999.png", alt="" width="100px")
+                        h3.my_voca 나의 단어장
+                        img.tree(src="/images/tree999.png", alt="" width="100px")
+                    section.margin
+                    div.scroll
+                        each voca in rows
+                            section.voca(data-v_seq=`${voca.v_seq}`)
+                                div.voca_box
+                                    h5.voca_name(data-name=`${voca.v_name}`)= voca.v_name
+                                    img.tree.s(src="/images/branch2.png", alt="")
+                                    div.infrom_box
+                                        div.public
+                                            if voca.v_public === "false"
+                                                p 비공개
+                                            else 
+                                                p 공개
+                                        div.rec
+                                            p 추천
+                                            p.rec= voca.v_rec
+                                div.vocabtn_box
+                                    button.delete X
+                                    span.comment 댓글
+                else
+                    h3.my_voca 이런! 아무것도 없네요
+                    a(href="/voca/add") 
+                        p 단어장을 추가해보세요!
+                        br
+                        img(src="/images/nulltree.png", alt="" width="200px")
+
+        
