@@ -1,3 +1,11 @@
+p.advice {
+  font-size: medium;
+  color: #614d48;
+}
+
+p.back {
+  display: none;
+}
 div.back {
   /* border: 3px solid pink;s */
   width: 100%;
@@ -10,7 +18,36 @@ a {
     opacity: 0.6;
   }
 }
-
+section.img_box {
+  display: flex;
+  /* width: 80%; */
+  /* background-color: red; */
+  /* div.margin {
+    border: 2px solid blue;
+    width: 150px;
+  } */
+  margin-bottom: -45px;
+  img.tree {
+    /* margin-right: auto; */
+    margin: auto;
+  }
+}
+section.advice {
+  /* border: 1px solid red; */
+  display: flex;
+  img {
+    margin-right: 10px;
+  }
+  p.advice {
+    font-weight: bold;
+    padding: 10px;
+    /* border: 1px solid blue; */
+    border: 3px solid #bbcd7e;
+    background-color: #bbcd7e;
+    border-radius: 15px;
+    margin: auto 0;
+  }
+}
 div.insert_voca {
   width: 80%;
   /* border: 5px solid yellowgreen; */

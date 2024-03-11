@@ -1,7 +1,20 @@
 div.back {
-  /* border: 3px solid pink;s */
   width: 100%;
   margin-bottom: 10px;
+}
+p.back {
+  display: none;
+}
+section.img_box {
+  /* border: 3px solid blue; */
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  img.leaf {
+    /* border: 3px solid red; */
+    margin: auto;
+  }
+  margin-bottom: -30px;
 }
 a {
   /* border: 3px solid red; */
@@ -18,6 +31,7 @@ div.word_inputbox {
   width: 80%;
 }
 h3.name {
+  margin-top: 20px;
   margin-bottom: 15px;
 }
 form {
@@ -25,19 +39,19 @@ form {
   flex-direction: column;
   align-items: center;
   input {
-    width: 80%;
+    width: 95%;
     padding: 15px;
     margin: 5px;
     border-radius: 15px;
   }
 }
 
-p {
+/* p {
   color: #607575;
   font-size: small;
-  width: 80%;
+  width: 95%;
   text-align: left;
-}
+} */
 div.btn_box {
   margin: 15px;
   margin-bottom: 25px;
@@ -46,7 +60,7 @@ div.btn_box {
     margin: 10px;
     padding: 12px;
     background-color: #614d48;
-  color: white;
+    color: white;
     border: none;
     border-radius: 10px;
     transition: 0.7s;
@@ -56,4 +70,61 @@ div.btn_box {
       opacity: 0.7;
     }
   }
+}
+
+div.add_words {
+  /* border: 2px solid blue; */
+  display: flex;
+}
+form.add_words {
+  /* border: 1px solid violet; */
+  flex: 10;
+}
+section.advice {
+  /* border: 2px solid red; */
+  display: flex;
+  width: 90%;
+  img {
+    /* border: 1px solid blue; */
+    margin-bottom: 5px;
+  }
+  p {
+    font-size: medium;
+    font-weight: bold;
+    background-color: #bbcd7e;
+    color: #614d48;
+    border: 3px solid #bbcd7e;
+    border-radius: 15px;
+    margin: auto;
+    margin-left: 15px;
+    padding: 10px;
+  }
+}
+div.trans_bar {
+  /* border: 1px solid red; */
+  flex: 1;
+  button {
+    width: 40px;
+    height: 40px;
+    margin-top: 67px;
+    margin-right: 15px;
+    background-color: #614d48;
+    color: white;
+    border: 2px solid #614d48;
+    border-radius: 10px;
+    transition: 0.7s;
+    &:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+  }
+}
+/* 번역칸 감춰두기 */
+.trans {
+  display: none;
+}
+
+/* 임시방편.. */
+a.list {
+  margin-left: 70px;
 }
