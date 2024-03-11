@@ -162,7 +162,8 @@ each item in COMMENT
     
     h6 */
 div.comment {
-  border: 1px solid red;
+  /* border: 5px solid red; */
+  margin-top: 10px;
   width: 90%;
   height: 40%;
   overflow: scroll;
@@ -254,4 +255,116 @@ input.commentBox {
   outline: none;
   background-color: #fefae0;
   font-size: 2rem;
+}
+
+/* 수정! */
+
+img.u {
+  border: 2px solid #fefae0;
+  border-radius: 50%;
+}
+article.com_box {
+  /* border: 1px solid violet; */
+  display: flex;
+  margin: 5px;
+}
+/* 댓글박스 */
+div.comment {
+height: 80%;
+background-color: #614d48;
+color: #fefae0;
+border-radius: 15px;
+}
+/* 사진이랑 이름 유저정보 박스 */
+div.box {
+  /* border: 3px solid blue; */
+width: 180px;
+margin-right: auto;
+
+}
+form.update {
+  /* border: 1px solid yellowgreen; */
+  width: 90%;
+  input.c_comment {
+    width: 90%;
+    height: 95%;
+   
+  }
+}
+/* 수정삭제버튼 */
+div.buttonBox {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  margin-left: auto;
+  margin-top: -55px
+
+}
+input.delete {
+  margin-bottom: 7px;
+  border: none;
+  border-radius: 15px;
+  padding: 3px;
+  background-color: #BBCD7E;
+  &:hover {
+    cursor: pointer;
+    background-color: #607575;
+  }
+}
+input.btnupdate {
+  border-radius: 15px;
+  padding: 3px;
+  border: none;
+  background-color: #BBCD7E;
+  &:hover {
+    cursor: pointer;
+    background-color: #607575;
+  }
+}
+/* 댓글쓰는곳 */
+div.inputBox{
+  width: 90%;
+  margin-bottom: -70px;
+  input {
+    margin: 5px;
+    border-radius: 15px;
+  }
+}
+form.input {
+  width: 100%;
+  /* border: 1px solid pink; */
+
+/* display: flex; */
+}
+/* input.comment{
+  border: 1px solid blue;
+} */
+article.comment_box {
+  display: flex;
+}
+/* 댓글보이는 인풋 */
+input.c_comment {
+  border-radius: 15px;
+}
+input.comment{
+ flex: 18;
+}
+input.save{
+flex: 1;
+&:hover {
+  cursor: pointer;
+}
+}
+article.null_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+div.com {
+  padding: 5px;
+  background-color: #607575;
+  border-radius: 15px;
+  width: 90%;
+  margin-top: 10px;
 }
