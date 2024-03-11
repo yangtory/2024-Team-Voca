@@ -19,7 +19,7 @@ block content
                 if rows.length > 0
                     div.myvoca_box
                         img.tree(src="/images/tree999.png", alt="" width="100px")
-                        h3.my_voca 나의 단어장
+                        h3.my_voca My Forest
                         img.tree(src="/images/tree999.png", alt="" width="100px")
                     section.margin
                     div.scroll
@@ -27,7 +27,7 @@ block content
                             section.voca(data-v_seq=`${voca.v_seq}`)
                                 div.voca_box
                                     h5.voca_name(data-name=`${voca.v_name}`)= voca.v_name
-                                    img.tree.s(src="/images/branch2.png", alt="")
+                                    img.tree.s(src="/images/leaf2.png", alt="")
                                     div.infrom_box
                                         div.public
                                             if voca.v_public === "false"
@@ -35,7 +35,8 @@ block content
                                             else 
                                                 p 공개
                                         div.rec
-                                            p 추천
+                                            //- p 추천
+                                            img.rec(src="/images/heart.png", alt="")
                                             p.rec= voca.v_rec
                                 div.vocabtn_box
                                     button.delete X

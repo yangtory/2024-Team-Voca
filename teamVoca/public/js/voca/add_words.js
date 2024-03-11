@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const add_btn = document.querySelector("button.add");
   const advice = document.querySelector("p.advice");
 
-  //  맨처음엔 영어단어를 입력하라하고
+  //  맨처음엔 영어단어, 뜻 입력하라하고
   if (word.value === "") {
     advice.innerText = "영어단어와 뜻을 입력하세요!";
   } else {
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 번역 후 한 번만쓰고 다시 단어추가 할때 나오면 안되니까 폐기
     localStorage.removeItem("e_word");
     const mean = document.querySelector("input.mean");
-    // 자동입력을쓰면 번역한 t_word 값을 넣는거지 인풋이 발생하지않아서
+    // 자동입력을쓰면 번역한 t_word 값을 넣는거라, 인풋이 발생하지않아서
     let event = new Event("input", {
       bubbles: true,
       cancelable: true,

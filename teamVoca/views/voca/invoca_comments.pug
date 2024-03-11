@@ -1,8 +1,30 @@
 extends ../layout
 
 block content
-    h1 댓글
-    each comment in coms
-        div.com_box
-            p=comment.c_user
-            p=comment.c_comment
+    link(rel="stylesheet", href="/css/voca/invoca_comments.css")
+    script(src="/js/voca/invoca_comments.js")
+    div.back
+        a(href="/voca") ◀
+    if coms.length > 0
+        h2=voca_name
+        div.scroll
+            each comment in coms
+                section.com_box
+                    div.c_user
+                        if comment.c_유저.m_image
+                            img.user(src=`/uploads/${comment.c_유저.m_image}`, alt="")
+                        else 
+                            img.user(src="/images/usericon.png", alt="기본사진")
+                    div.co_box
+                        p.name=comment.c_user
+                        div.c_box
+                            p.c=comment.c_comment 
+                    div.del_btn(data-c_seq=`${comment.c_seq}`)
+                        button.x X
+    else
+        div.null_box
+            h2 댓글이 아직 없네요..
+            p 커뮤니티에서 다른사람의 단어장에
+            p 댓글을 남길 수 있어요!
+            a.go_com(href="/commu/vocas") 
+                img.no(src="/images/bear.png", alt="")
