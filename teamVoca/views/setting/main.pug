@@ -7,16 +7,29 @@ block content
         div.bg
             div.pop
                 span.close ✕
-                div.content
-                    p.top ⏰지금만 특가
-                    p.mid 나만의 단어장 만들기,
-                    p.mid 오늘 시작하면 딱이에요
-                    div.card
-                        p -40%
-                        p.dis ₩6,000
-                        p ➔ ₩3,600 
+                if USER.m_pro === "1"
+                    div.content
+                        p.top 정말요?
+                        p.mid 나만의 단어장 만들기,
+                        p.mid 정말 취소하시게요?
+                        div.card
+                            p 👑프리미엄을
+                            p.dis  
+                            p 유지하세요!
+                if USER.m_pro === "0"
+                    div.content
+                        p.top ⏰지금만 특가
+                        p.mid 나만의 단어장 만들기,
+                        p.mid 오늘 시작하면 딱이에요
+                        div.card
+                            p -40%
+                            p.dis ₩6,000
+                            p ➔ ₩3,600 
                 div.btn(data-id=USER.m_id)
-                    button.buy 구매하기
+                    if USER.m_pro === "1"
+                        button.revoke 구독취소
+                    if USER.m_pro === "0"
+                        button.buy 구매하기
         section.body
             section.user
                 img.profile(src=`${USER.m_image?`/uploads/${USER.m_image}`:"/images/bear.png"}`  width="100px")
@@ -31,7 +44,8 @@ block content
                         input.check(type="checkbox")
                         span.slider.round
                 li.pro 프로 멤버십
-                    if USER.m_pro
+                    label.proswitch
+                        input.pro(type="checkbox")
                         p.badge 👑프리미엄
                 li.logout 로그아웃
                 li.drop(data-id=USER.m_id) 회원탈퇴

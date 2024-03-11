@@ -5,10 +5,25 @@ const VOCA = DB.models.tbl_vocas; // 단어장
 const WORDS = DB.models.tbl_words; // 단어장 안의 >>단어<<
 const LIKE = DB.models.tbl_like;
 const COM = DB.models.tbl_comment;
+const MEMBERS = DB.models.tbl_members;
 
 const router = express.Router();
 
 /* GET users listing. */
+//---------------정연
+router.get("/pro/:m_id", async (req, res) => {
+  const m_id = req.params.m_id;
+  const rows = await VOCA.findAll({ where: { v_mid: m_id } });
+  const pro = await MEMBERS.findAll({ where: { m_id: m_id } });
+
+  await MEMBERS.update(
+    { m_pro: "true" },
+    {
+      where: { m_id },
+    }
+  );
+  return res.render("voca/menu2 copy", { rows, USER: pro[0] });
+});
 
 // voca 에서 누르면 추가한 단어리스트가 보임 : 로그인아이디 단어장 전부
 // w_seq	단어번호
@@ -17,10 +32,12 @@ router.get("/", async (req, res, next) => {
   const user = req.session.user ? req.session.user.m_id : undefined;
   // 로그인 한 유저 단어장 전부 가져오기
   const rows = await VOCA.findAll({ where: { v_mid: user } });
-  // return res.json({rows});
-  return res.render("voca/menu2", { rows });
+  const pro = await MEMBERS.findAll({ where: { m_id: user } });
+
+  return res.render("voca/menu2 copy", { rows, USER: pro[0] });
   // return res.render("voca/menu2");
 });
+//------------------------------정연
 
 //------------- 단어장의 단어들 보여주기
 router.get("/:voca_seq/words", async (req, res) => {

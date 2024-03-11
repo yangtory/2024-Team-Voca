@@ -86,7 +86,7 @@ REFERENCES tbl_vocas(v_seq);
 
 
 
-DESC tbl_words;
+DESC tbl_comment;
 SELECT * FROM tbl_members;
 SELECT * FROM tbl_vocas;
 SELECT * FROM tbl_like;
