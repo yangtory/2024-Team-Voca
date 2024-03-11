@@ -20,15 +20,18 @@ router.get("/vocas", async (req, res) => {
 
   const rows = await VOCAS.findAll({
     where: { v_public: "TRUE" },
-    include: {
-      model: MEMBERS,
-      as: "v_멤버",
-    },
-    include: {
-      model: LIKE,
-      as: "L_좋아요",
-    },
+    include: [
+      {
+        model: MEMBERS,
+        as: "v_멤버",
+      },
+      {
+        model: LIKE,
+        as: "L_좋아요",
+      },
+    ],
   });
+
   // return res.json(rows);
   return res.render("commu/community", { VOCAS: rows, LIKE: row });
 });
@@ -81,15 +84,15 @@ router.get("/:v_seq/detail", async (req, res) => {
     ],
   });
   const user = req.session.user ? req.session.user.m_id : undefined;
-  // return res.json(comment);
+
   return res.render("commu/detail", { rows, voca, COMMENT: comment, user });
 });
 
 router.post("/:v_seq/detail", async (req, res) => {
   const v_seq = req.params.v_seq;
-  // 단어장번호 가져오고
+
   const user = req.session.user ? req.session.user.m_id : undefined;
-  // 현재 로그인한 유저 정보가져오고
+
   const c_seq = req.query.seq;
   req.body.c_user = user;
   req.body.c_vseq = v_seq;
@@ -110,17 +113,7 @@ router.post("/:v_seq/detail", async (req, res) => {
   }
 
   return res.redirect(`/commu/${v_seq}/detail`);
-  //   return res.render("commu/detail", { rows });
 });
-
-// router.get("/:v_seq/detail/delete", async (req, res) => {
-//   const v_seq = req.params.v_seq;
-//   const user = req.session.user ? req.session.user.m_id : undefined;
-
-//   const row = await COMMENT.findByPk(user);
-//   await row.destroy();
-//   return res.redirect(`/commu/${v_seq}/detail`);
-// });
 
 router.get("/:v_seq/detail/delete/:c_seq", async (req, res) => {
   const v_seq = req.params.v_seq;
@@ -138,25 +131,6 @@ router.get("/:v_seq/detail/delete/:c_seq", async (req, res) => {
   }
 });
 
-// router.post("/:v_seq/update/:c_seq", async (req, res) => {
-//   const v_seq = req.params.v_seq;
-//   const c_seq = req.params.c_seq;
-//   const row = await COMMENT.findByPk(c_seq);
-//   const data = req.body;
-//   console.log("data ", data);
-//   console.log("v_seq ", v_seq);
-//   console.log("c_seq ", c_seq);
-//   console.log("row ", row);
-//   try {
-//     const row = await row.update(data, {
-//       where: { c_seq },
-//     });
-//     return res.json(row);
-//     // return res.redirect(`/commu/${v_seq}/detail`);
-//   } catch (error) {
-//     return res.json(error);
-//   }
-// });
 router.get("/:v_seq/get/:c_seq", async (req, res) => {
   const c_seq = req.params.c_seq;
   const v_seq = req.params.v_seq;
@@ -175,6 +149,26 @@ router.post("/:v_seq/update/:c_seq", async (req, res) => {
   });
 
   return res.redirect(`/commu/${v_seq}/detail`);
+});
+
+router.get("/free", async (req, res) => {
+  const user = req.session.user ? req.session.user.m_id : undefined;
+  req.body.like_user = user;
+
+  const row = await VOCAS.findAll({
+    include: [
+      {
+        model: LIKE,
+        as: "L_좋아요",
+        where: {
+          like_user: user,
+        },
+      },
+      { model: MEMBERS, as: "v_멤버" },
+    ],
+  });
+
+  return res.render("commu/likevocas", { row });
 });
 
 export default router;
