@@ -1,0 +1,41 @@
+extends ./layout
+
+block content 
+    link(rel="stylesheet", href="/css/join.css")
+    script(src="/js/join.js")
+    body
+        div.input
+            form.join.input(method="POST" enctype="multipart/form-data")
+                if USER
+                    img.bear(src= `/uploads/${USER.m_image}` width="150px")
+                else
+                    img.bear(src= "/images/bear.png" width="150px")
+                img.camera(src="/images/camera.png" width="25px")
+                input.image(type="file" name="m_image" )
+                div.error
+                if USER
+                    div.user
+                        label.user 아이디　
+                            input.user(type="text" placeholder="아이디" name="m_id" value=`${USER.m_id}` readonly)
+                else
+                    input.id(type="text" placeholder="아이디" name="m_id" )
+                div.error
+                if USER
+                    div.user
+                        label.user 비밀번호
+                            input.user(type="password" name="m_pw" value= `${USER.m_pw}`)
+                else
+                    input.pw(type="password" placeholder="비밀번호" name="m_pw")
+                if !USER
+                    div.error
+                    input.pwcheck(type="password" placeholder="비밀번호 확인" )
+                div.error
+                if USER
+                    div.user
+                        label.user 닉네임　
+                            input.user(type="text" placeholder="닉네임" name="m_nick" value=`${USER.m_nick}`)
+                else
+                    input.nick(type="text" placeholder="닉네임" name="m_nick")
+                div.btn
+                    input.join(type="button" value=`${USER? "수정하기" : "회원가입"}`)
+            

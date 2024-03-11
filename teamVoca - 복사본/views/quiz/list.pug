@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+    link(rel="stylesheet", href="/css/quiz/list.css")
+    script(src="/js/quiz/list.js")
+    body 
+        div.header
+            img(src="/images/bear.png" width="100px")
+            p 공부할 단어장을 선택해주세요 !
+        section.body
+            if VOCAS 
+                each VOCA in VOCAS
+                    ul(data-num = `${VOCA.v_seq}`)
+                        li= VOCA.v_name
+            if LIKEVOCAS 
+                each VOCA in LIKEVOCAS
+                    ul(data-num = `${VOCA.L_단어장.v_seq}`)
+                        li= VOCA.L_단어장.v_name

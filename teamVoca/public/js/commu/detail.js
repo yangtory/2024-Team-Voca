@@ -25,52 +25,94 @@ document.addEventListener("DOMContentLoaded", () => {
     // form.submit();
 
     // console.log(inputBox.value);
-    target.removeEventListener("click", complete);
+    // target.removeEventListener("click", complete);
   };
 
+  const BTN_UPDATE = "수정";
+  const BTN_UPDATE_COMPLETE = "수정 완료";
   let comment_box_seq = 0;
   let comment = "";
   update.forEach((update_btn) => {
     update_btn?.addEventListener("click", async (e) => {
       const target = e.target;
+      const form = target.closest("FORM");
+      const commentBox = form.querySelector(".commentBox");
       const c_seq = target.closest("DIV").dataset.c_seq;
       const v_seq = target.closest("DIV").dataset.v_seq;
+      comment_box_seq = box.dataset.c_seq;
 
-      inputBox.forEach((box) => {
-        comment_box_seq = box.dataset.c_seq;
-        if (c_seq === comment_box_seq) {
-          box.removeAttribute("readonly");
-          box.style.border = "1px solid black";
-          box.style.backgroundColor = "white";
-          box.focus();
-          target.value = "수정 완료";
-          comment = box.value;
-          // "수정 완료" 버튼 클릭 이벤트 처리
-        }
-        // target.addEventListener('click', complete);
-      });
+      if (target.value === BTN_UPDATE) {
+        commentBox.removeAttribute("readonly");
+        commentBox.style.border = "1px solid black";
+        commentBox.style.backgroundColor = "white";
+        commentBox.focus();
+        target.value = BTN_UPDATE_COMPLETE;
+        comment = commentBox.value;
+      } else if (target.value === BTN_UPDATE_COMPLETE) {
+        const id = document.querySelector("input.c_user");
 
-      const id = document.querySelector("input.c_user");
+        try {
+          const res = await fetch(`/commu/${v_seq}/update/${c_seq}`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              c_comment: comment,
+              c_seq: comment_box_seq,
+              c_user: id.value,
+              c_vseq: v_seq,
+            }),
+          });
+          const json = await res.json();
+          console.log(json);
+        } catch (error) {}
 
-      target?.addEventListener("click", async () => {
-        const res = await fetch(`/commu/${v_seq}/update/${c_seq}`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            c_comment: comment,
-            c_seq: comment_box_seq,
-            c_user: id.value,
-            c_vseq: v_seq,
-          }),
-        });
+        commentBox.setAttribute("readonly", "readonly");
+        // commentBox.style.border = "1px solid black";
+        // commentBox.style.backgroundColor = "white";
+        // commentBox.focus();
+        target.value = BTN_UPDATE;
+        target.addEventListener("click", complete);
+      }
 
-        const json = await res.json();
-        console.log(json);
+      // "수정 완료" 버튼 클릭 이벤트 처리
 
-        update?.addEventListener("click", complete);
-      });
+      // inputBox.forEach((box) => {
+      //   comment_box_seq = box.dataset.c_seq;
+      //   if (c_seq === comment_box_seq) {
+      //     box.removeAttribute("readonly");
+      //     box.style.border = "1px solid black";
+      //     box.style.backgroundColor = "white";
+      //     box.focus();
+      //     target.value = "수정 완료";
+      //     comment = box.value;
+      //     // "수정 완료" 버튼 클릭 이벤트 처리
+      //   }
+      //   // target.addEventListener('click', complete);
+      // });
+
+      // const id = document.querySelector("input.c_user");
+
+      // target?.addEventListener("click", async () => {
+      //   const res = await fetch(`/commu/${v_seq}/update/${c_seq}`, {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify({
+      //       c_comment: comment,
+      //       c_seq: comment_box_seq,
+      //       c_user: id.value,
+      //       c_vseq: v_seq,
+      //     }),
+      //   });
+
+      //   const json = await res.json();
+      //   console.log(json);
+
+      //   update?.addEventListener("click", complete);
+      // });
 
       // box.value = json.c_comment;
       // console.log(box);

@@ -1,0 +1,29 @@
+extends ../layout
+
+block content 
+    link(rel="stylesheet", href="/css/setting/main.css")
+    script(src="/js/setting/main.js")
+    body
+        div.bg
+            div.pop
+                div.content
+                    p ⏰지금만 특가
+                div.btn
+                    button 구매하기
+        section.body
+            section.user
+                img.profile(src=`${USER.m_image?`/uploads/${USER.m_image}`:"/images/bear.png"}`  width="100px")
+                div.info
+                    span.user #{USER.m_nick} 
+                    p 님 안녕하세요
+                input.update(type="button" value="프로필 수정" data-id=USER.m_id)
+            ul
+                li.toggle 
+                    p.off 비공개 계정 전환
+                    label.switch
+                        input.check(type="checkbox")
+                        span.slider.round
+                li.pro 프로 멤버십
+                li.logout 로그아웃
+                li.drop(data-id=USER.m_id) 회원탈퇴
+                

@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+    link(rel="stylesheet", href="/css/quiz/start.css")
+    script(src="/js/quiz/meanstart.js")
+    body 
+        div.header
+            img(src="/images/bear.png" width="100px")
+            p.comment
+        section.body
+            div.word
+                input.word(type="text" readonly)
+                div.result
+                    p.o
+                    p.x 
+            div.res
+                input.res(type="text" placeholder="정답을 입력하세요" name="w_mean")
+                input.resbtn(type="button" value="입력 완료")
+            div.btn
+                div.btn.correct
+                    input.correct(type="button" value="정답확인")
+                    p.correct
+                div.btn.next(data-num=`${WORDS.w_vseq}`)
+                    input.stop(type="button" value="나가기")
+                

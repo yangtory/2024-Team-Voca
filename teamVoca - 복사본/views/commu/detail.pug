@@ -1,0 +1,60 @@
+extends ../layout
+
+block content
+    link(rel="stylesheet", href="/css/commu/detail.css")
+    script(src="/js/commu/detail.js")
+    
+    div.back
+        
+    div.name_box
+        if voca 
+            h3.voca_name=voca.v_name
+        else if rows
+            h3.voca_name=rows.v_name
+        
+    div.scroll
+        each word in rows
+            
+            section.img_box
+                img.sprout(src="/images/sprout.png", alt="")
+            div.word_box
+                div.inform_box
+                    div.word.f
+                        h6 영단어
+                        p= word.w_word
+                    div.mean.f
+                        h6 단어뜻 
+                        p= word.w_mean
+                    div.pron.f
+                        h6 발음
+                        p= word.w_pron
+                    div.memo.f 
+                        h6 메모
+                        p=word.w_memo
+                div.btn_box
+    div.comment
+            
+            each item in COMMENT
+                div.box
+                    if item.c_유저.m_image
+                        img(src=`/uploads/${item.c_유저.m_image}`, alt="" width="80px")
+                        
+                    else 
+                        img(src="/uploads/noImage.svg" width="80px")
+                    p.id= item.c_유저.m_nick
+                form.update(method="POST") 
+                    input.c_seq(value=item.c_seq name="c_seq")
+                    input.c_user(value=item.c_user name="c_user")
+                    input.c_vseq(value=item.c_vseq name="c_vseq")
+                    input.c_comment(value=item.c_comment name="c_comment")
+                    if item.c_유저.m_id === user
+                        div.buttonBox(data-c_seq = `${item.c_seq}`, data-v_seq = `${item.c_단어장.v_seq}`)
+                            input.delete(type="button" value="삭제")
+                            input.btnupdate(type="button" value="수정")
+                            //- a.update(href=`/commu/${item.c_단어장.v_seq}/detail/update/${item.c_seq}`) 수정
+                        
+                    else
+        
+    form.input(method="POST")
+        input.comment(type="text" name="c_comment")
+        input.save(type="button" value="추가") 

@@ -90,21 +90,24 @@ router.post("/:v_seq/detail", async (req, res) => {
   // 단어장번호 가져오고
   const user = req.session.user ? req.session.user.m_id : undefined;
   // 현재 로그인한 유저 정보가져오고
-
+  const c_seq = req.query.seq;
   req.body.c_user = user;
   req.body.c_vseq = v_seq;
-
-  await COMMENT.findAll({
-    include: {
-      model: MEMBERS,
-      as: "v_멤버",
-    },
-    include: {
-      model: VOCAS,
-      as: "c_단어장",
-    },
-  });
-  await COMMENT.create(req.body);
+  if (c_seq) {
+    await COMMENT.update(req.body, { where: { c_seq } });
+  } else {
+    await COMMENT.findAll({
+      include: {
+        model: MEMBERS,
+        as: "v_멤버",
+      },
+      include: {
+        model: VOCAS,
+        as: "c_단어장",
+      },
+    });
+    await COMMENT.create(req.body);
+  }
 
   return res.redirect(`/commu/${v_seq}/detail`);
   //   return res.render("commu/detail", { rows });
@@ -139,7 +142,7 @@ router.get("/:v_seq/update/:c_seq", async (req, res) => {
   const c_seq = req.params.c_seq;
   const v_seq = req.params.v_seq;
   const row = await COMMENT.findByPk(c_seq);
-  console.log(c_seq, v_seq);
+
   return res.json(row);
 });
 
@@ -148,16 +151,17 @@ router.post("/:v_seq/update/:c_seq", async (req, res) => {
   const v_seq = req.params.v_seq;
   const c_seq = req.params.c_seq;
   const row = await COMMENT.findByPk(c_seq);
-  const data = await req.body;
+  const data = req.body;
   console.log("data ", data);
   console.log("v_seq ", v_seq);
   console.log("c_seq ", c_seq);
   console.log("row ", row);
   try {
-    await row.update(data, {
-      where: { c_seq: c_seq },
+    const row = await row.update(data, {
+      where: { c_seq },
     });
-    return res.redirect(`/commu/${v_seq}/detail`);
+    return res.json(row);
+    // return res.redirect(`/commu/${v_seq}/detail`);
   } catch (error) {
     return res.json(error);
   }

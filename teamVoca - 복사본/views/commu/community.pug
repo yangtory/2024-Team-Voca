@@ -1,0 +1,27 @@
+extends ../layout
+
+block content 
+    link(rel="stylesheet", href="/css/commu/community.css")
+    script(src="/js/commu/community.js")
+    body
+        div.back        
+            div.mainList
+                form.like(method ="POST") 
+                    each item in VOCAS
+                        div.element.item(data-v_seq= `${item.v_seq}`)
+                            div.id.item.a.top(data-v_seq= `${item.v_seq}`)
+                                img.item.a(src="/images/bear.png", alt="프로필사진" width="50px")
+                                span.item.a.id=item.m_id
+                            span.item.a.mid=item.v_name
+                            
+                            h4.item.a 추천수 
+                                span.good(name="v_rec").item.a= item.v_rec
+                            div.item.a.input(data-v_seq= `${item.v_seq}`)
+                                input.button(type="button" value="추천").like
+                                
+
+                                
+                                
+                                
+                                
+                                
