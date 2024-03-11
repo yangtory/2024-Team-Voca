@@ -1,14 +1,13 @@
 수정할거
 
 css
-  스크롤가리기
+ 
 
 ----------------------------------------------------
 추가할거
 
-댓글추가되면 메뉴에 단어장 목록에 댓글버튼 만들어서
-  댓글 뭐달렸나 볼 수 있게하기
-  댓글삭제할 수있고, 추천여부도 확인가능하게
+  댓글 수 표시
+    되나..?
 
 
 
@@ -70,3 +69,9 @@ css
 <a href="https://www.flaticon.com/kr/free-icons/" title="이파리 아이콘">이파리 아이콘  제작자: DinosoftLabs - Flaticon</a>
 <a href="https://www.flaticon.com/kr/free-icons/" title="잎 아이콘">잎 아이콘  제작자: Good Ware - Flaticon</a>
 <a href="https://www.flaticon.com/kr/free-icons/" title="이파리 아이콘">이파리 아이콘  제작자: Freepik - Flaticon</a>
+
+
+<a href="https://www.flaticon.com/kr/free-icons/-" title="특히 잘하는 아이콘">특히 잘하는 아이콘  제작자: fariha begum - Flaticon</a>
+<a href="https://www.flaticon.com/kr/free-icons/" title="하트 아이콘">하트 아이콘  제작자: Smashicons - Flaticon</a>
+
+<a href="https://www.flaticon.com/kr/free-icons/-" title="빈 상태 아이콘">빈 상태 아이콘  제작자: Freepik - Flaticon</a>

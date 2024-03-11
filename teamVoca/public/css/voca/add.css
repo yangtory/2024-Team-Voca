@@ -1,3 +1,8 @@
+p.advice {
+  font-size: medium;
+  color: #614d48;
+}
+
 p.back {
   display: none;
 }
@@ -25,6 +30,22 @@ section.img_box {
   img.tree {
     /* margin-right: auto; */
     margin: auto;
+  }
+}
+section.advice {
+  /* border: 1px solid red; */
+  display: flex;
+  img {
+    margin-right: 10px;
+  }
+  p.advice {
+    font-weight: bold;
+    padding: 10px;
+    /* border: 1px solid blue; */
+    border: 3px solid #bbcd7e;
+    background-color: #bbcd7e;
+    border-radius: 15px;
+    margin: auto 0;
   }
 }
 div.insert_voca {

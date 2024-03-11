@@ -29,6 +29,9 @@ div.scroll {
     margin: 0px auto;
     /* border: 2px solid blue; */
   }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 div.name_box {

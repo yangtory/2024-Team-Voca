@@ -4,7 +4,8 @@ import DB from "../models/index.js";
 const VOCA = DB.models.tbl_vocas; // 단어장
 const WORDS = DB.models.tbl_words; // 단어장 안의 >>단어<<
 const LIKE = DB.models.tbl_like;
-const COM = DB.models.tbl_comment;
+const COMMENT = DB.models.tbl_comment;
+const MEMBERS = DB.models.tbl_members;
 
 const router = express.Router();
 
@@ -39,24 +40,35 @@ router.get("/:voca_seq/words", async (req, res) => {
 // `/voca/${voca_seq}/comment`
 router.get("/:voca_seq/comment", async (req, res) => {
   const voca_seq = req.params.voca_seq;
-  const coms = COM.findAll({
+
+  const voca = await VOCA.findByPk(voca_seq);
+  const voca_name = voca.v_name;
+
+  const coms = await COMMENT.findAll({
     where: {
       c_vseq: voca_seq,
     },
     include: [
       {
         model: MEMBERS,
-        as: "댓글단유저정보",
-      },
-      {
-        model: VOCA,
-        as: "단어장",
+        as: "c_유저",
       },
     ],
   });
-  //   const coms = COM.findAll();
-  // res.json({coms});
-  return res.render("voca/invoca_comments", { coms });
+
+  // return res.json({ comments });
+  return res.render("voca/invoca_comments", { coms, voca_name });
+});
+// ----------------단어장에 달린 댓글 지우기 --------
+// `/voca/comment/${c_seq}/delete`   삭제주소
+router.get("/comment/:c_seq/delete", async (req, res) => {
+  const c_seq = req.params.c_seq;
+  const com = await COMMENT.findByPk(c_seq);
+  const v_seq = com.c_vseq;
+  await COMMENT.destroy({ where: { c_seq: c_seq } });
+
+  // /voca/1/comment 돌아갈 주소 원래보던 댓글화면
+  return res.redirect(`/voca/${v_seq}/comment`);
 });
 // -----------------단어장 정보수정(이름,공개여부---------------------
 router.get("/:v_seq/update", async (req, res) => {
@@ -164,8 +176,11 @@ router.get("/:voca_seq/delete", async (req, res) => {
   // 이 단어장의 추천테이블 먼저 삭제하고
   await LIKE.destroy({ where: { like_vseq: v_seq } });
 
-  // 단어들 전부 먼저 삭제하면 되나?
+  // 댓글도 모조리 삭제
+  await COMMENT.destroy({ where: { c_vseq: v_seq } });
+  //  단어장안 단어 삭제
   await WORDS.destroy({ where: { w_vseq: v_seq } });
+  // 단어장을 제일마지막에 삭제
   await VOCA.destroy({ where: { v_seq: v_seq } }); // FK..
 
   return res.redirect("/voca");
