@@ -28,7 +28,7 @@ m_pw	VARCHAR(125)	NOT NULL	,
 m_nick	VARCHAR(20)		,
 m_image	VARCHAR(225),
 m_role VARCHAR(5) NOT NULL,
-m_pro VARCHAR(5) NOT NULL
+m_pro VARCHAR(5)
 );
 
 CREATE TABLE tbl_like(
