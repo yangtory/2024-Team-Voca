@@ -5,9 +5,29 @@ div.back {
   /* border: 3px solid pink;s */
   width: 100%;
 }
+div.name_box {
+  /* border: 1px solid red; */
+  /* background-color: #fefae0; */
+  border-radius: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  /* img.bear {
+    width: 100px;
+    height: 100px;
+    
+  } */
+  h2 {
+    margin: auto 10px;
+    color: #614d48;
+  }
+}
 div.scroll {
+  margin-bottom: -50px;
+  /* background-color: #fefae0; */
+  color: #614d48;
   height: 95%;
-  width: 100%;
+  width: 95%;
+  border-radius: 15px;
   display: flex;
   overflow: auto;
   overflow-x: hidden;
@@ -18,16 +38,26 @@ div.scroll {
     display: none;
   }
 }
+div.sp_box {
+  width: 77%;
+  margin-bottom: -22px;
+}
+img.sp {
+  width: 30px;
+  height: 30px;
+  margin-bottom: -7px;
+}
 img.user {
   border-radius: 50%;
   border: 2px solid #fefae0;
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   margin: 5px;
 }
 section.com_box {
   /* border: 3px solid red; */
   padding: 3px;
+  border: 3px solid #614d48;
   border-radius: 15px;
   background-color: #614d48;
   margin: 10px;
@@ -57,10 +87,15 @@ div.co_box {
   width: 100%;
   display: flex;
   flex-direction: column;
+  p {
+    color: #614d48;
+  }
   p.name {
+    font-size: medium;
+    font-weight: bold;
     text-align: center;
     background-color: #fefae0;
-    border: 1px solid #607575;
+    border: 2px solid #614d48;
     border-radius: 10px;
     width: 60%;
     margin: 5px;
@@ -71,7 +106,7 @@ div.c_box {
   width: 100%;
   height: 100%;
   display: flex;
-  border: 1px solid #607575;
+  border: 2px solid #614d48;
   background-color: #fefae0;
   border-radius: 10px;
   margin-bottom: 5px;
@@ -80,15 +115,16 @@ div.c_box {
     /* border: 1px solid yellowgreen; */
     /* margin: auto 0s; */
     margin-left: 5px;
+    font-size: medium;
   }
 }
 div.del_btn {
   margin: auto 0;
   button {
     border: none;
-    background-color: #fefae0;
+    background-color: #bbcd7e;
     &:hover {
-      background-color: #607575;
+      opacity: 0.6;
     }
   }
 }
@@ -99,7 +135,11 @@ div.null_box {
   border-radius: 15px;
   width: 80%;
   h2 {
+    color: #614d48;
     margin-top: 25px;
+  }
+  p {
+    color: #bbcd7e;
   }
 }
 
@@ -107,4 +147,32 @@ a.go_com {
   &:hover {
     opacity: 0.7;
   }
+}
+
+img.no {
+  width: 200px;
+  height: 200px;
+}
+div.bear {
+  /* border: 1px solid red; */
+  display: flex;
+  /* justify-content: center; */
+  width: 90%;
+  p {
+    margin: auto 0;
+    padding: 10px;
+    background-color: #fefae0;
+    border-radius: 15px;
+    color: #614d48;
+    font-size: large;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+  margin-bottom: 10px;
+}
+img.bear {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  margin-top: 7px;
 }

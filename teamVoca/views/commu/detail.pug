@@ -5,33 +5,44 @@ block content
     script(src="/js/commu/detail.js")
     
     div.back
-        
+        a(href="/commu/vocas") ◀
     div.name_box
         if voca 
             h3.voca_name=voca.v_name
         else if rows
             h3.voca_name=rows.v_name
-        
+    div.com.b
+        img.bear(src="/images/bear.png", alt="")
+        p 이런단어가 있어요!
+        button.view_word 단어보기
+        button.view_com 댓글보기
     div.scroll
-        each word in rows
-            section.img_box
-                img.sprout(src="/images/sprout.png", alt="")
-            div.word_box
-                div.inform_box
-                    div.word.f
-                        h6 영단어
-                        p= word.w_word
-                    div.mean.f
-                        h6 단어뜻 
-                        p= word.w_mean
-                    div.pron.f
-                        h6 발음
-                        p= word.w_pron
-                    div.memo.f 
-                        h6 메모
-                        p=word.w_memo
-                div.btn_box
+        if rows.length > 0
+            each word in rows
+                section.img_box
+                    img.sprout(src="/images/sprout.png", alt="")
+                div.word_box
+                    div.inform_box
+                        div.word.f
+                            h6 영단어
+                            p= word.w_word
+                        div.mean.f
+                            h6 단어뜻 
+                            p= word.w_mean
+                        div.pron.f
+                            h6 발음
+                            p= word.w_pron
+                        div.memo.f 
+                            h6 메모
+                            p=word.w_memo
+                    div.btn_box
+        else
+            div.null_word
+                img.null_word(src="/images/nullleaf.png", alt="")
+                p 이 단어장은 비어있어요..
     div.com
+        img.bear(src="/images/bear.png", alt="")
+        p 이런댓글이 달렸어요!
     div.comment
         if COMMENT.length >0      
             each item in COMMENT
