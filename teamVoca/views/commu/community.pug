@@ -15,17 +15,15 @@ block content
                                 else 
                                     img.item.a(src="/images/bear.png", alt="프로필사진" width="50px")
 
-                                span.item.a.id=item.m_id
+                                span.item.a.id=item.v_멤버.m_id
                             span.item.a.mid=item.v_name
                             
                             h4.item.a 추천수 
                                 span.good(name="v_rec").item.a= item.v_rec
                             div.item.a.input(data-v_seq= `${item.v_seq}`)
-                                input.button(type="button" value="추천").like
-                                
-
-                                
-                                
-                                
-                                
+                            
+                                if LIKE[0]
+                                    input.button(type="button" value = "추천 취소").like
+                                else 
+                                    input.button(type="button" value = "추천").like
                                 

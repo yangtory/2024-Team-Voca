@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const click = document.querySelector("div.mainList");
+  const like_btn = document.querySelectorAll("input.button.like");
 
   click?.addEventListener("click", async (e) => {
     const target = e.target;
@@ -8,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (classList.contains("item")) {
       if (classList.contains("A")) {
         v_seq = target.dataset.v_seq;
-        console.log(v_seq);
       } else {
         v_seq = target.closest("DIV").dataset.v_seq;
       }

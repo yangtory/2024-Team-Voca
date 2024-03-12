@@ -73,3 +73,12 @@ div.element:hover {
 h4 {
   font-weight: 500;
 }
+img {
+  border-radius: 50px;
+  margin-left: 2px;
+}
+span.item.a.id {
+  /* border: 1px solid red; */
+  position: relative;
+  left: -5px;
+}
