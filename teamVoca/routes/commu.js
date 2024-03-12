@@ -15,7 +15,9 @@ router.get("/vocas", async (req, res) => {
   const user = req.session.user;
   const userID = user?.m_id;
   const row = await LIKE.findAll({
-    where: { like_user: userID },
+    where: {
+      like_user: userID,
+    },
   });
 
   const rows = await VOCAS.findAll({
@@ -31,9 +33,9 @@ router.get("/vocas", async (req, res) => {
       },
     ],
   });
-
-  // return res.json(rows);
-  return res.render("commu/community", { VOCAS: rows, LIKE: row });
+  // return res.json(row);
+  // return res.json({ rows, row, userID });
+  return res.render("commu/community", { VOCAS: rows, LIKE: row, user: userID });
 });
 
 router.get("/:v_seq/like", async (req, res) => {
@@ -42,29 +44,47 @@ router.get("/:v_seq/like", async (req, res) => {
   const voca = await VOCAS.findByPk(v_seq);
 
   const v_rec = voca.v_rec;
-  const user = req.session.user ? req.session.user.m_id : undefined;
+  const user = req.session.user;
+  const userID = user?.m_id;
 
   let like = voca.v_rec;
 
-  const rec = await LIKE.findAll({
-    where: { like_user: user, like_vseq: v_seq },
-  });
+
+  const rec = await LIKE.findAll({ where: { like_user: userID, like_vseq: v_seq } });
+
   if (rec.length === 0) {
-    req.body.like_user = user;
+    req.body.like_user = userID;
     req.body.like_vseq = v_seq;
     await LIKE.create(req.body);
     like = v_rec + 1;
     await VOCAS.update({ v_rec: like }, { where: { v_seq: v_seq } });
   } else {
-    await LIKE.destroy({
-      where: { like_user: user, like_vseq: v_seq },
-    });
+
+    await LIKE.destroy({ where: { like_user: userID, like_vseq: v_seq } });
+
 
     like = v_rec - 1;
     await VOCAS.update({ v_rec: like }, { where: { v_seq: v_seq } });
   }
-
-  return res.redirect("/commu/vocas");
+  const row = await LIKE.findAll({
+    where: { like_user: userID },
+  });
+  const rows = await VOCAS.findAll({
+    where: { v_public: "TRUE" },
+    include: [
+      {
+        model: MEMBERS,
+        as: "v_멤버",
+      },
+      {
+        model: LIKE,
+        as: "L_좋아요",
+      },
+    ],
+  });
+  // return res.json(row);
+  return res.render("commu/community", { VOCAS: rows, LIKE: row, user: userID });
+  // return res.redirect("/commu/vocas");
 });
 
 router.get("/:v_seq/detail", async (req, res) => {
@@ -170,6 +190,9 @@ router.get("/free", async (req, res) => {
   });
 
   return res.render("commu/likevocas", { row });
+
+  //  return res.json(row);
+  // console.log(row.v_mid);
 });
 
 export default router;
