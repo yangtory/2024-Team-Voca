@@ -6,9 +6,15 @@ block content
     div.back
         a(href="/voca") ◀
     if coms.length > 0
-        h2=voca_name
+        div.name_box
+            h2=voca_name
+        div.bear
+            img.bear(src="/images/bear.png", alt="")
+            p 이런댓글이 달렸어요!
         div.scroll
             each comment in coms
+                div.sp_box
+                    img.sp(src="/images/sprout2.png", alt="")
                 section.com_box
                     div.c_user
                         if comment.c_유저.m_image
@@ -16,7 +22,7 @@ block content
                         else 
                             img.user(src="/images/usericon.png", alt="기본사진")
                     div.co_box
-                        p.name=comment.c_user
+                        p.name=comment.c_유저.m_nick
                         div.c_box
                             p.c=comment.c_comment 
                     div.del_btn(data-c_seq=`${comment.c_seq}`)

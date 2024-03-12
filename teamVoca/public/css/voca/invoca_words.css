@@ -20,7 +20,9 @@ h3 {
   color: #614d48;
 }
 div.scroll {
-  width: 100%;
+  background-color: #614d48;
+  border-radius: 15px;
+  width: 95%;
   margin: auto;
   overflow: auto;
   overflow-x: hidden;
