@@ -30,6 +30,10 @@ export default class tbl_members extends Model {
           type: DataTypes.STRING(5),
           allowNull: true,
         },
+        m_tuto: {
+          type: DataTypes.STRING(5),
+          allowNull: true,
+        },
       },
       {
         sequelize,
