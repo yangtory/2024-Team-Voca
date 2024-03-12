@@ -1,3 +1,14 @@
+p.back {
+  display: none;
+}
+a {
+  width: 95%;
+  font-size: 2.2rem;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
 body {
   height: 100%;
   display: flex;
@@ -73,7 +84,7 @@ div.element:hover {
 h4 {
   font-weight: 500;
 }
-img {
+img.item.a {
   border-radius: 50px;
   margin-left: 2px;
 }
@@ -82,3 +93,14 @@ span.item.a.id {
   position: relative;
   left: -5px;
 }
+
+input.button {
+  display: none;
+}
+
+/* if item.L_좋아요.length > 0
+input.button(type="button").like
+img(src="/images/heart.png", alt="" width="30px")
+else
+input.button(type="button").like
+img(src="/images/nullheart.png", alt="" width="30px") */
