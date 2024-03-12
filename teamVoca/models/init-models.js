@@ -15,7 +15,7 @@ export default function initModels(sequelize) {
 
   tbl_comment.belongsTo(tbl_members, { as: "c_유저", foreignKey: "c_user" });
   tbl_members.hasMany(tbl_comment, { as: "tbl_comments", foreignKey: "c_user" });
-  tbl_like.belongsTo(tbl_members, { as: "like_user_tbl_member", foreignKey: "like_user" });
+  tbl_like.belongsTo(tbl_members, { as: "L_멤버", foreignKey: "like_user" });
   tbl_members.hasMany(tbl_like, { as: "tbl_likes", foreignKey: "like_user" });
   tbl_vocas.belongsTo(tbl_members, { as: "v_멤버", foreignKey: "v_mid" });
   tbl_members.hasMany(tbl_vocas, { as: "tbl_vocas", foreignKey: "v_mid" });

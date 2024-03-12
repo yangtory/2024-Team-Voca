@@ -13,10 +13,14 @@ document.addEventListener("DOMContentLoaded", async () => {
       popup.style.display = "block";
       slide.style.opacity = "0.2";
     }
+    if (target.className === "tuto") {
+      document.location.href = "/tuto";
+    }
     if (target.className === "drop") {
       const id = target.dataset.id;
-      confirm("정말 탈퇴할까요?");
-      document.location.replace(`/setting/drop/${id}`);
+      if (confirm("정말 탈퇴할까요?")) {
+        document.location.replace(`/setting/drop/${id}`);
+      }
     }
   });
 

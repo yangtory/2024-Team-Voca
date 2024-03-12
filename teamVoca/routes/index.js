@@ -50,9 +50,11 @@ router.post("/join", upLoad.single("m_image"), async (req, res) => {
   if (result.length === 0) {
     req.body.m_role = "ADMIN";
     req.body.m_pro = "1";
+    req.body.m_tuto = "1";
   } else {
     req.body.m_role = "USER";
     req.body.m_pro = "0";
+    req.body.m_tuto = "0";
   }
   try {
     await MEMBERS.create(data);

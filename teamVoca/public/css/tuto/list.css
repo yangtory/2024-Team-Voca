@@ -1,0 +1,80 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section.m_box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px dashed black; */
+  height: 20%;
+  /* margin-top: 2rem; */
+  p.talk {
+    position: absolute;
+    color: #614d48;
+    left: 21.5%;
+    font-size: 2rem;
+  }
+  p.message {
+    color: white;
+    padding: 2rem 3.5rem;
+    background-color: #614d48;
+    border-radius: 10px;
+    font-size: 2rem;
+
+    font-weight: 900;
+  }
+  a.next {
+    border: none;
+    background-color: #fefae0;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    margin-left: 20px;
+    font-weight: 700;
+    color: black;
+    font-size: 1.5rem;
+  }
+}
+
+section.btn_box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  /* border: 1px solid black; */
+  margin-top: 5rem;
+  img {
+    width: 200px;
+    height: 200px;
+  }
+}
+div.circle {
+  width: 140px;
+  height: 140px;
+  position: absolute;
+  border-radius: 50%;
+  border: 10px dashed #614d48;
+  left: 43%;
+  top: 90%;
+  /* background-color: #614d48; */
+}
+p.check {
+  color: red;
+  font-size: 3rem;
+  margin: 0;
+  position: absolute;
+  left: 48%;
+  top: 86%;
+}
+
+img.add,
+img.quiz {
+  margin: 0 20px;
+}
+span.words {
+  font-weight: 900;
+  font-size: 2rem;
+}
