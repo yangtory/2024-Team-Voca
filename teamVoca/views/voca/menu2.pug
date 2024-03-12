@@ -6,6 +6,18 @@ block content
     script(src="/js/voca/menu2.js")
     div.menu
         div.center
+            if USER.m_tuto==="0"
+                div.tuto.bg
+                        div.tuto.pop
+                            div.tuto.content
+                                p.top 환영합니다!
+                                img(src="/images/bear.png" width="150px")
+                                p.mid 처음이라면
+                                p.mid 튜토리얼을 진행할까요?
+                            div.tuto.btn(data-id= USER.m_id)
+                                button.go 좋아요
+                                button.out 괜찮아요
+
             div.bg
                 div.pop
                     span.close ✕

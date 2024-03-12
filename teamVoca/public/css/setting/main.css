@@ -4,6 +4,21 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #bbcd7e;
+}
+div.back {
+  /* border: 1px solid black; */
+  width: 100%;
+  a {
+    text-decoration: none;
+    margin-left: 20px;
+    color: black;
+    font-weight: 900;
+    font-size: 1.5rem;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
 }
 section.body {
   width: 80%;
@@ -32,6 +47,7 @@ section.user {
     align-items: center;
     span {
       font-weight: 900;
+      font-size: 1.7rem;
     }
     p {
       font-size: 1.5rem;
@@ -41,22 +57,21 @@ section.user {
 }
 
 ul {
-  width: 90%;
+  width: 80%;
   height: 100%;
   padding-top: 0.5rem;
   margin: 0 40px;
   list-style: none;
-  /* border: 1px solid black; */
 }
 
 li {
   width: 95%;
   padding: 10px 0;
-  /* border: 1px solid black; */
   margin: 4px 0;
-  font-size: 1.4rem;
+  font-size: 1.7rem;
   border-bottom: 1px solid transparent;
   transition: 0.3s;
+  font-weight: 500;
   &:hover {
     border-bottom: 1px solid #614d48;
     cursor: pointer;

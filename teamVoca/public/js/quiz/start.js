@@ -75,8 +75,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   btn_box.addEventListener("click", (e) => {
     const target = e.target;
     if (target.className === "stop") {
-      confirm("정말 나갈까요?");
-      document.location.replace("/quiz");
+      if (confirm("정말 나갈까요?")) {
+        document.location.replace("/quiz");
+      }
+    }
+    if (target.className === "restart") {
+      if (confirm("다시 시작할까요?")) {
+        document.location.replace(`/quiz/start/${w_vseq}`);
+      }
     }
   });
 });

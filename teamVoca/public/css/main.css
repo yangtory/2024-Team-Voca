@@ -50,4 +50,7 @@ div.main {
 p.back {
   text-align: left;
   width: 100%;
+  &:hover {
+    opacity: 0.7;
+  }
 }

@@ -4,6 +4,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #bbcd7e;
 }
 section.body {
   width: 80%;
@@ -60,7 +61,8 @@ section.body {
       cursor: pointer;
     }
   }
-  input.stop {
+  input.stop,
+  input.restart {
     padding: 18px;
     font-size: 1.5rem;
     text-align: center;
@@ -68,7 +70,8 @@ section.body {
     border-radius: 50px;
     background-color: #614d48;
     color: white;
-    margin: 0 4rem;
+    margin: 0 auto;
+    width: 40%;
     &:hover {
       opacity: 0.7;
       cursor: pointer;

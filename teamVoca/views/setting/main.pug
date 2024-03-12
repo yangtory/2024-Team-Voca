@@ -1,9 +1,11 @@
-extends ../layout
+//- extends ../layout
 
 block content 
     link(rel="stylesheet", href="/css/setting/main.css")
     script(src="/js/setting/main.js")
     body
+        div.back
+            a(href="/voca") ◀
         div.bg
             div.pop
                 span.close ✕
@@ -47,6 +49,7 @@ block content
                     label.proswitch
                         input.pro(type="checkbox")
                         p.badge 👑프리미엄
+                li.tuto 튜토리얼 다시보기
                 li.logout 로그아웃
                 li.drop(data-id=USER.m_id) 회원탈퇴
                 

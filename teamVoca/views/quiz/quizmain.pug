@@ -1,12 +1,14 @@
-extends ../layout
+//- extends ../layout
 
 block content
     link(rel="stylesheet", href="/css/quiz/main.css")
     script(src="/js/quiz/main.js")
     body 
+        div.back
+            a(href="/voca") ◀
         div.header
             img(src="/images/bear.png" width="100px")
-            p 어떤 단어장을 공부할까요?
+            p.commment 어떤 단어장을 공부할까요?
         section.body 
             input.my(type="button" value="나의 단어장")
             input.like(type="button" value="좋아요 단어장")

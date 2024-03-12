@@ -20,6 +20,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const p_true = document.querySelector("input.true");
   const btn = document.querySelector("button.make_voca");
 
+  //-----------------전체 비공개 시 단어장공개 선택하면 알림창
+  p_true?.addEventListener("click", () => {
+    if (localStorage.getItem("active") === "true") {
+      if (
+        confirm(
+          "전체 비공개 상태가 해제됩니다. 공유하기로 만들겠어요?"
+        )
+      ) {
+        localStorage.setItem("active", "false");
+      } else {
+        p_true.checked = false;
+      }
+    }
+  });
+
   const advice = document.querySelector("p.advice");
   advice.innerText =
     "반가워요!\n단어장이름을 적고, 공개여부를 선택해주세요!";
