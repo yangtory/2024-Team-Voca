@@ -42,3 +42,6 @@ li {
     cursor: pointer;
   }
 }
+img.voca.item {
+  border-radius: 50px;
+}
