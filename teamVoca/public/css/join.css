@@ -36,8 +36,22 @@ img.bear {
     background-color: white;
     border-radius: 50%;
     &:hover {
-        opacity: 0.7;
+        opacity: 0.8;
         cursor: pointer;
+    }
+}
+div.usercheck {
+    display: flex;
+    width: 80%;
+    button.idcheck {
+        border: none;
+        font-size: 0.8rem;
+        border-radius: 50px;
+        width: 20%;
+        &:hover {
+            opacity: 0.8;
+            cursor: pointer;
+        }
     }
 }
 

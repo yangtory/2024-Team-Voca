@@ -422,6 +422,7 @@ div.pop {
   position: absolute;
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: #fefae0;
   width: 50%;
   height: 50%;
@@ -442,10 +443,11 @@ div.pop {
     }
   }
   div.content {
-    flex: 4;
+    flex: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
     p.top {
       margin: 0 0 1rem 0;
       padding: 0.5rem;
@@ -457,7 +459,8 @@ div.pop {
     p.mid {
       font-size: 1.5rem;
       color: black;
-      margin: 0 auto;
+      margin: 1rem 0;
+      font-weight: 900;
     }
   }
 
@@ -467,7 +470,7 @@ div.pop {
     background-color: #af3434;
     width: 80%;
     font-size: 2.5rem;
-    margin: 0.5rem;
+    margin: auto 0.5rem;
     padding: 0.5rem;
     border-radius: 20px;
     text-align: center;
@@ -492,7 +495,7 @@ div.pop {
       padding: 12px;
       border-radius: 50px;
       width: 80%;
-      height: 65%;
+      height: 40%;
       cursor: pointer;
       font-size: 1rem;
       &:hover {

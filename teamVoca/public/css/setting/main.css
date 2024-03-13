@@ -220,7 +220,7 @@ div.pop {
     color: black;
     font-size: 1rem;
     text-align: right;
-    width: 98%;
+    width: 90%;
     padding: 1rem;
     font-weight: 900;
     &:hover {
@@ -242,17 +242,20 @@ div.pop {
       font-weight: 900;
     }
     p.mid {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
+      font-weight: 800;
       color: black;
-      margin: 0 auto;
+      margin: 18px auto;
     }
   }
 
   div.card {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     background-color: #af3434;
     width: 80%;
+    height: 50%;
     font-size: 2.5rem;
     margin: 0.5rem;
     padding: 0.5rem;
@@ -280,7 +283,9 @@ div.pop {
       width: 80%;
       height: 65%;
       cursor: pointer;
-      font-size: 1rem;
+      font-size: 1.3rem;
+      font-weight: 900;
+
       &:hover {
         opacity: 0.6;
       }
