@@ -104,3 +104,6 @@ img(src="/images/heart.png", alt="" width="30px")
 else
 input.button(type="button").like
 img(src="/images/nullheart.png", alt="" width="30px") */
+img.item.a {
+  border-radius: 50px;
+}
