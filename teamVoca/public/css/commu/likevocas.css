@@ -7,11 +7,11 @@ body {
   background-color: #bbcd7e;
 }
 div.back {
-  height: 95%;
+  height: 90%;
   display: flex;
 
   background-color: #fefae0;
-  width: 60%;
+  width: 70%;
   border-radius: 50px;
   overflow: scroll;
   &::-webkit-scrollbar {
@@ -19,9 +19,9 @@ div.back {
   }
 }
 div.mainList {
-  width: 90%;
-  /* display: flex;
-  flex-direction: column; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   margin: 10px auto;
   padding: 10px;
 }
@@ -32,16 +32,47 @@ ul {
 
 li {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   /* border: 1px solid red; */
   padding: 20px;
   background-color: #614d48;
   color: #bbcd7e;
   border-radius: 50px;
+
   &:hover {
     cursor: pointer;
+    opacity: 0.7;
+  }
+  div.top {
+    flex: 3;
+  }
+  div.bottom {
+    flex: 1;
   }
 }
+span.vname {
+  width: 90%;
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0 auto 0 20px;
+  padding-bottom: 5px;
+  color: #fefae0;
+  border-bottom: 4px dashed #fefae0;
+}
+div.bottom {
+  display: flex;
+  width: 100%;
+  margin-top: auto;
+  justify-content: center;
+  align-items: center;
+  span.nick {
+    color: #fefae0;
+    margin-left: 15px;
+  }
+}
+
 img.voca.item {
   border-radius: 50px;
+  margin-left: 2px;
+  border: 4px solid #fefae0;
 }

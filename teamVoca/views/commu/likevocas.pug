@@ -13,11 +13,13 @@ block content
                     
                     ul.voca(data-v_seq=item.v_seq) 
                         li.voca.list
-                            if item.v_멤버.m_image
-                                img.voca.item(src=`/uploads/${item.v_멤버.m_image}`, alt="" width="50px")
-                            else 
-                                img.voca.item(src="/images/bear.png", alt="프로필사진" width="50px")
+                            div.voca.item.top
+                                span.voca.item.vname=item.v_name
+                            div.voca.item.bottom
+                                if item.v_멤버.m_image
+                                    img.voca.item(src=`/uploads/${item.v_멤버.m_image}`, alt="" width="50px")
+                                else 
+                                    img.voca.item(src="/images/bear.png", alt="프로필사진" width="50px")
+                                span.voca.item.nick=item.v_멤버.m_nick
                             
-                            span.voca.item=item.v_mid
-                            span.voca.item=item.v_name
                         

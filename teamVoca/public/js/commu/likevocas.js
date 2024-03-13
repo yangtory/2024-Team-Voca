@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   divList.addEventListener("click", (e) => {
     const target = e.target;
     const classList = target.classList;
+
     if (classList.contains("voca")) {
       let v_seq = 0;
       if (classList.contains("list")) {
