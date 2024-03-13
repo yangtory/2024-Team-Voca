@@ -18,11 +18,11 @@ body {
   background-color: #bbcd7e;
 }
 div.back {
-  height: 95%;
+  height: 90%;
   display: flex;
 
   background-color: #fefae0;
-  width: 60%;
+  width: 70%;
   border-radius: 50px;
   overflow: scroll;
   &::-webkit-scrollbar {
@@ -30,24 +30,30 @@ div.back {
   }
 }
 div.mainList {
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   margin: 10px auto;
-  padding: 10px;
+  padding: 20px;
 }
 div.element {
   border-radius: 50px;
   margin: 10px;
   background-color: #614d48;
-  padding: 10px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   color: #bbcd7e;
-  h4,
+  height: 60%;
+
   span.mid {
-    width: 75%;
-    margin: 0 auto;
+    width: 90%;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0 auto 0 20px;
+    padding-bottom: 5px;
+    color: #fefae0;
+    border-bottom: 4px dashed #fefae0;
   }
   div.input {
     width: 75%;
@@ -68,12 +74,24 @@ div.element {
 }
 div.id.item.a.top {
   display: flex;
+  align-items: center;
 
   span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 9px;
     text-align: left;
     margin-left: 10px;
-    flex: 1;
+    /* flex: 1; */
+    background-color: #fefae0;
+    color: black;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    height: 50%;
+    width: 100%;
+    /* position: relative;
+    left: -5px; */
   }
 }
 
@@ -87,11 +105,7 @@ h4 {
 img.item.a {
   border-radius: 50px;
   margin-left: 2px;
-}
-span.item.a.id {
-  /* border: 1px solid red; */
-  position: relative;
-  left: -5px;
+  border: 4px solid #fefae0;
 }
 
 input.button {
@@ -106,4 +120,24 @@ input.button(type="button").like
 img(src="/images/nullheart.png", alt="" width="30px") */
 img.item.a {
   border-radius: 50px;
+}
+
+div.bottom {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: auto;
+  div.id.item.a.top {
+    flex: 4;
+  }
+  div.item.a.input {
+    flex: 1;
+  }
+  span.good {
+    color: #fefae0;
+  }
+}
+
+img.heart {
+  margin: 22px 10px 0;
 }

@@ -12,23 +12,22 @@ block content
                     each item in VOCAS
                         - const isLiked = LIKE.some(like => like.like_vseq === item.v_seq)
                         div.element.item(data-v_seq= `${item.v_seq}`)
-                            div.id.item.a.top(data-v_seq= `${item.v_seq}`)
-                                if item.v_멤버.m_image
-                                    img.item.a(src=`/uploads/${item.v_멤버.m_image}`, alt="" width="50px")
-                                else 
-                                    img.item.a(src="/images/bear.png", alt="프로필사진" width="50px")
-
-                                span.item.a.id=item.v_멤버.m_id
                             span.item.a.mid=item.v_name
-                            
-                            h4.item.a 추천수 
-                                span.good(name="v_rec").item.a= item.v_rec
-                            div.item.a.input(data-v_seq= `${item.v_seq}`)
-                                if isLiked
-                                    label.button.like
-                                        img.heart(src="/images/heart.png", alt="" width="50px")
-                                else
-                                    label.button.like
-                                        img.heart(src="/images/nullheart.png", alt="" width="50px")
+
+                            div.bottom
+                                div.id.item.a.top(data-v_seq= `${item.v_seq}`)
+                                    if item.v_멤버.m_image
+                                        img.item.a(src=`/uploads/${item.v_멤버.m_image}`, alt="" width="80px")
+                                    else 
+                                        img.item.a(src="/images/bear.png", alt="프로필사진" width="80px")
+                                    span.item.a.id=item.v_멤버.m_nick
+                                div.item.a.input(data-v_seq= `${item.v_seq}`)
+                                    if isLiked
+                                        label.button.like
+                                            img.heart(src="/images/heart.png", alt="" width="40px")
+                                    else
+                                        label.button.like
+                                            img.heart(src="/images/nullheart.png", alt="" width="40px")
+                                    span.good(name="v_rec").item.a= item.v_rec
 
                                 
