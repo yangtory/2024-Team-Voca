@@ -50,6 +50,7 @@ router.get("/:v_seq/like", async (req, res) => {
 
   let like = voca.v_rec;
 
+
   const rec = await LIKE.findAll({ where: { like_user: userID, like_vseq: v_seq } });
   if (rec.length === 0) {
     req.body.like_user = userID;
@@ -59,6 +60,7 @@ router.get("/:v_seq/like", async (req, res) => {
     await VOCAS.update({ v_rec: like }, { where: { v_seq: v_seq } });
   } else {
     await LIKE.destroy({ where: { like_user: userID, like_vseq: v_seq } });
+
 
     like = v_rec - 1;
     await VOCAS.update({ v_rec: like }, { where: { v_seq: v_seq } });
@@ -80,8 +82,10 @@ router.get("/:v_seq/like", async (req, res) => {
     ],
   });
   // return res.json(row);
+
   // return res.render("commu/community", { VOCAS: rows, LIKE: row, user: userID });
   return res.redirect("/commu/vocas");
+
 });
 
 router.get("/:v_seq/detail", async (req, res) => {
@@ -106,7 +110,9 @@ router.get("/:v_seq/detail", async (req, res) => {
   });
   const user = req.session.user ? req.session.user.m_id : undefined;
 
+
   return res.render("commu/detail", { rows, voca, COMMENT: comment, user });
+
 });
 
 router.post("/:v_seq/detail", async (req, res) => {

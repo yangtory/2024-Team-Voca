@@ -6,6 +6,8 @@ const router = express.Router();
 const MEMBERS = DB.models.tbl_members;
 const VOCAS = DB.models.tbl_vocas;
 const COMMENT = DB.models.tbl_comment;
+const WORDS = DB.models.tbl_words;
+const LIKES = DB.models.tbl_like;
 
 router.get("/", async (req, res) => {
   const user = req.session.user;
@@ -28,7 +30,6 @@ router.get("/setting/pro", async (req, res) => {
 });
 
 router.get("/pro/:m_id", async (req, res) => {
-  const user = req.session.user;
   const m_id = req.params.m_id;
 
   await MEMBERS.update(
@@ -127,9 +128,25 @@ router.get("/drop/:m_id", async (req, res) => {
   await COMMENT.destroy({
     where: { c_user: id },
   });
+
+  // 단어삭제, 좋아요삭제
+  const vocas = await VOCAS.findAll({
+    where: { v_mid: id },
+  });
+  for (let voca of vocas) {
+    await WORDS.destroy({
+      where: { w_vseq: voca.v_seq },
+    });
+    await LIKES.destroy({
+      where: { like_user: id },
+    });
+  }
+
+  // VOCAS 삭제
   await VOCAS.destroy({
     where: { v_mid: id },
   });
+
   await MEMBERS.destroy({
     where: { m_id: id },
   });

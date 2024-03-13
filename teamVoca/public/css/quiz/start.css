@@ -100,4 +100,8 @@ p.correct {
 
 div.result {
   display: none;
+  p {
+    font-size: 2rem;
+    font-weight: 900;
+  }
 }
