@@ -4,6 +4,13 @@ body {
   justify-content: center;
   align-items: center;
 }
+div.block {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 
 section.m_box {
   display: flex;
@@ -37,18 +44,6 @@ a.next {
   font-size: 1.5rem;
 }
 
-section.btn_box {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  /* border: 1px solid black; */
-  margin-top: 5rem;
-  img {
-    width: 200px;
-    height: 200px;
-  }
-}
 div.circle {
   width: 140px;
   height: 140px;

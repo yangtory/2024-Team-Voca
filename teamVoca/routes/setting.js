@@ -134,11 +134,11 @@ router.get("/drop/:m_id", async (req, res) => {
     where: { v_mid: id },
   });
   for (let voca of vocas) {
-    await WORDS.destroy({
-      where: { w_vseq: voca.v_seq },
-    });
     await LIKES.destroy({
       where: { like_user: id },
+    });
+    await WORDS.destroy({
+      where: { w_vseq: voca.v_seq },
     });
   }
 
@@ -146,10 +146,10 @@ router.get("/drop/:m_id", async (req, res) => {
   await VOCAS.destroy({
     where: { v_mid: id },
   });
-
   await MEMBERS.destroy({
     where: { m_id: id },
   });
+
   return res.redirect("/login");
 });
 

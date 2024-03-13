@@ -58,7 +58,7 @@ div.circle {
   border-radius: 50%;
   border: 10px dashed #614d48;
   left: 22%;
-  top: 47%;
+  top: 60%;
   /* background-color: #614d48; */
 }
 p.check {
@@ -67,7 +67,7 @@ p.check {
   margin: 0;
   position: absolute;
   right: 65%;
-  top: 43%;
+  top: 55%;
 }
 
 img.add,
