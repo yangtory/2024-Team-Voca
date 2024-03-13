@@ -57,3 +57,19 @@ input {
     margin-top: 10px;
   }
 }
+
+div.btn {
+  display: flex;
+  width: 30%;
+}
+button.ok,
+button.no {
+  width: 50%;
+  border: none;
+  padding: 12px 16px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: #fefae0;
+  font-size: 1rem;
+  font-weight: 900;
+}

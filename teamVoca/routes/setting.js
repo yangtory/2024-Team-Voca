@@ -76,7 +76,8 @@ router.post(
     }
     await MEMBERS.update(data, { where: { m_id: m_id } });
     const user = await MEMBERS.findByPk(m_id);
-    return res.render("setting/main", { USER: user });
+    // return res.render("setting/main", { USER: user });
+    return res.redirect("/setting");
   }
 );
 
@@ -125,6 +126,9 @@ router.get("/logout", (req, res) => {
 
 router.get("/drop/:m_id", async (req, res) => {
   const id = req.params.m_id;
+  await LIKES.destroy({
+    where: { like_user: id },
+  });
   await COMMENT.destroy({
     where: { c_user: id },
   });
@@ -134,9 +138,6 @@ router.get("/drop/:m_id", async (req, res) => {
     where: { v_mid: id },
   });
   for (let voca of vocas) {
-    await LIKES.destroy({
-      where: { like_user: id },
-    });
     await WORDS.destroy({
       where: { w_vseq: voca.v_seq },
     });

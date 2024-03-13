@@ -363,9 +363,14 @@ input.c_comment {
 }
 input.comment {
   flex: 18;
+  border: 2px solid #614d48;
 }
 input.save {
   flex: 1;
+  border: 2px solid #614d48;
+  font-weight: 800;
+  background-color: #fefae0;
+
   &:hover {
     cursor: pointer;
   }

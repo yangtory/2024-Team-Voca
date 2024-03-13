@@ -26,6 +26,15 @@ div.menu2 {
     }
   }
 }
+/* div.menu1:nth-of-type(1) {
+  margin-top: -10px;
+  border: 1px solid black;
+} */
+article.margin {
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
 div.bar {
   position: absolute;
 

@@ -12,12 +12,6 @@ section.m_box {
   /* border: 1px dashed black; */
   height: 20%;
   /* margin-top: 2rem; */
-  p.talk {
-    position: absolute;
-    color: #614d48;
-    left: 17.5%;
-    font-size: 2rem;
-  }
   p.message {
     color: white;
     padding: 2rem 3.5rem;
@@ -44,7 +38,7 @@ section.btn_box {
   height: 100%;
   width: 100%;
   /* border: 1px solid black; */
-  margin-top: 5rem;
+  margin-top: 1.5rem;
   img {
     width: 200px;
     height: 200px;
@@ -62,14 +56,22 @@ p.check {
 div.circle {
   width: 300px;
   height: 300px;
-  position: absolute;
   border-radius: 50%;
   border: 10px dashed #614d48;
   left: 47%;
   top: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* background-color: #614d48; */
 }
 img.add,
 img.quiz {
   margin: 0 20px;
+}
+
+span.button {
+  font-weight: 900;
+  font-size: 2rem;
+  /* margin-bottom: 3rem; */
 }

@@ -43,8 +43,11 @@ router.get("/start/:v_seq", async (req, res) => {
   const WORDLIST = await WORDS.findAll({
     where: { w_vseq: w_vseq },
   });
-  // return res.json(WORDLIST[0]);
-  return res.render("quiz/start", { WORDS: WORDLIST[0] });
+  if (WORDLIST.length < 1) {
+    return res.render("quiz/back", { w_vseq });
+  } else {
+    return res.render("quiz/start", { WORDS: WORDLIST[0] });
+  }
 });
 
 router.get("/meanstart/:v_seq", async (req, res) => {
@@ -52,7 +55,11 @@ router.get("/meanstart/:v_seq", async (req, res) => {
   const WORDLIST = await WORDS.findAll({
     where: { w_vseq: w_vseq },
   });
-  return res.render("quiz/meanstart", { WORDS: WORDLIST[0] });
+  if (WORDLIST.length < 1) {
+    return res.render("quiz/back", { w_vseq });
+  } else {
+    return res.render("quiz/meanstart", { WORDS: WORDLIST[0] });
+  }
 });
 
 router.get("/getword/:v_seq", async (req, res) => {
