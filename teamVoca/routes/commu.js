@@ -33,11 +33,10 @@ router.get("/vocas", async (req, res) => {
       },
     ],
   });
-  const member = await MEMBERS.findAll();
 
   // return res.json(row);
-  return res.json({ member });
-  //   return res.render("commu/community", { VOCAS: rows, LIKE: row, user: userID });
+  // return res.json({ rows, row, userID });
+  return res.render("commu/community", { VOCAS: rows, LIKE: row, user: userID });
 });
 
 router.get("/:v_seq/like", async (req, res) => {
