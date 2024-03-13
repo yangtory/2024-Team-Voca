@@ -44,7 +44,7 @@ div.element {
   display: flex;
   flex-direction: column;
   color: #bbcd7e;
-  height: 60%;
+  height: 50%;
 
   span.mid {
     width: 90%;
