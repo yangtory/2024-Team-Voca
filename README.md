@@ -21,7 +21,6 @@
 - 서버 : NodeJS, Express
 - 프레임워크 : Express, Sequelize
 - DB : MySQL
-- IDE : STS3
 - API, 라이브러리 : Google Cloud API(Translate API), Multer, Session, UUID
 - 협업 : Github, Notion
 <br/>
@@ -37,11 +36,11 @@
 - 노션 회의 기록, 커뮤니티
 <br/>
 
-## ERD
+## 3. ERD
 <img width="877" alt="image" src="https://github.com/yangtory/2024-Team-Voca/assets/151486114/3a90d0b9-6cc2-469c-aace-e62b950c8789">
 
 - 1주차 (2월 26일 - 3월 2일) 기획서 발표, 논리적 모델링, 물리적 모델링, 요구사항 분석 ,테이블 작성, 기능 분석, UI 예시
 - 2주차 (3월 3일 - 3월 9일) 페이지 구성, 기능 구현, 역할 분담, 테이블 구조 변경, 번역 API 추가, 프로젝트 중간 발표
 - 3주차 (3월 10일 - 3월 13일) 논리적 모델링, 물리적 모델링, 테이블 변경, 번역 기능 구현, 통합 테스트, 최종 발표
 
-
+## 4. 페이지
